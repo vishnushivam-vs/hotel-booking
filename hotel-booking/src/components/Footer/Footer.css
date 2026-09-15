@@ -1,0 +1,45 @@
+.downSectionContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #050010;
+    
+}
+.destinationTopBox{
+    width: 100%;
+    height: 300px;
+    
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.dwnCart{  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.linksHead{
+    color: #FFD700;
+}
+.linkBox{
+    color: #fff;
+    
+}
+.logosSection{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logoImgBox{
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.logoImg{
+    width: 100%;
+}

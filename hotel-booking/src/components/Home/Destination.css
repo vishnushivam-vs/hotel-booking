@@ -1,0 +1,38 @@
+.destinationContainer{
+    display: flex;
+    overflow-x: auto;
+}
+.destinationContainer::-webkit-scrollbar {
+width: 0px;
+}
+.destinationCart{
+    display: flex;
+    flex-direction: column;
+
+}
+.destinationBox{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 320PX;
+    height: 260PX;
+    border-radius: 10px;
+    border: solid 2px;
+    border-color: hsl(210, 7%, 88%);
+}
+.dwnSectionBox{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.placeImGBox{
+   width: 300PX; 
+   margin-top: 5PX;
+   margin-left: 10PX;
+   
+}
+.placeIMG{
+  width: 100%;
+}

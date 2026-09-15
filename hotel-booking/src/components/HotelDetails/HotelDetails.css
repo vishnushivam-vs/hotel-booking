@@ -1,0 +1,268 @@
+
+
+.headBox{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 4px;
+    
+    
+}
+.gridBox{
+    display: flex;
+    justify-content: center;
+    
+}
+.hotelIMGcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.propertyCart{
+ display: grid;
+ grid-template-columns: 2fr 1.5fr; 
+ max-width: 950px;
+ height: 350px;
+ width: 95%;
+ gap: 5px;
+ align-items: center;
+ justify-content: center;
+ border-radius: 10px;
+
+}
+.coloumn1{
+   
+    height: 350px;
+    display: flex;
+    object-fit: cover;
+}
+.coloumn2{
+    height: 172px;
+    display: flex;
+    margin-left: 1px;
+    
+}
+.sideImg{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-left: 5px;
+}
+.revieContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 95%;
+    max-width: 950px;
+
+}
+.reviewBox{
+    margin-top: 5px;
+    display: flex;
+    width: 450px;
+    justify-content: space-between;
+    
+}
+.box{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: hsla(204, 4%, 76%, 0.901);
+}
+.hotelImg{
+    width: 100%;
+    border-radius: 10px;
+}
+.bookingDtlsContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    border-top: solid 1px;
+    border-color: hsla(204, 4%, 76%, 0.901);
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.bookingDtlsCart{
+    display: grid;
+    width: 100%;
+    max-width: 900px;
+    grid-template-columns: 2fr 1.8fr;
+    margin-top: 10px;
+}
+.detailsCart{
+    display: grid;
+   
+}
+.fcltHeadBox{
+    display: flex;  
+    width: 100%;
+    justify-content: space-between;
+    
+}
+.amenitiesBox{
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+    
+}
+.reserveDtlsBox{
+    border: solid 1px;
+    border-color:  rgb(137, 133, 133);
+    border-radius: 10px;
+}
+.priceBox{
+  height: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+.stayDays,
+.bookingPrice{
+  margin: 0;
+  line-height: 1;
+  margin-left: 10px;
+
+}
+.checkinDaysBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 90px;
+    border-bottom: solid 1px;
+    border-color:  rgb(137, 133, 133);
+    border-radius: 8px;
+}
+.checkinBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 1px;
+    border-color:  rgb(137, 133, 133);
+    
+    
+}
+.checkOutBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+   
+}
+.chBoxtext{
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.checkout,
+.checkin{
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: large;
+    border: solid 2px;
+    border-color: hsla(60, 2%, 46%, 0.673);
+    border-radius: 10px;
+    color: hwb(20 51% 47% / 0.958);
+    outline: none;
+    cursor: pointer;
+}
+.guestInputBox{
+    
+    font-size: medium;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 50px;
+    margin-top: 10px;
+    align-items: center;
+    border-bottom: solid 1px;
+    border-color: hwb(0 47% 51%);;
+}
+.downArrow{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    font-size: 26px;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px;
+    border-color: antiquewhite;
+    text-align: center;
+}
+.chevronarrow{
+    width: 80%;
+}
+.guestInputBox p {
+    margin: 0;
+    line-height: 1.4;
+    margin-left: 10px;
+    
+}
+.guestCount,
+.guestlabel{
+    margin-left: 10px;
+}
+.guestRow{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.guestType{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 15px; 
+    font-size: medium;
+    
+}
+.counter{
+    display: flex;
+    height: 50px;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.counter button{
+    width: 40px;
+    height: 40px;
+    font-size: larger;
+    font-weight: bold;
+    color: hwb(0 47% 51%);
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 50%;
+    outline: none;
+    border: solid 1px;
+    cursor: pointer;
+}
+.ReserveBtn{
+    width: 200px;
+    height: 50px;
+    margin-left:25%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border: 1px;
+    border-color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+@media (min-width: 860px) {
+    .detailsCart{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fcltHeadBox{
+        width: 900px;
+    }
+   
+}
