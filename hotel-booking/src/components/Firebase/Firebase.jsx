@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyA5oFD6vO1_LmYrSooNa9iGOMkWI8TShxs",
   authDomain: "hotelbookingapp-cf4d0.firebaseapp.com",
@@ -14,7 +14,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
  export const firestore = getFirestore(app);
-
+  export const storage = getStorage(app);
+  
 export const fetchFromFirestore = async () => {
   try {
     const hotelsCollection = collection(

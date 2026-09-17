@@ -94,7 +94,11 @@
   text-align: center;
   
 }
+.uplodImage{
+  width: 100%;
+}
 .RoomImg {
+    display: flex;
     width: 200px;
     height: 150px;
     border: solid 2px;
@@ -103,18 +107,17 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    margin-left: 20px;
   
 }
 
 .roomImgContainer{
-  display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(2 , 1fr);
-  max-width: 420px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 400px;
   margin: auto;
   margin-top: 10px;
-  height: 330px;
-  
 }
 .inputImgfile{
   display: none;
@@ -139,4 +142,9 @@
   color: #fff;
   font-size: 16px;
   border-radius: 10px;
+}
+.removeImgBtn{
+      border-radius: 30px;
+      border: none;
+      background-color: #aaa;
 }

@@ -372,3 +372,149 @@ export const AddHotel = () => {
 
   );
 };
+
+import { Modal } from 'flowbite-react'
+import { useState } from 'react'
+import "./sellModal.css"
+import { Input } from './Input'
+import { UserAuth } from '../context/Auth'
+import { addDoc, collection } from 'firebase/firestore'
+import { fetchFromFirestore, firestore } from '../../firebase/firebase'
+
+export const Sell = ({ toggleModalSell, status, setItem }) => {
+
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
+  const [price, setPrice] = useState('')
+  const [description, setDescription] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const [image, setimage] = useState(null)
+
+  const auth = UserAuth()
+  const handleImageUpload = (event) => {
+    if (event.target.files) setimage(event.target.files[0])
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!auth?.user) {
+      console.log("user", auth.user);
+
+      alert('Please Login to continue')
+      return;
+    }
+    setSubmitting(true) 
+
+    const reaadImageDataUrl =(file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const imageUrl = reader.result
+          localStorage.setItem(`image-${file.name}`, imageUrl)
+          resolve(imageUrl)
+        }
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+      })
+    }
+
+    let imageUrll = '';
+    if(image){
+      try {
+        imageUrll = await reaadImageDataUrl(image)
+        
+      } catch (error) {
+        console.log(error);
+        alert('failed to read image ')
+        return;
+        
+      }
+    }
+
+    const trimmedTitle = title.trim();
+    const trimmedCategory = category.trim()
+    const trimmedprice = price.trim()
+    const trimmedDescription = description.trim()
+
+    if (!trimmedTitle || !trimmedCategory || !trimmedprice || !trimmedDescription) {
+      alert('All fields are required')
+      setSubmitting(false)
+      return;
+    }
+    try {
+
+      await addDoc(collection(firestore, 'products'), {
+        title,
+        category,
+        price,
+        description,
+        imageUrll,
+        userId: auth.user.uid,
+        userName: auth.user.displayName || 'Anonymous',
+        createAt: new Date().toDateString(),
+
+      })
+      setimage(null)
+      const datas = await fetchFromFirestore()
+      setItem(datas)
+      toggleModalSell()
+
+    } catch (error) {
+      console.log(error);
+      alert('failed to add the item firestore')
+
+    } finally {
+      setSubmitting(false)
+
+    }
+
+  }
+
+  return (
+    <div>
+      <Modal className='sellModal' show={status}>
+        <div>
+
+          <div className='closeImgSellBox'>
+            <img className='sellcloseImg' onClick={toggleModalSell} src="./close.svg" alt="" />
+          </div>
+          <p className='sellModalHead'>sell item</p>
+
+          <form onSubmit={handleSubmit}>
+            <Input setInput={setTitle} placeholder='title' />
+            <Input setInput={setCategory} placeholder='category' />
+            <Input setInput={setPrice} placeholder='price' />
+            <Input setInput={setDescription} placeholder='description' />
+            <div className='fileaUploadContainer'>
+              {image ? (
+                <div className='imageUpldBox'>
+                  <img className='productImageUpld' src={URL.createObjectURL(image)} alt="" srcset="" />
+                </div>
+              ) : (
+                <label className='imageInputFile'>
+                  <input className='fileInput' type="file" required onChange={handleImageUpload} />
+                  <div className='fileUpldicon'>
+                    <img className='uploadImgIcon' src="./fileUpload.svg" alt=""  />
+                  </div>
+                  <p className='uploadText'>Click to upload image</p>
+                  <p className='uploadText'>SVG, PNG, JPG</p>
+                </label>
+              )}
+            </div>
+            {
+              submitting ?
+                <div>
+                  <p>Loading</p>
+                </div>
+                :
+                <div>
+                  <button className='modalSellBtn'>Sell Item</button>
+                </div>
+            }
+
+          </form>
+
+        </div>
+      </Modal>
+    </div>
+  )
+}

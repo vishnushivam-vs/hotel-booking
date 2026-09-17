@@ -2,11 +2,14 @@ import { useState } from "react"
 import "./AddHotel.css"
 import { Hotelfacilities } from "./Hotelfacilities"
 import { HotelImageAdd } from "./HotelImageAdd"
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection, serverTimestamp, } from "firebase/firestore"
 import { firestore } from "../Firebase/Firebase"
+//import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+
 
 export const AddHotel = () => {
     const [showImageAdd, setShowImageAdd] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [hotelData, setHoteldata] = useState({
 
         hotelType: "",
@@ -26,8 +29,27 @@ export const AddHotel = () => {
         roomSize: "",
 
         hotelThumbanaile: "",
-        images: [""]
+        images: [],
+
+
+        facilities: []
     });
+
+    /*const readImageUrl = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+ 
+ 
+ 
+            reader.onloadend = () => {
+                resolve(reader.result)
+            }
+            reader.onerror = reject
+            reader.readAsDataURL(file)
+ 
+        })
+    }*/
+
 
     const handleChange = ((e) => {
         const { name, value } = e.target;
@@ -37,15 +59,65 @@ export const AddHotel = () => {
             [name]: value
         }))
     });
+    const uploadToCloudinary = async (file) => {
+        const formData = new FormData();
+
+        formData.append("file", file);
+        formData.append("upload_preset", "Vishnu");
+
+        const response = await fetch(
+            "https://api.cloudinary.com/v1_1/xbnoalu4/image/upload",
+            {
+                method: "POST",
+                body: formData
+            }
+        )
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log("Cloudinary error:", errorData);
+            throw new Error("Cloudinary image upload failed")
+        }
+
+        const data = await response.json()
+
+        return data.secure_url;
+    }
+
 
     const handelSubmit = async (e) => {
 
         e.preventDefault();
+        setLoading(true)
         try {
 
+            if (!hotelData.hotelThumbanaile) {
+                alert("Please select hotel thumbnail");
+                return;
+            }
+            if (hotelData.images.length === 0) {
+                alert("Please select at least one room image");
+                return;
+            }
+
+            const thumbnailUrl = await uploadToCloudinary(
+                hotelData.hotelThumbanaile
+            )
+            console.log("Thumbnail URL:", thumbnailUrl);
+            const roomImageUrls = [];
+
+            for (let i = 0; i < hotelData.images.length; i++) {
+
+                const imageUrl = await uploadToCloudinary(
+                    hotelData.images[i]
+                )
+                roomImageUrls.push(imageUrl);
+            }
+
             const docRef = await addDoc(
+
                 collection(firestore, "Hoteldetails"), {
-            
+
                 hotelType: hotelData.hotelType,
                 hotelName: hotelData.hotelName,
                 description: hotelData.description,
@@ -58,7 +130,7 @@ export const AddHotel = () => {
 
                 pricing: {
                     priceperNight: Number(hotelData.price),
-                    discount: Number(hotelData.discount),
+                    discount: Number(String(hotelData.discount).replace("%", "")) || 0,
                     tax: Number(hotelData.tax)
                 },
 
@@ -68,20 +140,28 @@ export const AddHotel = () => {
                     roomSize: hotelData.roomSize
                 },
 
+
+                facilities: hotelData.facilities,
+
+                hotelThumbanaile: thumbnailUrl,
+                images: roomImageUrls,
+
                 createdAt: serverTimestamp()
             }
             )
-            console.log("adddetalis", hotelData);
-            console.log(
-                "Hotel added with ID:",
-                docRef.id
-            );
+            const hotelId = docRef.id;
 
+            alert("hotel data uplod sucssefully")
         } catch (error) {
-            console.log("submit error", error);
 
+            console.log("submit error", error);
+            alert("hotela data uplod fail", error)
+
+        }finally{
+            setLoading(false)
         }
     }
+
 
     return (
         <>
@@ -146,7 +226,7 @@ export const AddHotel = () => {
                     <h3>Room Details</h3>
                     <input className="inputBoxHtlAdd" type="text" placeholder="Room Type"
                         name="roomType"
-                        value={hotelData.roomTyp}
+                        value={hotelData.roomType}
                         onChange={handleChange}
                     />
                     <input className="inputBoxHtlAdd" type="text" placeholder="Bed Type"
@@ -170,14 +250,30 @@ export const AddHotel = () => {
                 :
                 showImageAdd && (
 
-                    <HotelImageAdd closeImageAdd={() => setShowImageAdd(false)} />
+                    <HotelImageAdd
+                        closeImageAdd={() => setShowImageAdd(false)}
+                        onImagesChange={(images) => {
+                            setHoteldata((prev) => ({
+                                ...prev,
+                                hotelThumbanaile: images.thumnail,
+                                images: images.roomImages
+                            }))
+                        }}
+                    />
                 )
             }
-            {!showImageAdd && <Hotelfacilities />}
+            {!showImageAdd && <Hotelfacilities
+                setFacilities={(facilities) => {
+                    setHoteldata((prev) => ({
+                        ...prev,
+                        facilities: facilities
+                    }));
+                }}
+            />}
 
             <button className="submitBtn"
                 onClick={handelSubmit}
-            >Submit</button>
+            >{loading ? "Uploading..." : "Submit"}</button>
         </>
     )
 }
