@@ -1,14 +1,14 @@
-import { collection } from "firebase/firestore";
-import { Children, useContext, useEffect, useState } from "react";
+
+import {  useContext, useEffect, useState } from "react";
 import { createContext } from "react"
-import { fetchFromFirestore, firestore } from "../Firebase/Firebase";
+import { fetchFromFirestore } from "../Firebase/Firebase";
 
 const HotelContext = createContext(null);
 //const HoteldataContext = useContext(context);
 
-export const HotelDataContext = () => {
+export const HotelDataContext = ({children}) => {
 
-  const [hoteldata, setHotelData] = useState(null)
+  const [hoteldata, setHotelData] = useState([])
   useEffect(() => {
 
     const fetchHotelData = async () => {
@@ -21,14 +21,13 @@ export const HotelDataContext = () => {
 
       }
 
-      fetchHotelData()
-
-
-    }, [])
+    }
+     fetchHotelData()
+  },[]);
 
   return (
    < HotelContext.Provider value={{hoteldata, setHotelData}}>
-    {Children}
+    {children}
    </HotelContext.Provider>
   )
 }

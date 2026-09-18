@@ -37,8 +37,8 @@
   width: 300px;
   height: 450px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  margin-top: 10px;
   margin-left: 10px;
   border: solid 2px;
   border-radius: 20px;
@@ -85,10 +85,12 @@
 .bookingBtn{
     width: 100px;
     height: 40px;
-    background-color: #FFD700;
+    background-color: #0400ff;
     border-radius: 20px;
     border: none;
     color: #fff;
     font-weight: bold;
+    cursor: pointer;
     
 }
+.bookingBtn:
