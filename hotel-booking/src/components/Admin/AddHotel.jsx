@@ -35,22 +35,6 @@ export const AddHotel = () => {
         facilities: []
     });
 
-    /*const readImageUrl = (file) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
- 
- 
- 
-            reader.onloadend = () => {
-                resolve(reader.result)
-            }
-            reader.onerror = reject
-            reader.readAsDataURL(file)
- 
-        })
-    }*/
-
-
     const handleChange = ((e) => {
         const { name, value } = e.target;
 
@@ -157,7 +141,7 @@ export const AddHotel = () => {
             console.log("submit error", error);
             alert("hotela data uplod fail", error)
 
-        }finally{
+        } finally {
             setLoading(false)
         }
     }

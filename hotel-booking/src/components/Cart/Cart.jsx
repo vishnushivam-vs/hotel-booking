@@ -4,6 +4,9 @@ export const Cart = () => {
     return (
         <div>
             <div className="hotelDtlsCart">
+                {
+                    
+                }
                 <div className="imageBox">
 
                     <img className="hotelimage" src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="" set="" />

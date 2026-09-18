@@ -3,10 +3,12 @@ import { Home } from "./components/Home/Home"
 //import { Navebar } from "./components/Navebar/Navebar"
 import { HotelDtlsPage } from "./components/HotelDetails/HotelDetlsPage"
 import { AddHotel } from "./components/Admin/AddHotel"
+import { HotelDataContext } from "./components/context/hotelData"
 
  const App = () => {
   
   return (
+    <HotelDataContext>
     <BrowserRouter>
       <Routes>
        
@@ -15,6 +17,7 @@ import { AddHotel } from "./components/Admin/AddHotel"
         <Route path="/AddHotel" element={<AddHotel/>}/>
       </Routes>
     </BrowserRouter>
+    </HotelDataContext>
   )
 }
 export default App

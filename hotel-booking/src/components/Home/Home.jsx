@@ -10,7 +10,9 @@ import { fetchFromFirestore } from '../Firebase/Firebase'
 import { useEffect } from 'react'
 
 export const Home = () => {
+
   const navigate = useNavigate()
+  
   useEffect(()  => {
     const getHotel = async () =>{
       const data = await fetchFromFirestore();
@@ -19,6 +21,7 @@ export const Home = () => {
     }
     getHotel()
   },[])
+
   return (
     <div>
       <Navebar/>
