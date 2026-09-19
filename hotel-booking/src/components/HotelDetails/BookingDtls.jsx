@@ -1,6 +1,45 @@
-
+import { useState } from 'react';
 import './HotelDetails.css'
-export const BookingDtls = ({facilities = []}) => {
+export const BookingDtls = ({facilities = [], pricing}) => {
+
+    const [checkin, setCheckin] = useState("");
+    const [checkout, setCheckout] = useState("")
+    const [guests, setGuests] = useState({
+        adults: 1,
+        children: 0,
+        infants: 0
+
+    })
+
+    const today = new Date().toISOString().split("T")[0];
+     const priceCalculation = (data) => {
+        const price = Number(data?.priceperNight) || 0;
+        const tax = Number(data?.tax) || 0;
+        
+        const discount =  Number(data?.discount) || 0;
+        
+        const discountAmount= (price * discount) / 100;
+
+       const totalAmount = price + tax + discountAmount;
+
+        return totalAmount;
+    }
+
+    const getNextday = (date) => {
+        if(!date) return today;
+
+        const nextDay = new Date(date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        return nextDay.toISOString().split("T")[0]
+    }
+
+    const totalStaydays = checkin && checkout ?
+    Math.ceil(
+        (new Date(checkout) - new Date(checkin)) / 
+        (1000 * 60 * 60 * 24)
+    ) : 0;
+    console.log('date' , checkin);
+    
   return (
     <div>
         <div className="bookingDtlsContainer">
@@ -19,18 +58,29 @@ export const BookingDtls = ({facilities = []}) => {
             </div>
             <div className="bookingCart">
                 <div className="priceBox">
-                    <h3 className="bookingPrice"> ₹ 1,950</h3>
-                    <p className="stayDays">for 2 nights</p>
+                    <h3 className="bookingPrice">  ₹ {priceCalculation(pricing) * totalStaydays} </h3>
+                    <p className="stayDays">for {totalStaydays} 
+                        {totalStaydays === 1  ? " night" : " nights"}
+                        </p>
                 </div>
                 <div className="reserveDtlsBox">
                     <div className="checkinDaysBox">
                         <div className="checkinBox">
                             <p className="chBoxtext">CHECK-IN</p>
-                            <input type="date" className="checkin"  placeholder="Check in"/>
+                            <input type="date" className="checkin"  placeholder="Check in"
+                            min={today}
+                            value={checkin}
+                            onChange={(e) => setCheckin(e.target.value)}
+                            />
                         </div>
                         <div className="checkOutBox">
                             <p className="chBoxtext">CHECKOUT</p>
-                            <input type="date" className="checkout"  placeholder="Check out"/>
+                            <input type="date" className="checkout"  placeholder="Check out"
+                            min={getNextday(checkin)}
+                            value={checkout}
+                             onChange={(e) => setCheckout(e.target.value)}
+                              disabled={!checkin}
+                            />
                             
                         </div>
                     </div>
@@ -53,9 +103,19 @@ export const BookingDtls = ({facilities = []}) => {
                             </div>
                             
                             <div className="counter">
-                                <button className="minus">-</button>
-                                <span className="countNumber" >1</span>
-                                <button className="plus">+</button>
+                                <button className="minus"
+                                onClick={()=> setGuests({
+                                    ...guests,
+                                    adults: Math.max(0, guests.adults - 1)
+                                })}
+                                >-</button>
+                                <span className="countNumber" >{guests.adults}</span>
+                                <button className="plus"
+                                onClick={() => setGuests({
+                                    ...guests,
+                                   adults: Math.min(3, guests.adults + 1)
+                                })}
+                                >+</button>
                             </div>
 
                         </div>
@@ -65,9 +125,19 @@ export const BookingDtls = ({facilities = []}) => {
                             </div>
                            
                             <div className="counter">
-                                <button className="minus">-</button>
-                                <span className="countNumber"  >1</span>
-                                <button className="plus">+</button>
+                                <button className="minus"
+                                 onClick={() => setGuests({
+                                    ...guests,
+                                   children: Math.max(0, guests.children - 1)
+                                })}
+                                >-</button>
+                                <span className="countNumber"  >{guests.children}</span>
+                                <button className="plus"
+                                 onClick={() => setGuests({
+                                    ...guests,
+                                   children: Math.min(4, guests.children + 1)
+                                })}
+                                >+</button>
                             </div>
 
                         </div>
@@ -77,9 +147,19 @@ export const BookingDtls = ({facilities = []}) => {
                             </div>
                            
                             <div className="counter">
-                                <button className="minus">-</button>
-                                <span className="countNumber" >1</span>
-                                <button className="plus">+</button>
+                                <button className="minus"
+                                 onClick={() => setGuests({
+                                    ...guests,
+                                   infants: Math.max(0, guests.infants - 1)
+                                })}
+                                >-</button>
+                                <span className="countNumber" >{guests.infants}</span>
+                                <button className="plus"
+                                 onClick={() => setGuests({
+                                    ...guests,
+                                   infants: Math.min(4, guests.infants + 1)
+                                })}
+                                >+</button>
                             </div>
 
                         </div>

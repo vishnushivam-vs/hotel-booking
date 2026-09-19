@@ -5,15 +5,15 @@ import { BookingDtls } from './BookingDtls'
 
 export const HotelDtlsPage = () => {
 
-     const location = useLocation();
-     const hotelData = location.state;
+    const location = useLocation();
+    const hotelData = location.state;
 
-     console.log("dtls data", hotelData);
-     
+    console.log("dtls data", hotelData);
+
     return (
         <>
             <div>
-                <Navebar/>
+                <Navebar />
                 <div className="headBox">
                     <div className="gridBox">
                         <h2>The Canopy Nook 1BHK couple friendly near HSR</h2>
@@ -28,17 +28,17 @@ export const HotelDtlsPage = () => {
                     <div className="propertyCart">
                         <div className="coloumn1">
                             <img className="hotelImg"
-                               src={hotelData.hotelThumbanaile}
+                                src={hotelData.hotelThumbanaile}
                                 alt="" />
                         </div>
                         <div className="sideImg">
                             {hotelData.images.map((image) => (
-                                   <div className="coloumn2"><img className="hotelImg"
-                                src={image}
-                                alt="" />
+                                <div className="coloumn2"><img className="hotelImg"
+                                    src={image}
+                                    alt="" />
                                 </div>
                             ))}
-                            
+
                         </div>
                     </div>
                     <div className="htlNameBox">
@@ -62,8 +62,8 @@ export const HotelDtlsPage = () => {
 
 
                 </div>
-                <BookingDtls facilities = {hotelData.facilities} />
-                <Footer/>
+                <BookingDtls facilities={hotelData.facilities} pricing={hotelData.pricing} />
+                <Footer />
             </div>
         </>
     )

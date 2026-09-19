@@ -6,26 +6,27 @@ export const Cart = () => {
     const { hoteldata } = useHotelData();
     //const [price, setPrice] = useState("");
     const priceCalculation = (data) => {
-        const price = Number(data.pricing?.price) || 0;
+        const price = Number(data.pricing?.priceperNight) || 0;
         const tax = Number(data.pricing?.tax) || 0;
-        
-        const discount =  Number(data.pricing?.discount) || 0;
-        
-        const discountAmount= (price * discount) / 100;
 
-        totalAmount = price + tax + discountAmount;
+        const discount = Number(data.pricing?.discount) || 0;
+
+        const discountAmount = (price * discount) / 100;
+
+        const totalAmount = price + tax + discountAmount;
 
         return totalAmount;
     }
+
     console.log(hoteldata);
     const navigate = useNavigate()
     return (
         <div className='hotelsDtlsContainer'>
             {
-                
+
                 hoteldata.map((data) => (
                     <div className="hotelDtlsCart" key={data.id}
-                    onClick={() => navigate('/HotelDtlsPage',{state:data})}
+                        onClick={() => navigate('/HotelDtlsPage', { state: data })}
                     >
 
                         <div className="imageBox">
@@ -53,9 +54,9 @@ export const Cart = () => {
                                 <i className="far fa-star"></i>
                             </p>
                             <div className="crtDwnBox">
-                                <p className="price">$ {
-                                    
-                                    }</p>
+                                <p className="price"> ₹ <span className='priceamount'>
+                                    { priceCalculation(data)}     
+                                    </span> for  1 night</p>
                                 <button className="bookingBtn">Book Now</button>
                             </div>
 

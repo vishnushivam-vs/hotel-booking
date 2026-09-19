@@ -93,3 +93,12 @@
     cursor: pointer;
     
 }
+.price{
+    color: rgba(128, 128, 128, 0.945);
+
+}
+.priceamount{
+    color: rgb(38, 16, 232);
+    font-size: 18px;
+    
+}
