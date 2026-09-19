@@ -1,6 +1,6 @@
 
 import './HotelDetails.css'
-export const BookingDtls = () => {
+export const BookingDtls = ({facilities = []}) => {
   return (
     <div>
         <div className="bookingDtlsContainer">
@@ -8,32 +8,14 @@ export const BookingDtls = () => {
             <h3>Facilities Provided</h3>
         </div>
         <div className="bookingDtlsCart">
-
+              
             <div className="detailsCart">
-                <div className="amenitiesBox">
-                    <p>Kitchen</p>
+                 {facilities.map((fecilities)=> (
+                 <div className="amenitiesBox">
+                    <p>{fecilities}</p>
                 </div>
-                <div className="amenitiesBox">
-                    <p>Wifi</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Dedicated workspace</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Free parking on premises</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Kitchen</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Wifi</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Dedicated workspace</p>
-                </div>
-                <div className="amenitiesBox">
-                    <p>Free parking on premises</p>
-                </div>
+               ))}
+                
             </div>
             <div className="bookingCart">
                 <div className="priceBox">

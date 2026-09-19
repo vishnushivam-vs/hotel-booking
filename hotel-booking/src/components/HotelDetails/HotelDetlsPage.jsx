@@ -1,8 +1,15 @@
+import { useLocation } from 'react-router-dom'
 import { Footer } from '../Footer/Footer'
 import { Navebar } from '../Navebar/Navebar'
 import { BookingDtls } from './BookingDtls'
 
 export const HotelDtlsPage = () => {
+
+     const location = useLocation();
+     const hotelData = location.state;
+
+     console.log("dtls data", hotelData);
+     
     return (
         <>
             <div>
@@ -21,26 +28,21 @@ export const HotelDtlsPage = () => {
                     <div className="propertyCart">
                         <div className="coloumn1">
                             <img className="hotelImg"
-                                src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWx8ZW58MHx8MHx8fDA%3D"
+                               src={hotelData.hotelThumbanaile}
                                 alt="" />
                         </div>
                         <div className="sideImg">
-                            <div className="coloumn2"><img className="hotelImg"
-                                src="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGhvdGVsfGVufDB8fDB8fHww"
-                                alt="" /></div>
-                            <div className="coloumn2"><img className="hotelImg"
-                                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG90ZWx8ZW58MHx8MHx8fDA%3D"
-                                alt="" /></div>
-                            <div className="coloumn2"><img className="hotelImg"
-                                src="https://plus.unsplash.com/premium_photo-1661964402307-02267d1423f5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGhvdGVsfGVufDB8fDB8fHww"
-                                alt="" /></div>
-                            <div className="coloumn2"><img className="hotelImg"
-                                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvdGVsfGVufDB8fDB8fHww"
-                                alt="" /></div>
+                            {hotelData.images.map((image) => (
+                                   <div className="coloumn2"><img className="hotelImg"
+                                src={image}
+                                alt="" />
+                                </div>
+                            ))}
+                            
                         </div>
                     </div>
                     <div className="htlNameBox">
-                        <h3 className="hotelName">Entire cottage in Idukki, India</h3>
+                        <h3 className="hotelName">{`${hotelData.hotelName} - ${hotelData.location.city}`}</h3>
                     </div>
                     <div className="revieContainer">
                         <div className="reviewBox">
@@ -60,7 +62,7 @@ export const HotelDtlsPage = () => {
 
 
                 </div>
-                <BookingDtls />
+                <BookingDtls facilities = {hotelData.facilities} />
                 <Footer/>
             </div>
         </>
