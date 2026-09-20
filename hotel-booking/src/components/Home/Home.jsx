@@ -3,10 +3,10 @@ import { Cart } from '../Cart/Cart'
 import './Home.css'
 import { Footer } from '../Footer/Footer'
 import { DestinationCart } from './DestinationCart'
-
+import { HotelsCart } from '../Hotelscarts/HotelsCart'
 
 export const Home = () => {
-
+  
   
   return (
     <div>
@@ -33,9 +33,11 @@ export const Home = () => {
           <button className="searchBtn">Search</button>
         </div>
       </div>
-      
+      <h3>Top Picks for Your Stay</h3>
         <Cart />
-      
+
+        <h3>Find Your Ideal Stay</h3>
+        <HotelsCart />
       <DestinationCart/>
       
       <Footer/>

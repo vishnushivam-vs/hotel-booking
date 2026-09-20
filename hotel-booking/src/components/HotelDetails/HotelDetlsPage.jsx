@@ -19,7 +19,7 @@ export const HotelDtlsPage = () => {
                         <h2>The Canopy Nook 1BHK couple friendly near HSR</h2>
                     </div>
                     <div className="gridBox">
-
+                      
                     </div>
 
                 </div>
@@ -62,7 +62,7 @@ export const HotelDtlsPage = () => {
 
 
                 </div>
-                <BookingDtls facilities={hotelData.facilities} pricing={hotelData.pricing} />
+                <BookingDtls facilities={hotelData.facilities} pricing={hotelData.pricing} description={hotelData.description} />
                 <Footer />
             </div>
         </>

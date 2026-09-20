@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import './HotelDetails.css'
-export const BookingDtls = ({facilities = [], pricing}) => {
+export const BookingDtls = ({facilities = [], pricing, description}) => {
 
     const [checkin, setCheckin] = useState("");
     const [checkout, setCheckout] = useState("")
     const [guests, setGuests] = useState({
         adults: 1,
         children: 0,
-        infants: 0
-
+        infants: 0,
+       
     })
+
+    const totalGuests =  guests.adults + guests.children;
+    
+        
+    
 
     const today = new Date().toISOString().split("T")[0];
      const priceCalculation = (data) => {
@@ -37,12 +42,19 @@ export const BookingDtls = ({facilities = [], pricing}) => {
     Math.ceil(
         (new Date(checkout) - new Date(checkin)) / 
         (1000 * 60 * 60 * 24)
-    ) : 0;
-    console.log('date' , checkin);
+    ) : 1;
+ //   console.log('date' , checkin);
     
   return (
     <div>
         <div className="bookingDtlsContainer">
+
+            <div className='descriptionDtlsbox'>
+                <h3>About This Hotel :</h3>
+                <h4>
+                    {description}
+                </h4>
+            </div>
         <div className="fcltHeadBox">
             <h3>Facilities Provided</h3>
         </div>
@@ -87,7 +99,7 @@ export const BookingDtls = ({facilities = [], pricing}) => {
                     <div className="guestInputBox">
                         <div>
                            <label className="guestlabel" htmlFor="">GUESTS</label>
-                           <p className="guestCount">1 guest</p>
+                           <p className="guestCount">{totalGuests} guest</p>
                         </div>
                         <div>
                             <button className="downArrow">
@@ -113,7 +125,7 @@ export const BookingDtls = ({facilities = [], pricing}) => {
                                 <button className="plus"
                                 onClick={() => setGuests({
                                     ...guests,
-                                   adults: Math.min(3, guests.adults + 1)
+                                   adults: Math.min(2, guests.adults + 1)
                                 })}
                                 >+</button>
                             </div>
@@ -135,7 +147,7 @@ export const BookingDtls = ({facilities = [], pricing}) => {
                                 <button className="plus"
                                  onClick={() => setGuests({
                                     ...guests,
-                                   children: Math.min(4, guests.children + 1)
+                                   children: Math.min(2, guests.children + 1)
                                 })}
                                 >+</button>
                             </div>

@@ -228,6 +228,22 @@
     justify-content: space-between;
 
 }
+.descriptionDtlsbox{
+    display: flex;
+    align-items: center;
+}
+.descriptionDtlsbox h4 {
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.756);
+}
+
+.descriptionDtlsbox h3 {
+    
+    margin-left: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+}
 .counter button{
     width: 40px;
     height: 40px;

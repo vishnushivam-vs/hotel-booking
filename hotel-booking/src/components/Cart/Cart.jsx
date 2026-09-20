@@ -20,11 +20,18 @@ export const Cart = () => {
 
     console.log(hoteldata);
     const navigate = useNavigate()
+
+    const randomHotels = [...(hoteldata || [])]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 10);
+
+
     return (
         <div className='hotelsDtlsContainer'>
+
             {
 
-                hoteldata.map((data) => (
+                randomHotels.map((data) => (
                     <div className="hotelDtlsCart" key={data.id}
                         onClick={() => navigate('/HotelDtlsPage', { state: data })}
                     >
@@ -55,8 +62,8 @@ export const Cart = () => {
                             </p>
                             <div className="crtDwnBox">
                                 <p className="price"> ₹ <span className='priceamount'>
-                                    { priceCalculation(data)}     
-                                    </span> for  1 night</p>
+                                    {priceCalculation(data)}
+                                </span> for  1 night</p>
                                 <button className="bookingBtn">Book Now</button>
                             </div>
 
