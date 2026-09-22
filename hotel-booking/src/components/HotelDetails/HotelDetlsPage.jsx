@@ -32,8 +32,8 @@ export const HotelDtlsPage = () => {
                                 alt="" />
                         </div>
                         <div className="sideImg">
-                            {hotelData.images.map((image) => (
-                                <div className="coloumn2"><img className="hotelImg"
+                            {hotelData.images.map((image, index) => (
+                                <div className="coloumn2" key={index}><img className="hotelImg"
                                     src={image}
                                     alt="" />
                                 </div>
@@ -62,7 +62,13 @@ export const HotelDtlsPage = () => {
 
 
                 </div>
-                <BookingDtls facilities={hotelData.facilities} pricing={hotelData.pricing} description={hotelData.description} />
+                <BookingDtls 
+                hotelData={hotelData}
+                facilities={hotelData.facilities} 
+                pricing={hotelData.pricing} 
+                description={hotelData.description} 
+                
+                />
                 <Footer />
             </div>
         </>

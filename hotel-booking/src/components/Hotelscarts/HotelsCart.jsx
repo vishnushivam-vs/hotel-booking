@@ -22,11 +22,15 @@ export const HotelsCart = () => {
 
               </div>
               <div className="htlCartbottomBox">
-                <h4>price : <label className="htlPrice">  ₹ {data.pricing.priceperNight}</label></h4>
+                <h4>price : <label className="htlPrice">  ₹ {data.pricing.priceperNight} /day</label></h4>
                 <p>city: {data.location.city}</p>
               </div>
+          
             </div>
-            <button className="bookingBtnCart">Book Now</button>
+            
+               <button className="bookingBtnCart">Book Now</button>
+
+           
           </div>
         ))
       }

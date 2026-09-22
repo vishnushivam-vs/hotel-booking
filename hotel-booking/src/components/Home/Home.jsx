@@ -36,7 +36,7 @@ export const Home = () => {
       <h3>Top Picks for Your Stay</h3>
         <Cart />
 
-        <h3>Find Your Ideal Stay</h3>
+        <h2>Find Your Ideal Stay</h2>
         <HotelsCart />
       <DestinationCart/>
       

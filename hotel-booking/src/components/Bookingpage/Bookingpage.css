@@ -1,0 +1,104 @@
+.bookingContainer{
+    width: 85%;
+    height: 500px;
+    
+    margin: auto;
+}
+.gridContainer{
+    display: grid;
+    grid-template-columns: 3fr 2fr ;
+    gap: 10px;
+   
+}
+.htlDtlsBox,
+
+.paymentBox {
+    border: 1px solid #ddd;
+    
+    
+}
+
+.htlDtlsfirstClm{
+    width: 100%;
+    display: flex;
+    
+}
+.imageBox{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.paymentBox{
+ width: 100px;
+ height: 100px;
+ 
+}
+.htlBkgDtlsBottemsection{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.bokkingdateBox{
+  
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.checkInclm,
+.checkoutclm{
+ border: none;
+ display: flex;
+ align-items: center;
+ margin-left: 10px;
+}
+.checkinBox,
+.checkOutBox{
+ background-color: #dddddd4e;
+ width: 100px;
+ height: 30px;
+ border: solid 1px;
+ border-radius: 10px;
+ margin-left: 5px;
+ border-color: rgba(128, 128, 128, 0.523);
+ color: rgba(0, 0, 0, 0.733);
+}
+.gusteDtlbox{
+ display: flex;
+ width: 100%;
+ justify-content: space-evenly;
+
+}
+.extraInfrmBox{
+    width: 100%;
+    height: 100px;
+    
+}
+@media (max-width: 800px) {
+
+    .htlDtlsBox {
+        grid-template-columns: 1fr;
+    }
+
+    .imageBox {
+        width: 90%;
+        height: 220px;
+        margin-left: 20px;
+    }
+    .img{
+        width: 100%;
+    }
+    .htlDtlsfirstClm{
+      display: flex;
+      flex-direction: column;
+    }
+}

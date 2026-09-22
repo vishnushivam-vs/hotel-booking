@@ -48,7 +48,7 @@ export const Cart = () => {
                             <p className="cityName">City: {data.location.city}</p>
                             <div className="htlDtls">
                                 <p className="description">
-                                    {data.description}
+                                    {data.description.slice(0, 80)}...
                                 </p>
                             </div>
 

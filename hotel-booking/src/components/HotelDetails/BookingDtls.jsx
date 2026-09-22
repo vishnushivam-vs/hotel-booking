@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './HotelDetails.css'
-export const BookingDtls = ({facilities = [], pricing, description}) => {
-
+import { useNavigate } from 'react-router-dom';
+export const BookingDtls = ({hotelData, facilities = [], pricing, description}) => {
+    const navigate = useNavigate();
     const [checkin, setCheckin] = useState("");
     const [checkout, setCheckout] = useState("")
     const [guests, setGuests] = useState({
@@ -61,8 +62,8 @@ export const BookingDtls = ({facilities = [], pricing, description}) => {
         <div className="bookingDtlsCart">
               
             <div className="detailsCart">
-                 {facilities.map((fecilities)=> (
-                 <div className="amenitiesBox">
+                 {facilities.map((fecilities, index)=> (
+                 <div className="amenitiesBox" key={index}>
                     <p>{fecilities}</p>
                 </div>
                ))}
@@ -176,7 +177,9 @@ export const BookingDtls = ({facilities = [], pricing, description}) => {
 
                         </div>
                     </div>
-                    <button className="ReserveBtn">Reserve</button>
+                    <button className="ReserveBtn"
+                    onClick={()=> navigate("/Bookingpage", {state: hotelData}) }
+                    >Book Now</button>
                 </div>
             </div>
         </div>

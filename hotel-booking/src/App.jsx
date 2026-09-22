@@ -4,6 +4,7 @@ import { Home } from "./components/Home/Home"
 import { HotelDtlsPage } from "./components/HotelDetails/HotelDetlsPage"
 import { AddHotel } from "./components/Admin/AddHotel"
 import { HotelDataContext } from "./components/context/hotelData"
+import { Bookingpage } from "./components/Bookingpage/Bookingpage"
 
  const App = () => {
   
@@ -15,6 +16,7 @@ import { HotelDataContext } from "./components/context/hotelData"
         <Route path="/" element={<Home />}/>
         <Route path="/HotelDtlsPage" element={<HotelDtlsPage />}/>
         <Route path="/AddHotel" element={<AddHotel/>}/>
+        <Route path="Bookingpage" element={<Bookingpage/>}/>
       </Routes>
     </BrowserRouter>
     </HotelDataContext>
