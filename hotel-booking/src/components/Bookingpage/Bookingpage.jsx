@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { Navebar } from "../Navebar/Navebar"
 import './Bookingpage.css'
 
-export const Bookingpage = () => {
+export const Bookingpage = ({ totalDays }) => {
 
     const location = useLocation();
     const bkingData = location.state
@@ -27,13 +27,13 @@ export const Bookingpage = () => {
                                 <div className="bokkingdateBox">
                                     <div className="checkInclm">
                                         <p>Check in:</p>
-                                        <div className="checkinBox">
+                                        <div className="bkcheckinBox">
                                             <p>12/3/2026</p>
                                         </div>
                                     </div>
                                     <div className="checkoutclm">
                                         <p>Check Out:</p>
-                                        <div className="checkOutBox">
+                                        <div className="bkcheckOutBox">
                                             <p>12/3/2026</p>
                                         </div>
                                     </div>
@@ -46,18 +46,56 @@ export const Bookingpage = () => {
                                     </div>
                                 </div>
                             </div>
-                            
-                        </div>
-                          <div className="extraInfrmBox">hello
 
-                          </div>
+                        </div>
+                        <div className="bkBottomContainer">
+                            <div className="bkRoomtypeBox">
+                                <h4>Room type: <label className="labelbk">King bed</label></h4>
+                                <h4>Bead type: <label className="labelbk">King bed</label></h4>
+                            </div>
+                            <div className="bkbootomClm">
+                                <h4>Address:</h4>
+                                <p> {bkingData.location.city}, {bkingData.location.state}, {bkingData.location.country}</p>
+                            </div>
+                            <div className="bkbootomrgtClm">
+                                <h4>Contact Information</h4>
+                                <p>Hotel Reception</p>
+                                <p>+91 98765 43210</p>
+                                <p>reception@hotel.com</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="paymentBox">
-
+                        <h3 className="headSummery">Checkout summary</h3>
+                        <div className="priceContainer">
+                            <div className="priceRow">
+                                <span>Room price</span>
+                                <span>₹ {bkingData.pricing.priceperNight}</span>
+                            </div>
+                            <div className="priceRow">
+                                <span>{bkingData.pricing.priceperNight} * {totalDays} days</span>
+                                <span>₹ {}</span>
+                            </div>
+                            <div className="priceRow">
+                                <span>Tax</span>
+                                <span>₹ {bkingData.pricing.tax}</span>
+                            </div>
+                            <div className="priceRow discountRow">
+                                <span>Discount</span>
+                                <span>- ₹ {bkingData.pricing.discount}</span>
+                            </div>
+                            <div className="totalRow">
+                                <strong>Total</strong>
+                                <strong>₹ {}</strong>
+                            </div>
+                        </div>
+                        <button className="bkbookBtn">
+                            Confirm Booking
+                        </button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     )

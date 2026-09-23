@@ -1,88 +1,162 @@
-.bookingContainer{
+.bookingContainer {
     width: 85%;
     height: 500px;
-    
     margin: auto;
 }
-.gridContainer{
+
+.gridContainer {
     display: grid;
-    grid-template-columns: 3fr 2fr ;
+    grid-template-columns: 3fr 2fr;
     gap: 10px;
    
 }
-.htlDtlsBox,
 
+.htlDtlsBox,
 .paymentBox {
-    border: 1px solid #ddd;
-    
-    
+    border: 2px solid ;
+    border-color: rgba(128, 128, 128, 0.541);
+    border-radius: 10px;
+
 }
 
-.htlDtlsfirstClm{
+.htlDtlsfirstClm {
     width: 100%;
     display: flex;
-    
+
 }
-.imageBox{
+
+.imageBox {
     width: 300px;
     height: 200px;
     display: flex;
     margin-left: 10px;
     margin-top: 10px;
 }
-.img{
+
+.img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.paymentBox{
- width: 100px;
- height: 100px;
- 
+
+.paymentBox {
+    width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    
 }
-.htlBkgDtlsBottemsection{
+
+.htlBkgDtlsBottemsection {
 
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-.bokkingdateBox{
-  
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 60px;
+
+.bokkingdateBox {
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
 }
+
 .checkInclm,
-.checkoutclm{
- border: none;
- display: flex;
- align-items: center;
- margin-left: 10px;
+.checkoutclm {
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
-.checkinBox,
-.checkOutBox{
- background-color: #dddddd4e;
- width: 100px;
- height: 30px;
- border: solid 1px;
- border-radius: 10px;
- margin-left: 5px;
- border-color: rgba(128, 128, 128, 0.523);
- color: rgba(0, 0, 0, 0.733);
+
+.bkcheckinBox,
+.bkcheckOutBox {
+    display: flex;
+    align-items: center;
+    background-color: #dddddd4e;
+    width: 100px;
+    height: 30px;
+    border: solid 1px;
+    border-radius: 10px;
+    margin-left: 5px;
+    border-color: rgba(128, 128, 128, 0.523);
+    color: rgba(0, 0, 0, 0.733);
 }
-.gusteDtlbox{
- display: flex;
- width: 100%;
- justify-content: space-evenly;
+
+.gusteDtlbox {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 
 }
-.extraInfrmBox{
+
+.extraInfrmBox {
     width: 100%;
     height: 100px;
-    
+
 }
+.bkBottomContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.labelbk{
+    color: rgba(0, 0, 0, 0.697);
+    margin-left: 10px;
+    font-size: 15px;
+}
+.priceRow{
+    width: 90%;
+    height: 20px;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: rgba(128, 128, 128, 0.601);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #555;
+    padding-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.headSummery{
+    margin-left: 5px;
+}
+.priceRow span:last-child {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #222;
+}
+.totalRow{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.bkbookBtn{
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+    border: none;
+    background-color: darkblue;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.bkbookBtn:hover{
+  border: solid 3px;
+  border-color: #ddd;
+  background-color: #c40d0d;
+  color: white
+}
+
 @media (max-width: 800px) {
 
     .htlDtlsBox {
@@ -94,11 +168,20 @@
         height: 220px;
         margin-left: 20px;
     }
-    .img{
+
+    .img {
         width: 100%;
     }
-    .htlDtlsfirstClm{
-      display: flex;
-      flex-direction: column;
+
+    .htlDtlsfirstClm {
+        display: flex;
+        flex-direction: column;
     }
+    .bkBottomContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3px;
+    margin-top: 25px;
+}
+
 }
