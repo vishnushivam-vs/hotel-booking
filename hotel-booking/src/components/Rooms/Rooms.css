@@ -1,0 +1,140 @@
+.roomsSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.roomsContainer {
+    width: 70%;
+    height: 270px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+    margin-top: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+}
+
+.roomsImgbox {
+    width: 70%;
+    height: 60%;
+    display: flex;
+    margin-top: 25px;
+    margin-left: 5px;
+    background-color: #ddd;
+
+}
+
+.roomImg {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* Right details box */
+.roomsDtlsBox {
+    padding: 20px;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Hotel name */
+.roomsDtlsBox h3 {
+    margin: 0 0 5px;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.roomsDtlsBox p {
+    margin: 0 0 5px;
+    font-size: 17px;
+    line-height: 1.2;
+}
+.roomsDtlsBox label{
+    margin-left: 5px;
+    color: #777;;
+}
+/* Hotel type */
+.roomsDtlsBox h4 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+/* Description */
+.roomsDescription {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.roomsDescription p {
+    margin: 0 0 10px;
+    line-height: 1.4;
+
+    /* prevent very long text from overflowing */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Price */
+.roomPrisetext {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #777;
+}
+
+.roomBkbtn{
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 60px;
+    padding: 8px 18px;
+    background-color: rgba(31, 109, 3, 0.874);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 800px) {
+    .roomsContainer {
+        width: 90%;
+        
+    }
+
+    .roomsImgbox {
+        width: 240px;
+        height: 140px;
+        display: flex;
+        margin-top: 40px;
+        margin-left: 5px;
+        background-color: #ddd;
+    }
+
+    .roomImg {
+        width: 100%;
+        height: 100%;
+    }
+}

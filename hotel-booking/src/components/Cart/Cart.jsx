@@ -33,7 +33,10 @@ export const Cart = () => {
 
                 randomHotels.map((data) => (
                     <div className="hotelDtlsCart" key={data.id}
-                        onClick={() => navigate('/HotelDtlsPage', { state: data })}
+                        onClick={() => {
+                            navigate('/HotelDtlsPage', { state: data });
+                            window.scrollTo(0, 0);
+                        }}
                     >
 
                         <div className="imageBox">
