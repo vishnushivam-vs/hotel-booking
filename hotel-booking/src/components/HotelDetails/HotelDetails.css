@@ -170,6 +170,9 @@
     outline: none;
     cursor: pointer;
 }
+.dayname{
+    color: green;
+}
 .guestInputBox{
     
     font-size: medium;

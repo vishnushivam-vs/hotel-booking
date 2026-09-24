@@ -13,11 +13,17 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
     })
 
     const totalGuests =  guests.adults + guests.children;
-    
+    const checkIndayName = new Date(checkin).toLocaleDateString("en-US", {
+        weekday: "long"
+    })
+    const checkOutdayName = new Date(checkout).toLocaleDateString("en-US", {
+        weekday: "long"
+    })
         
     
 
     const today = new Date().toISOString().split("T")[0];
+
      const priceCalculation = (data) => {
         const price = Number(data?.priceperNight) || 0;
         const tax = Number(data?.tax) || 0;
@@ -26,7 +32,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
         
         const discountAmount= (price * discount) / 100;
 
-       const totalAmount = price + tax + discountAmount;
+       const totalAmount = price + tax - discountAmount;
 
         return totalAmount;
     }
@@ -45,7 +51,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
         (1000 * 60 * 60 * 24)
     ) : 1;
  //   console.log('date' , checkin);
-    
+    const totalAmount = priceCalculation(pricing) * totalStaydays;
   return (
     <div>
         <div className="bookingDtlsContainer">
@@ -71,7 +77,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
             </div>
             <div className="bookingCart">
                 <div className="priceBox">
-                    <h3 className="bookingPrice">  ₹ {priceCalculation(pricing) * totalStaydays} </h3>
+                    <h3 className="bookingPrice">  ₹ {totalAmount} </h3>
                     <p className="stayDays">for {totalStaydays} 
                         {totalStaydays === 1  ? " night" : " nights"}
                         </p>
@@ -85,6 +91,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
                             value={checkin}
                             onChange={(e) => setCheckin(e.target.value)}
                             />
+                            <span className='dayname'>{checkin ? checkIndayName : ""}</span>
                         </div>
                         <div className="checkOutBox">
                             <p className="chBoxtext">CHECKOUT</p>
@@ -94,7 +101,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
                              onChange={(e) => setCheckout(e.target.value)}
                               disabled={!checkin}
                             />
-                            
+                             <span className='dayname'>{checkout ? checkOutdayName : ""}</span>
                         </div>
                     </div>
                     <div className="guestInputBox">
@@ -119,7 +126,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
                                 <button className="minus"
                                 onClick={()=> setGuests({
                                     ...guests,
-                                    adults: Math.max(0, guests.adults - 1)
+                                    adults: Math.max(1, guests.adults - 1)
                                 })}
                                 >-</button>
                                 <span className="countNumber" >{guests.adults}</span>
@@ -178,7 +185,22 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
                         </div>
                     </div>
                     <button className="ReserveBtn"
-                    onClick={()=> navigate("/Bookingpage", {state: hotelData}) }
+                    onClick={()=> {
+                        if(!checkin || !checkout){
+                            alert("Please select check-in and check-out dates")
+                            return;
+                        }
+                        navigate("/Bookingpage", {state: {
+                           hotelData,
+                           checkin,
+                           checkout,
+                           guests,
+                           totalGuests,
+                           totalStaydays,
+                           totalAmount,
+                           checkIndayName,
+                           checkOutdayName
+                    }  }) }}
                     >Book Now</button>
                 </div>
             </div>

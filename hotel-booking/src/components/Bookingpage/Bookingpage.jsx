@@ -2,11 +2,24 @@ import { useLocation } from "react-router-dom";
 import { Navebar } from "../Navebar/Navebar"
 import './Bookingpage.css'
 
-export const Bookingpage = ({ totalDays }) => {
+export const Bookingpage = () => {
 
     const location = useLocation();
-    const bkingData = location.state
-    console.log("bkingData", bkingData);
+
+    const {
+        hotelData,
+        checkin,
+        checkout,
+        guests,
+        totalGuests,
+        totalStaydays,
+        totalAmount,
+        checkIndayName,
+        checkOutdayName
+    } = location.state || {};
+    console.log("bkingData", hotelData);
+
+    const finalroomPrice = Number(hotelData.pricing.priceperNight * totalStaydays)
 
     return (
         <div>
@@ -20,42 +33,51 @@ export const Bookingpage = ({ totalDays }) => {
                     <div className="htlDtlsBox">
                         <div className="htlDtlsfirstClm">
                             <div className="imageBox">
-                                <img className="img" src={bkingData.hotelThumbanaile} alt="" />
+                                <img className="img" src={hotelData.hotelThumbanaile} alt="" />
                             </div>
                             <div className="htlBkgDtlsBottemsection">
-                                <h2>{bkingData.hotelName}</h2>
+                                <h2>{hotelData.hotelName}</h2>
                                 <div className="bokkingdateBox">
                                     <div className="checkInclm">
                                         <p>Check in:</p>
                                         <div className="bkcheckinBox">
-                                            <p>12/3/2026</p>
+                                            <p>{checkin}</p>
                                         </div>
+                                       
                                     </div>
                                     <div className="checkoutclm">
                                         <p>Check Out:</p>
                                         <div className="bkcheckOutBox">
-                                            <p>12/3/2026</p>
+                                            <p>{checkout}</p>
                                         </div>
+                                        
                                     </div>
                                 </div>
+                                
+                                <div className="dayBox">
+                                     <span className="dayname">{checkIndayName}</span>
+                                     <span className="dayname">{checkOutdayName}</span>
+                                </div>
+                                <h4 className="daynotag">Total Satay: {totalStaydays} Days</h4>
                                 <div className="gusteDtlbox">
-                                    <p>Adults:</p>
-                                    <p>Childrens:</p>
+                                    <p>Adults: {guests.adults}</p>
+                                    <p>Childrens: {guests.children}</p>
                                     <div className="TotalGusts">
-                                        <p>3 gustes</p>
+                                        <p>{totalGuests} gustes</p>
                                     </div>
                                 </div>
+        
                             </div>
 
                         </div>
                         <div className="bkBottomContainer">
                             <div className="bkRoomtypeBox">
-                                <h4>Room type: <label className="labelbk">King bed</label></h4>
-                                <h4>Bead type: <label className="labelbk">King bed</label></h4>
+                                <h4>Room type: <label className="labelbk">{hotelData.roomDetails.roomType}</label></h4>
+                                <h4>Bead type: <label className="labelbk">{hotelData.roomDetails.bedType}</label></h4>
                             </div>
                             <div className="bkbootomClm">
                                 <h4>Address:</h4>
-                                <p> {bkingData.location.city}, {bkingData.location.state}, {bkingData.location.country}</p>
+                                <p> {hotelData.location.city}, {hotelData.location.state}, {hotelData.location.country}</p>
                             </div>
                             <div className="bkbootomrgtClm">
                                 <h4>Contact Information</h4>
@@ -71,23 +93,23 @@ export const Bookingpage = ({ totalDays }) => {
                         <div className="priceContainer">
                             <div className="priceRow">
                                 <span>Room price</span>
-                                <span>₹ {bkingData.pricing.priceperNight}</span>
+                                <span>₹ {hotelData.pricing.priceperNight}</span>
                             </div>
                             <div className="priceRow">
-                                <span>{bkingData.pricing.priceperNight} * {totalDays} days</span>
-                                <span>₹ {}</span>
+                                <span>{hotelData.pricing.priceperNight} * {totalStaydays} days</span>
+                                <span>₹ {finalroomPrice}</span>
                             </div>
                             <div className="priceRow">
                                 <span>Tax</span>
-                                <span>₹ {bkingData.pricing.tax}</span>
+                                <span>₹ {Number(hotelData.pricing.tax * totalStaydays)}</span>
                             </div>
                             <div className="priceRow discountRow">
                                 <span>Discount</span>
-                                <span>- ₹ {bkingData.pricing.discount}</span>
+                                <span>- ₹ {Number((finalroomPrice * hotelData.pricing.discount) / 100)}</span>
                             </div>
                             <div className="totalRow">
                                 <strong>Total</strong>
-                                <strong>₹ {}</strong>
+                                <h3>₹ {totalAmount}</h3>
                             </div>
                         </div>
                         <button className="bkbookBtn">

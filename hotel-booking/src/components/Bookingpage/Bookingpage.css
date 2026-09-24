@@ -24,6 +24,16 @@
     display: flex;
 
 }
+.dayBox{
+    
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.daynotag{
+ color: rgba(0, 0, 0, 0.534);
+}
 
 .imageBox {
     width: 300px;
@@ -75,12 +85,13 @@
 .bkcheckOutBox {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #dddddd4e;
     width: 100px;
     height: 30px;
     border: solid 1px;
     border-radius: 10px;
-    margin-left: 5px;
+    margin-left: 20px;
     border-color: rgba(128, 128, 128, 0.523);
     color: rgba(0, 0, 0, 0.733);
 }
@@ -136,8 +147,9 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 .bkbookBtn{
     width: 80%;
@@ -162,7 +174,10 @@
     .htlDtlsBox {
         grid-template-columns: 1fr;
     }
-
+    .bkcheckinBox,
+.bkcheckOutBox{
+    margin-left: 5px;
+}
     .imageBox {
         width: 90%;
         height: 220px;
