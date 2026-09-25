@@ -4,6 +4,7 @@ import { Hotelfacilities } from "./Hotelfacilities"
 import { HotelImageAdd } from "./HotelImageAdd"
 import { addDoc, collection, serverTimestamp, } from "firebase/firestore"
 import { firestore } from "../Firebase/Firebase"
+import { Navebar } from "../Navebar/Navebar"
 //import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 
 
@@ -149,6 +150,7 @@ export const AddHotel = () => {
 
     return (
         <>
+        <Navebar/>
             <div className="inputContainer">
                 <div className="inputBoxDiv">
                     <h3>Hotel Type</h3>

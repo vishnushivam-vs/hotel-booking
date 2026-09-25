@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import './Navebar.css'
 
 import { userAuth } from '../context/userauth';
+import { useState } from 'react';
+import { DashBord } from '../LoginPage/Dashboard/DashBord';
 
 
 export const Navebar = () => {
     const navigate = useNavigate();
 
     const { user } = userAuth()
+    const [showdashBoard , setShowdashBoard] = useState(false)
     return (
         <>
             <div className="topBox">
@@ -28,7 +31,9 @@ export const Navebar = () => {
                <div className='topBoxRightsection'>
                      {
                     user ? (
-                        <div className='profileImgBox'>
+                        <div className='profileImgBox'
+                        onClick={() => setShowdashBoard(true)}
+                        >
                             <img className='profileimg'
                                 src="profile.png"
                                 alt=""
@@ -49,7 +54,10 @@ export const Navebar = () => {
 
                 
             </div>
-
+            {
+                showdashBoard ? <DashBord closeDash={() => setShowdashBoard(false)}/> : " "
+            }
+                  
         </>
     )
 }
