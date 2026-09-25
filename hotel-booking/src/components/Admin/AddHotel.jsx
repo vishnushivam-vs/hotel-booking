@@ -150,7 +150,7 @@ export const AddHotel = () => {
 
     return (
         <>
-        <Navebar/>
+            <Navebar />
             <div className="inputContainer">
                 <div className="inputBoxDiv">
                     <h3>Hotel Type</h3>

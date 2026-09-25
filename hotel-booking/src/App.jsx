@@ -7,6 +7,7 @@ import { HotelDataContext } from "./components/context/hotelData"
 import { Bookingpage } from "./components/Bookingpage/Bookingpage"
 import { Rooms } from "./components/Rooms/Rooms"
 import { Login } from "./components/LoginPage/Login"
+import { Mybooking } from "./components/MyBookings/Mybooking"
 
  const App = () => {
   
@@ -21,6 +22,7 @@ import { Login } from "./components/LoginPage/Login"
         <Route path="/Bookingpage" element={<Bookingpage/>}/>
         <Route path="/Rooms" element={<Rooms/>}/>
         <Route path="/LoginPage" element={<Login/>}/>
+        <Route path="/Mybooking" element={<Mybooking/>}/>
       </Routes>
     </BrowserRouter>
     </HotelDataContext>

@@ -23,7 +23,9 @@ export const DashBord = ({closeDash}) => {
             </div>
             <p>List your Property</p>
         </div>
-        <div className='dashClms'>
+        <div className='dashClms'
+         onClick={() => (navigate("/Mybooking"))}
+        >
           <div className='dasbordIcons'>
               <img className='dasbrdImg' src="reservation.png" alt="" />
             </div>

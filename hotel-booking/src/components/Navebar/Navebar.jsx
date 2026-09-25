@@ -4,7 +4,7 @@ import './Navebar.css'
 
 import { userAuth } from '../context/userauth';
 import { useState } from 'react';
-import { DashBord } from '../LoginPage/Dashboard/DashBord';
+import { DashBord } from '../Dashboard/DashBord';
 
 
 export const Navebar = () => {
@@ -23,9 +23,7 @@ export const Navebar = () => {
                 <button className="roomsBtn"
                     onClick={() => navigate("/Rooms")}
                 >Rooms</button>
-                <button className="signBtn"
-                    onClick={() => (navigate("/AddHotel"))}
-                >Sign In</button>
+               
                 </div>
                 
                <div className='topBoxRightsection'>
