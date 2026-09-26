@@ -1,0 +1,230 @@
+
+
+.myHotelsTitle {
+    max-width: 500px;
+    
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    
+}
+
+
+/* Main section */
+.myHotelssection {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+
+/* Hotel Card */
+.myHtlsContainer {
+    width: 100%;
+    min-height: 220px;
+    margin-top: 15px;
+    display: flex;
+    align-items: stretch;
+
+    background-color: #fff;
+    border: 2px solid #8e909394;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+
+    box-sizing: border-box;
+}
+
+
+/* Image */
+.htlIImgbox {
+   width: 230px;
+   min-width: 230px; 
+    height: 150px;
+    margin-top: 25px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.htlIImgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Hotel Details */
+.hotlDtlsbox {
+    flex: 1;
+
+    padding: 25px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hotlDtlsbox h2 {
+    margin: 0 0 15px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #222;
+}
+.hotlDtlsbox label {
+    color: rgba(0, 0, 0, 0.677);
+    font-size: smaller;
+}
+.hotlDtlsbox p{
+     margin: 2px 0;
+}
+.hotelLocation {
+    margin: 0 0 18px;
+    font-size: 15px;
+    color: #777;
+}
+
+.hotelLocation span {
+    color: #333333f5;
+    font-weight: 500;
+}
+
+.hotelPrice {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+}
+
+.hotelPrice span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #777;
+}
+
+
+/* Buttons section */
+.hotelActions {
+    width: 150px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-items: stretch;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* Common button */
+.hotelActions button {
+    width: 100%;
+    height: 40px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* Edit */
+.editBtn {
+    background-color: #fff;
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+}
+
+.editBtn:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+
+/* Cancel */
+.cancelBtn {
+    background-color: #fff;
+    color: #dc2626;
+
+    border: 1px solid #dc2626;
+}
+
+.cancelBtn:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+
+/* Tablet */
+@media (max-width: 800px) {
+
+    .myHotelsPage {
+        padding: 20px;
+    }
+    .htlIImgbox { 
+        width: 230px;
+        min-width: 230px; 
+    }
+    
+
+    .hotlDtlsbox {
+        padding: 20px;
+    }
+
+    .hotelActions {
+        width: 130px;
+        padding: 15px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .myHotelsPage {
+        padding: 15px;
+    }
+
+    .myHtlsContainer {
+        flex-direction: column;
+    }
+
+    .htlIImgbox {
+        width: 100%;
+        min-width: 100%;
+        height: 220px;
+    }
+
+    .hotlDtlsbox {
+        padding: 20px;
+    }
+
+    .hotelActions {
+        width: 100%;
+
+        flex-direction: row;
+
+        padding: 0 20px 20px;
+    }
+
+    .hotelActions button {
+        flex: 1;
+    }
+}
+

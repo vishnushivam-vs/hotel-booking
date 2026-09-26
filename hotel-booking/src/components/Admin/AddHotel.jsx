@@ -5,11 +5,13 @@ import { HotelImageAdd } from "./HotelImageAdd"
 import { addDoc, collection, serverTimestamp, } from "firebase/firestore"
 import { auth, firestore } from "../Firebase/Firebase"
 import { Navebar } from "../Navebar/Navebar"
+import { useNavigate } from "react-router-dom"
 //import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 
 
 export const AddHotel = () => {
     const user = auth.currentUser;
+    const navigate = useNavigate()
     const [showImageAdd, setShowImageAdd] = useState(false)
     const [loading, setLoading] = useState(false)
     const [hotelData, setHoteldata] = useState({
@@ -141,6 +143,7 @@ export const AddHotel = () => {
             const hotelId = docRef.id;
 
             alert("hotel data uplod sucssefully")
+            navigate("/Myhotels");
         } catch (error) {
 
             console.log("submit error", error);
