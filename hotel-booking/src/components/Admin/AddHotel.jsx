@@ -3,12 +3,13 @@ import "./AddHotel.css"
 import { Hotelfacilities } from "./Hotelfacilities"
 import { HotelImageAdd } from "./HotelImageAdd"
 import { addDoc, collection, serverTimestamp, } from "firebase/firestore"
-import { firestore } from "../Firebase/Firebase"
+import { auth, firestore } from "../Firebase/Firebase"
 import { Navebar } from "../Navebar/Navebar"
 //import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 
 
 export const AddHotel = () => {
+    const user = auth.currentUser;
     const [showImageAdd, setShowImageAdd] = useState(false)
     const [loading, setLoading] = useState(false)
     const [hotelData, setHoteldata] = useState({
@@ -102,6 +103,9 @@ export const AddHotel = () => {
             const docRef = await addDoc(
 
                 collection(firestore, "Hoteldetails"), {
+                adminId: user.uid,
+                adminname: user.displayName || "",
+                adminEmail: user.email,
 
                 hotelType: hotelData.hotelType,
                 hotelName: hotelData.hotelName,

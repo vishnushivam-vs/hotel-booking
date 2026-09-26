@@ -8,6 +8,7 @@ import { Bookingpage } from "./components/Bookingpage/Bookingpage"
 import { Rooms } from "./components/Rooms/Rooms"
 import { Login } from "./components/LoginPage/Login"
 import { Mybooking } from "./components/MyBookings/Mybooking"
+import { Myhotels } from "./components/Adminproperty/Myhotels"
 
  const App = () => {
   
@@ -23,6 +24,7 @@ import { Mybooking } from "./components/MyBookings/Mybooking"
         <Route path="/Rooms" element={<Rooms/>}/>
         <Route path="/LoginPage" element={<Login/>}/>
         <Route path="/Mybooking" element={<Mybooking/>}/>
+        <Route path="/Myhotels" element={<Myhotels/>}/>
       </Routes>
     </BrowserRouter>
     </HotelDataContext>
