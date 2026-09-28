@@ -10,6 +10,7 @@ import { Login } from "./components/LoginPage/Login"
 import { Mybooking } from "./components/MyBookings/Mybooking"
 import { Myhotels } from "./components/Adminproperty/Myhotels"
 
+
  const App = () => {
   
   return (
@@ -25,6 +26,7 @@ import { Myhotels } from "./components/Adminproperty/Myhotels"
         <Route path="/LoginPage" element={<Login/>}/>
         <Route path="/Mybooking" element={<Mybooking/>}/>
         <Route path="/Myhotels" element={<Myhotels/>}/>
+      
       </Routes>
     </BrowserRouter>
     </HotelDataContext>

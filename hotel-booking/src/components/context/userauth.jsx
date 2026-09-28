@@ -5,24 +5,24 @@ import { useContext } from "react";
 
 const AuthContext = createContext();
 
-export const Authprovider = ({children}) => {
-   const [user, setUser] = useState(null);
-   const [loading, setLoading] = useState(true)
+export const Authprovider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
-   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth,(curentUser) => {
-        setUser(curentUser);
-        setLoading(false)
-    });
-    return () => unSubscribe()
-   });
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (curentUser) => {
+            setUser(curentUser);
+            setLoading(false)
+        });
+        return () => unSubscribe()
+    },[]);
 
-   return(
+    return (
 
-  <AuthContext.Provider value={{user, loading}}>
-        {children}
-  </AuthContext.Provider>
-   )
+        <AuthContext.Provider value={{ user, loading }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export const userAuth = () => {

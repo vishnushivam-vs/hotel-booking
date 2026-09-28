@@ -1,4 +1,4 @@
-.myBookinggrid{
+.myBookinggrid {
     width: 95%;
     max-width: 900px;
     margin: 20px auto;
@@ -11,12 +11,14 @@
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
-.MyBookingSection{
+
+.MyBookingSection {
     width: 100%;
-   
+
 }
+
 .MyBookingSection h3 {
-    
+
     margin-left: 20px;
     position: relative;
     display: inline-block;
@@ -34,12 +36,14 @@
     background: #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
+
 .gridClm1 {
     display: flex;
     align-items: center;
     gap: 20px;
-    
+
 }
+
 .hotelImgClm {
     width: 220px;
     height: 170px;
@@ -53,6 +57,7 @@
     height: 100%;
     object-fit: cover;
 }
+
 .htlDtlsClm {
     display: flex;
     flex-direction: column;
@@ -72,6 +77,7 @@
     font-weight: 500;
     color: #777;
 }
+
 .htlDtlsClm label {
     margin-left: 8px;
     color: #222;
@@ -80,31 +86,34 @@
 
 .gridClm2 {
     border-left: 1px solid #eeeeee;
-    padding-left: 25px;
+    padding-left: 10px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
 }
+
 .checkdateclm {
     display: flex;
-    gap: 15px;
-   
+    gap: 10px;
+
 }
 
 .checkinClmA {
     flex: 1;
-   display: flex;
-   max-width: 150px;
-   height: 70px;
+    display: flex;
+    max-width: 170px;
+    height: 70px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    
 }
+
 .checkinClmA h4 {
     margin: 0;
     font-size: 15px;
@@ -126,6 +135,7 @@
     text-transform: capitalize;
 
 }
+
 .paymentClm {
     display: flex;
     align-items: center;
@@ -142,6 +152,7 @@
     color: #168a45;
     font-weight: 700;
 }
+
 .checkinClm {
     min-width: 200px;
     padding: 14px 18px;
@@ -172,9 +183,11 @@
     font-size: 13px;
     color: #777;
 }
-.bookingInfo{
-  margin-left: 10px;
+
+.bookingInfo {
+    margin-left: 10px;
 }
+
 .bookingInfo p {
     margin: 6px 0;
     font-size: 14px;

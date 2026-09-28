@@ -1,11 +1,15 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Navebar } from "../Navebar/Navebar"
 import './Bookingpage.css'
+import { auth, firestore } from "../Firebase/Firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 export const Bookingpage = () => {
-
+    const navigate = useNavigate();
     const location = useLocation();
-
+    const user = auth.currentUser;
+    console.log(user);
+    
     const {
         hotelData,
         checkin,
@@ -17,10 +21,50 @@ export const Bookingpage = () => {
         checkIndayName,
         checkOutdayName
     } = location.state || {};
-    console.log("bkingData", hotelData);
 
     const finalroomPrice = Number(hotelData.pricing.priceperNight * totalStaydays)
+    const handleBooking = async () => {
+        try {
+             
+        
 
+            const bookingData = {
+                userId: user.uid,
+                userName: user.displayName || "",
+                userEmail: user.email,
+
+                hotelId: hotelData.id,
+                hotelName: hotelData.hotelName,
+                hotelImage: hotelData.hotelThumbanaile,
+                guests: guests,
+                totalGuests: totalGuests,
+
+                totalStaydays: totalStaydays,
+                checkInday:checkin,
+                checkOutday:checkout,
+                totalAmount: totalAmount,
+
+                checkIndayName: checkIndayName,
+                checkOutdayName: checkOutdayName,
+
+                bookingStatus: "Confirmed",
+                paymentStatus: "Paid",
+
+                createdAt: serverTimestamp()
+            }
+
+            const docRef = await addDoc(
+                collection(firestore, "Bookings"),
+                bookingData
+            )
+             alert("Booking confirmed successfully!");
+
+        navigate("/Mybooking");
+        } catch (error) {
+            console.log("booking error", error);
+            alert("Booking failed");
+        }
+    }
     return (
         <div>
             <Navebar />
@@ -43,20 +87,20 @@ export const Bookingpage = () => {
                                         <div className="bkcheckinBox">
                                             <p>{checkin}</p>
                                         </div>
-                                       
+
                                     </div>
                                     <div className="checkoutclm">
                                         <p>Check Out:</p>
                                         <div className="bkcheckOutBox">
                                             <p>{checkout}</p>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
-                                
+
                                 <div className="dayBox">
-                                     <span className="dayname">{checkIndayName}</span>
-                                     <span className="dayname">{checkOutdayName}</span>
+                                    <span className="dayname">{checkIndayName}</span>
+                                    <span className="dayname">{checkOutdayName}</span>
                                 </div>
                                 <h4 className="daynotag">Total Satay: {totalStaydays} Days</h4>
                                 <div className="gusteDtlbox">
@@ -66,7 +110,7 @@ export const Bookingpage = () => {
                                         <p>{totalGuests} gustes</p>
                                     </div>
                                 </div>
-        
+
                             </div>
 
                         </div>
@@ -112,7 +156,9 @@ export const Bookingpage = () => {
                                 <h3>₹ {totalAmount}</h3>
                             </div>
                         </div>
-                        <button className="bkbookBtn">
+                        <button className="bkbookBtn"
+                           onClick={handleBooking}
+                        >
                             Confirm Booking
                         </button>
                     </div>

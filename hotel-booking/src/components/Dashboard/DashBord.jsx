@@ -1,10 +1,19 @@
 
 import { useNavigate } from 'react-router-dom'
 import './DashBoard.css'
+import { useState } from 'react';
+import { Logout } from '../Logout/Logout';
+
 export const DashBord = ({ closeDash }) => {
+
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const navigate = useNavigate()
+
+ 
   return (
     <div className='dashBoardContainer'>
+
+     
       <button className='dashboard'
         onClick={closeDash}
       >X</button>
@@ -17,11 +26,11 @@ export const DashBord = ({ closeDash }) => {
       <div className='dashClms'
         onClick={() => (navigate("/Myhotels"))}
       >
-          <div className='dasbordIcons'>
-             
-            </div>
-            <p>MyHotels</p>
+        <div className='dasbordIcons'>
+
         </div>
+        <p>MyHotels</p>
+      </div>
       <div className='dashClms'
         onClick={() => (navigate("/AddHotel"))}
       >
@@ -46,13 +55,20 @@ export const DashBord = ({ closeDash }) => {
         </div>
         <p>About</p>
       </div>
-      <div className='dashClms'>
+      <div className='dashClms'
+       onClick={() => setShowLogoutPopup(true)}
+      >
         <div className='dasbordIcons'>
-
+          
         </div>
+
         <p>LogOut</p>
       </div>
-
+           {showLogoutPopup && (
+                <Logout
+                    closePopup={() => setShowLogoutPopup(false)}
+                />
+            )}
     </div>
   )
 }

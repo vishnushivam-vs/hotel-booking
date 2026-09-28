@@ -2,14 +2,18 @@ import { useLocation } from 'react-router-dom'
 import { Footer } from '../Footer/Footer'
 import { Navebar } from '../Navebar/Navebar'
 import { BookingDtls } from './BookingDtls'
+import { userAuth } from '../context/userauth'
 
 export const HotelDtlsPage = () => {
-
+    const { loading} = userAuth()
     const location = useLocation();
     const hotelData = location.state;
 
     console.log("dtls data", hotelData);
-
+    if(loading){
+        
+        return
+    }
     return (
         <>
             <div>

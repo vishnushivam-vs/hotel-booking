@@ -1,11 +1,14 @@
 import { signInWithPopup } from "firebase/auth";
 import "./Login.css";
 import { auth, provider } from "../Firebase/Firebase";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const  navigate = useNavigate()
     const handleGoogleLogin = async () => {
         try {
            const result = await  signInWithPopup(auth, provider)
+              navigate("/")
               console.log("Logged in user:", result.user);
         } catch (error) {
             console.log("Google login error", error);

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './HotelDetails.css'
 import { useNavigate } from 'react-router-dom';
+import { userAuth } from '../context/userauth';
 export const BookingDtls = ({hotelData, facilities = [], pricing, description}) => {
+
+    const {user, loading} = userAuth()
     const navigate = useNavigate();
     const [checkin, setCheckin] = useState("");
     const [checkout, setCheckout] = useState("")
@@ -52,6 +55,7 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
     ) : 1;
  //   console.log('date' , checkin);
     const totalAmount = priceCalculation(pricing) * totalStaydays;
+    
   return (
     <div>
         <div className="bookingDtlsContainer">
@@ -186,6 +190,10 @@ export const BookingDtls = ({hotelData, facilities = [], pricing, description}) 
                     </div>
                     <button className="ReserveBtn"
                     onClick={()=> {
+                        if(!user){
+                            alert("please login confirm your bookings")
+                            return;
+                        }
                         if(!checkin || !checkout){
                             alert("Please select check-in and check-out dates")
                             return;
