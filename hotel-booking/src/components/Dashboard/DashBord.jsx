@@ -17,7 +17,9 @@ export const DashBord = ({ closeDash }) => {
       <button className='dashboard'
         onClick={closeDash}
       >X</button>
-      <div className='dashClms'>
+      <div className='dashClms'
+       onClick={() => (navigate("/Profile"))}
+      >
         <div className='dasbordIcons'>
           <img className='dasbrdImg' src="profile.png" alt="" />
         </div>

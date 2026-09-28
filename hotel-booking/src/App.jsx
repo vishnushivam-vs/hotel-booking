@@ -9,6 +9,7 @@ import { Rooms } from "./components/Rooms/Rooms"
 import { Login } from "./components/LoginPage/Login"
 import { Mybooking } from "./components/MyBookings/Mybooking"
 import { Myhotels } from "./components/Adminproperty/Myhotels"
+import { Profile } from "./components/profile/Profile"
 
 
  const App = () => {
@@ -26,7 +27,7 @@ import { Myhotels } from "./components/Adminproperty/Myhotels"
         <Route path="/LoginPage" element={<Login/>}/>
         <Route path="/Mybooking" element={<Mybooking/>}/>
         <Route path="/Myhotels" element={<Myhotels/>}/>
-      
+        <Route path="/Profile" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
     </HotelDataContext>
