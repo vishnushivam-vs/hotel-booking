@@ -87,7 +87,6 @@
 .gridClm2 {
     border-left: 1px solid #eeeeee;
     padding-left: 10px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +96,7 @@
 .checkdateclm {
     display: flex;
     gap: 10px;
-
+   
 }
 
 .checkinClmA {
@@ -120,7 +119,10 @@
     font-weight: 600;
     color: #444;
 }
-
+.gridClm2 h5 {
+    margin: 5px 0;
+    margin-left: 10px;
+}
 .checkinClmA h4 label {
     display: inline;
     margin-left: 3px;
@@ -209,4 +211,26 @@
 
 .past {
     color: #d93025;
+}
+.cansellBtn{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #e53935;
+
+    background: white;
+    color: #e53935;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    
+    right: 20px;
+    bottom: 20px;
+}
+.cansellBtn:hover{
+ color: #fff;
+ background-color: red;
 }

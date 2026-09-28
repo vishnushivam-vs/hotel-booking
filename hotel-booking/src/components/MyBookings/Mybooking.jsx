@@ -1,5 +1,5 @@
 
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../Firebase/Firebase';
 import './Mybooking.css'
 import { useEffect, useState } from 'react';
@@ -53,7 +53,26 @@ export const Mybooking = () => {
     const previousBookings = myBookings.filter((booking) => {
         return booking.checkOutday < today;
     })
+    const handleCancelBooking = async (bookingId) => {
+        try {
+            await deleteDoc(
+                doc(firestore, "Bookings", bookingId)
+            );
 
+            // Remove deleted booking from React state
+            setMybookings((prevBookings) =>
+                prevBookings.filter(
+                    (booking) => booking.id !== bookingId
+                )
+            );
+
+
+            console.log("Booking cancelled successfully");
+
+        } catch (error) {
+            console.error("Error cancelling booking:", error);
+        }
+    };
     return (
         <div>
             <Navebar />
@@ -78,6 +97,7 @@ export const Mybooking = () => {
                                     </div>
                                 </div>
                                 <div className='gridClm2'>
+                                    
                                     <div className='checkdateclm'>
                                         <div className='checkinClmA'>
                                             <h4>Check-In: <label>{data.checkInday}</label></h4>
@@ -93,7 +113,16 @@ export const Mybooking = () => {
                                         <p>{data.paymentStatus}</p>
                                     </div>
                                     <p>Booking Status : <span className="completed"> Confirmed</span></p>
+                                    
+                                   <h5>Stay Dates: <label> {data.totalStaydays} Nights</label ></h5>
                                 </div>
+                                {
+                                    today !== data.checkOutday ?
+                                        <button className='cansellBtn'
+                                            onClick={() => handleCancelBooking(data.id)}
+                                        >Cancel Booking</button> : ""
+                                }
+
                             </div>
                         ))
                     )
@@ -110,7 +139,7 @@ export const Mybooking = () => {
                             <div className='myBookinggrid' key={data.id}>
                                 <div className='gridClm1'>
                                     <div className='hotelImgClm'>
-                                        <img className='mybkHtlimg'  src={data.hotelImage}  alt="" />
+                                        <img className='mybkHtlimg' src={data.hotelImage} alt="" />
                                     </div>
                                     <div className='htlDtlsClm'>
                                         <h4>{data.hotelName}</h4>
@@ -138,7 +167,7 @@ export const Mybooking = () => {
                                 </div>
                             </div>
                         ))
-              ) }
+                    )}
 
 
 
