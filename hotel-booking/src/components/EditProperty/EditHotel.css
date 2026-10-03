@@ -1,0 +1,901 @@
+
+/* =====================================================
+   EDIT HOTEL PAGE
+===================================================== */
+
+.editHotelPage {
+    width: 100%;
+    min-height: 100vh;
+    background: #f7f8fa;
+    padding: 40px 50px 80px;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.editHotelHeader {
+    max-width: 1180px;
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.editHotelHeader h1 {
+    margin: 0;
+    color: #101828;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.editHotelHeader p {
+    margin: 8px 0 0;
+    color: #667085;
+    font-size: 14px;
+}
+
+.backBtn {
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    color: #344054;
+
+    padding: 11px 18px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+    background: #f9fafb;
+    border-color: #98a2b3;
+}
+
+
+/* =====================================================
+   MAIN FORM
+===================================================== */
+
+.editHotelForm {
+    max-width: 1180px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+/* =====================================================
+   SECTION CARD
+===================================================== */
+
+.editSection {
+    background: #ffffff;
+
+    border: 1px solid #eaecf0;
+    border-radius: 14px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.sectionHeading {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #eaecf0;
+}
+
+.sectionHeading h2 {
+    margin: 0;
+
+    color: #101828;
+
+    font-size: 19px;
+    font-weight: 650;
+}
+
+.sectionHeading p {
+    margin: 7px 0 0;
+
+    color: #667085;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.formGrid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+}
+
+.formGrid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.inputGroup label {
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   INPUT / SELECT / TEXTAREA
+===================================================== */
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    padding: 12px 13px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.inputGroup input {
+    height: 44px;
+}
+
+.inputGroup select {
+    height: 44px;
+
+    cursor: pointer;
+}
+
+.inputGroup textarea {
+    min-height: 130px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* Focus */
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+
+    border-color: #1570ef;
+
+    box-shadow:
+        0 0 0 3px rgba(21, 112, 239, 0.10);
+}
+
+
+/* Placeholder */
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+    color: #98a2b3;
+}
+
+
+/* =====================================================
+   FACILITIES
+===================================================== */
+
+.facilityGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.facilityItem {
+
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 13px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #344054;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.facilityItem:hover {
+
+    border-color: #b2ddff;
+
+    background: #f5faff;
+
+    transform: translateY(-1px);
+}
+
+.facilityItem input {
+
+    width: 17px;
+    height: 17px;
+
+    accent-color: #1570ef;
+
+    cursor: pointer;
+}
+
+.facilityItem span {
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   IMAGE SECTION
+===================================================== */
+
+.imageSection {
+
+    margin-bottom: 30px;
+}
+
+.imageSection:last-child {
+    margin-bottom: 0;
+}
+
+.imageSection h3 {
+
+    margin: 0 0 15px;
+
+    color: #344054;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   THUMBNAIL
+===================================================== */
+
+.thumbnailBox {
+
+    width: 100%;
+    max-width: 430px;
+
+    height: 250px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    border: 1px solid #eaecf0;
+
+    background: #f2f4f7;
+}
+
+.thumbnailBox img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   CHANGE IMAGE BUTTON
+===================================================== */
+
+.changeImageBtn {
+
+    margin-top: 12px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.changeImageBtn:hover {
+
+    background: #f9fafb;
+
+    border-color: #98a2b3;
+}
+#imageInput {
+    display: none;
+}
+
+.changeImageinput {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.changeImageinput:hover {
+    background-color: #1d4ed8;
+}
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.galleryGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.galleryItem {
+
+    position: relative;
+
+    height: 170px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #f2f4f7;
+
+    border: 1px solid #eaecf0;
+}
+
+.galleryItem img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.galleryItem:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =====================================================
+   REMOVE IMAGE BUTTON
+===================================================== */
+
+.removeImageBtn {
+
+    position: absolute;
+
+    bottom: 10px;
+    left: 10px;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #d92d20;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 8px rgba(16, 24, 40, 0.15);
+
+    transition: all 0.2s ease;
+}
+
+.removeImageBtn:hover {
+
+    background: #fff1f0;
+
+    color: #b42318;
+}
+
+
+/* =====================================================
+   ADD IMAGE BOX
+===================================================== */
+
+.addImageBox {
+
+    height: 170px;
+
+    border: 1.5px dashed #98a2b3;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fcfcfd;
+
+    color: #667085;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.addImageBox:hover {
+
+    border-color: #1570ef;
+
+    background: #f5faff;
+
+    color: #1570ef;
+}
+
+.addImageBox span {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eff8ff;
+
+    color: #1570ef;
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.addImageBox p {
+
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   PROPERTY STATUS
+===================================================== */
+
+.statusBox {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 10px;
+
+    background: #fcfcfd;
+}
+
+.statusBox h3 {
+
+    margin: 0;
+
+    color: #344054;
+
+    font-size: 15px;
+}
+
+.statusBox p {
+
+    margin: 5px 0 0;
+
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   SWITCH
+===================================================== */
+
+.switch {
+
+    position: relative;
+
+    width: 46px;
+    height: 26px;
+
+    flex-shrink: 0;
+}
+
+.switch input {
+
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+.switch span {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #d0d5dd;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.switch span::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    left: 3px;
+    top: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 1px 3px rgba(16, 24, 40, 0.2);
+}
+
+.switch input:checked + span {
+
+    background: #1570ef;
+}
+
+.switch input:checked + span::before {
+
+    transform: translateX(20px);
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.editActions {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 5px;
+}
+
+.cancelEditBtn,
+.saveHotelBtn {
+
+    min-width: 130px;
+
+    height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Cancel */
+
+.cancelEditBtn {
+
+    border: 1px solid #d0d5dd;
+
+    background: #ffffff;
+
+    color: #344054;
+}
+
+.cancelEditBtn:hover {
+
+    background: #f9fafb;
+
+    border-color: #98a2b3;
+}
+
+
+/* Save */
+
+.saveHotelBtn {
+
+    border: 1px solid #1570ef;
+
+    background: #1570ef;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.saveHotelBtn:hover {
+
+    background: #175cd3;
+
+    border-color: #175cd3;
+}
+
+.saveHotelBtn:active {
+
+    transform: translateY(1px);
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .editHotelPage {
+        padding: 30px 25px 60px;
+    }
+
+    .facilityGrid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .galleryGrid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - SMALL TABLET
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .editHotelHeader {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .backBtn {
+        width: 100%;
+    }
+
+    .formGrid,
+    .formGrid.three {
+
+        grid-template-columns: 1fr;
+    }
+
+    .facilityGrid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .galleryGrid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .editHotelPage {
+
+        padding: 22px 14px 50px;
+    }
+
+    .editHotelHeader h1 {
+
+        font-size: 25px;
+    }
+
+    .editSection {
+
+        padding: 20px 16px;
+
+        border-radius: 11px;
+    }
+
+    .facilityGrid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .galleryGrid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .thumbnailBox {
+
+        max-width: 100%;
+
+        height: 220px;
+    }
+
+    .galleryItem,
+    .addImageBox {
+
+        height: 200px;
+    }
+
+    .editActions {
+
+        flex-direction: column-reverse;
+
+        width: 100%;
+    }
+
+    .cancelEditBtn,
+    .saveHotelBtn {
+
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   SMOOTH SCROLL
+===================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+.editHotelPage ::selection {
+
+    background: #dbeafe;
+
+    color: #1e3a8a;
+}

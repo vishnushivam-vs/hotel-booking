@@ -10,7 +10,7 @@ import { Login } from "./components/LoginPage/Login"
 import { Mybooking } from "./components/MyBookings/Mybooking"
 import { Myhotels } from "./components/Adminproperty/Myhotels"
 import { Profile } from "./components/profile/Profile"
-
+import { EdithotelData } from "./components/EditProperty/EdithotelData"
 
  const App = () => {
   
@@ -28,6 +28,8 @@ import { Profile } from "./components/profile/Profile"
         <Route path="/Mybooking" element={<Mybooking/>}/>
         <Route path="/Myhotels" element={<Myhotels/>}/>
         <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/EdithotelData" element={<EdithotelData/>}/>
+
       </Routes>
     </BrowserRouter>
     </HotelDataContext>
