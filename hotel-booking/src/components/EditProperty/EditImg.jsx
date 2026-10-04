@@ -168,7 +168,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
 
     return (
         <div>
-            {/* ================= PROPERTY IMAGES ================= */}
 
             <section className="editSection" >
 
@@ -182,8 +181,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
 
                 </div>
 
-
-                {/* Main Thumbnail */}
                 <div className="imageSection">
 
                     <h3>Property Cover Image</h3>
@@ -238,7 +235,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
                 </div>
 
 
-                {/* Gallery */}
 
                 <div className="imageSection">
 

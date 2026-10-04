@@ -80,11 +80,11 @@ export const EdithotelData = () => {
 
     useEffect(() => {
 
-      /*  if (!hotelId) {
-            alert("Hotel ID not found");
-            navigate("/Myhotels");
-            return;
-        }*/
+        /*  if (!hotelId) {
+              alert("Hotel ID not found");
+              navigate("/Myhotels");
+              return;
+          }*/
 
         const getHotel = async () => {
 
@@ -205,7 +205,7 @@ export const EdithotelData = () => {
 
 
 
-  
+
     const handleRoomChange = (e) => {
 
         const {
@@ -256,102 +256,67 @@ export const EdithotelData = () => {
     // ==============================
     // UPDATE HOTEL
     // ==============================
+const handleUpdate = async (e) => {
+    e.preventDefault();
 
-    const handleUpdate = async (e) => {
+    if (!hotelId) {
+        alert("Hotel ID not found");
+        return;
+    }
 
-        e.preventDefault();
+    try {
+        setSaving(true);
 
-        try {
+        const hotelRef = doc(
+            firestore,
+            "Hoteldetails",
+            hotelId
+        );
 
-            setSaving(true);
+        await updateDoc(hotelRef, {
+            hotelName: hotelData.hotelName.trim(),
+            hotelType: hotelData.hotelType,
+            description: hotelData.description.trim(),
 
-            const hotelRef = doc(
-                firestore,
-                "Hoteldetails",
-                hotelId
-            );
+            location: {
+                country: hotelData.location.country.trim(),
+                state: hotelData.location.state.trim(),
+                city: hotelData.location.city.trim()
+            },
 
-            await updateDoc(hotelRef, {
+            pricing: {
+                priceperNight: Number(
+                    hotelData.pricing.priceperNight
+                ),
+                discount: Number(
+                    hotelData.pricing.discount
+                ) || 0,
+                tax: Number(
+                    hotelData.pricing.tax
+                ) || 0
+            },
 
-                hotelName:
-                    hotelData.hotelName.trim(),
+            roomDetails: {
+                roomType: hotelData.roomDetails.roomType,
+                bedType: hotelData.roomDetails.bedType,
+                roomSize: hotelData.roomDetails.roomSize
+            },
 
-                hotelType:
-                    hotelData.hotelType,
+            facilities: hotelData.facilities,
+            hotelThumbanaile: hotelData.hotelThumbanaile,
+            images: hotelData.images
+        });
 
-                description:
-                    hotelData.description.trim(),
+        alert("Hotel updated successfully!");
+        navigate("/Myhotels");
 
-                location: {
-                    country:
-                        hotelData.location.country.trim(),
-
-                    state:
-                        hotelData.location.state.trim(),
-
-                    city:
-                        hotelData.location.city.trim()
-                },
-
-                pricing: {
-                    priceperNight:
-                        Number(
-                            hotelData.pricing.priceperNight
-                        ),
-
-                    discount:
-                        Number(
-                            hotelData.pricing.discount
-                        ) || 0,
-
-                    tax:
-                        Number(
-                            hotelData.pricing.tax
-                        ) || 0
-                },
-
-                roomDetails: {
-                    roomType:
-                        hotelData.roomDetails.roomType,
-
-                    bedType:
-                        hotelData.roomDetails.bedType,
-
-                    roomSize:
-                        hotelData.roomDetails.roomSize
-                },
-
-                facilities:
-                    hotelData.facilities,
-
-                hotelThumbanaile:
-                    hotelData.hotelThumbanaile,
-
-                images:
-                    hotelData.images
-
-                // createdAt intentionally NOT changed
-            });
-
-            alert("Hotel updated successfully!");
-
-            navigate("/Myhotels");
-
-        } catch (error) {
-
-            console.error(
-                "Error updating hotel:",
-                error
-            );
-
-            alert("Failed to update hotel");
-
-        } finally {
-
-            setSaving(false);
-        }
-    };
-
+    } catch (error) {
+        console.error("Error updating hotel:", error);
+        alert("Failed to update hotel");
+    } finally {
+        setSaving(false);
+    }
+};
 
     if (loading) {
         return (
@@ -392,9 +357,9 @@ export const EdithotelData = () => {
 
                 </div>
 
-                <form>
+                <form onSubmit={handleUpdate}>
 
-              
+
                     <div className="editHotelForm">
 
 
@@ -416,9 +381,10 @@ export const EdithotelData = () => {
                                     <label>Hotel Name</label>
                                     <input
                                         type="text"
-                                        value={hotelData.hotelName}
+                                        name="hotelName"
+                                        value={hotelData.hotelName || ""}
                                         onChange={handleChange}
-                                        placeholder={hotelData.hotelName}
+
                                     />
                                 </div>
 
@@ -427,7 +393,8 @@ export const EdithotelData = () => {
                                     <label>Property Type</label>
 
                                     <select
-                                        value={hotelData.hotelType}
+                                        name="hotelType"
+                                        value={hotelData.hotelType || ""}
                                         onChange={handleChange}
                                     >
                                         <option value="">
@@ -460,10 +427,11 @@ export const EdithotelData = () => {
 
                                 <textarea
                                     rows="6"
+                                    name="description"
                                     value={hotelData.description}
                                     onChange={handleChange}
-                                    placeholder={hotelData.description}
-                                ></textarea>
+                                    placeholder="Enter hotel description"
+                                />
 
                             </div>
 
@@ -472,255 +440,144 @@ export const EdithotelData = () => {
 
 
                         {/* ================= LOCATION ================= */}
-
                         <section className="editSection">
-
                             <div className="sectionHeading">
-
                                 <h2>Location</h2>
-
-                                <p>
-                                    Property location details
-                                </p>
-
+                                <p>Property location details</p>
                             </div>
-
 
                             <div className="formGrid three">
-
                                 <div className="inputGroup">
-
                                     <label>Country</label>
-
                                     <input
                                         type="text"
+                                        name="country"
                                         value={hotelData.location.country}
                                         onChange={handleLocationChange}
-                                        placeholder={hotelData.location.country}
                                     />
-
                                 </div>
 
-
                                 <div className="inputGroup">
-
                                     <label>State</label>
-
                                     <input
                                         type="text"
+                                        name="state"
                                         value={hotelData.location.state}
                                         onChange={handleLocationChange}
-                                        placeholder={hotelData.location.state}
                                     />
-
                                 </div>
-
 
                                 <div className="inputGroup">
-
                                     <label>City</label>
-
                                     <input
                                         type="text"
+                                        name="city"
                                         value={hotelData.location.city}
                                         onChange={handleLocationChange}
-                                        placeholder={hotelData.location.city}
                                     />
-
                                 </div>
-
                             </div>
-
                         </section>
-
 
 
                         {/* ================= PRICING ================= */}
-
                         <section className="editSection">
-
                             <div className="sectionHeading">
-
                                 <h2>Pricing</h2>
-
-                                <p>
-                                    Manage your property's pricing
-                                </p>
-
+                                <p>Manage your property's pricing</p>
                             </div>
 
-
                             <div className="formGrid three">
-
                                 <div className="inputGroup">
-
-                                    <label>
-                                        Price Per Night
-                                    </label>
-
+                                    <label>Price Per Night</label>
                                     <input
                                         type="number"
-                                        placeholder={hotelData.pricing.priceperNight}
+                                        name="priceperNight"
                                         value={hotelData.pricing.priceperNight}
                                         onChange={handlePricingChange}
                                     />
-
                                 </div>
 
-
                                 <div className="inputGroup">
-
-                                    <label>
-                                        Discount (%)
-                                    </label>
-
+                                    <label>Discount (%)</label>
                                     <input
                                         type="number"
-                                        placeholder={hotelData.pricing.discount}
+                                        name="discount"
                                         value={hotelData.pricing.discount}
                                         onChange={handlePricingChange}
                                     />
-
                                 </div>
 
-
                                 <div className="inputGroup">
-
-                                    <label>
-                                        Tax (₹)
-                                    </label>
-
+                                    <label>Tax (₹)</label>
                                     <input
                                         type="number"
-                                        placeholder={hotelData.pricing.tax}
+                                        name="tax"
                                         value={hotelData.pricing.tax}
                                         onChange={handlePricingChange}
                                     />
-
                                 </div>
-
                             </div>
-
                         </section>
-
 
 
                         {/* ================= ROOM DETAILS ================= */}
-
                         <section className="editSection">
-
                             <div className="sectionHeading">
-
                                 <h2>Room Details</h2>
-
-                                <p>
-                                    Details about the available room
-                                </p>
-
+                                <p>Details about the available room</p>
                             </div>
-
 
                             <div className="formGrid three">
-
                                 <div className="inputGroup">
-
                                     <label>Room Type</label>
-
                                     <input
                                         type="text"
+                                        name="roomType"
                                         value={hotelData.roomDetails.roomType}
-                                        placeholder={hotelData.roomDetails.roomType}
                                         onChange={handleRoomChange}
                                     />
-
                                 </div>
 
-
                                 <div className="inputGroup">
-
                                     <label>Bed Type</label>
-
                                     <input
                                         type="text"
+                                        name="bedType"
                                         value={hotelData.roomDetails.bedType}
-                                        placeholder={hotelData.roomDetails.bedType}
                                         onChange={handleRoomChange}
                                     />
-
                                 </div>
-
 
                                 <div className="inputGroup">
-
                                     <label>Room Size</label>
-
                                     <input
                                         type="text"
+                                        name="roomSize"
                                         value={hotelData.roomDetails.roomSize}
-                                        placeholder={hotelData.roomDetails.roomSize}
                                         onChange={handleRoomChange}
                                     />
-
                                 </div>
-
                             </div>
-
                         </section>
-
-
 
                         {/* ================= FACILITIES ================= */}
 
-                        <section className="editSection">
-
-                            <div className="sectionHeading">
-
-                                <h2>Facilities & Amenities</h2>
-
-                                <p>
-                                    Select the facilities available
-                                    at your property
-                                </p>
-
-                            </div>
-
-
-                            <div className="facilityGrid">
-
-                                {facilityOptions.map(
-                                    (facility) => (
-
-                                        <label
-                                            className="facilityItem"
-                                            key={facility}
-                                        >
-
-                                            <input
-                                                type="checkbox"
-                                                checked={
-                                                    hotelData.facilities.includes(
-                                                        facility
-                                                    )
-                                                }
-                                                onChange={() =>
-                                                    handleFacilityChange(
-                                                        facility
-                                                    )
-                                                }
-                                            />
-
-                                            <span>
-                                                {facility}
-                                            </span>
-
-                                        </label>
-
-                                    )
-                                )}
-
-                            </div>
-
-                        </section>
+                        <div className="facilityGrid">
+                            {facilityOptions.map((facility) => (
+                                <label
+                                    className="facilityItem"
+                                    key={facility}
+                                >
+                                    <input
+                                        type="checkbox"
+                                        checked={hotelData.facilities.includes(facility)}
+                                        onChange={() => handleFacilityChange(facility)}
+                                    />
+                                    <span>{facility}</span>
+                                </label>
+                            ))}
+                        </div>
 
 
 
@@ -789,16 +646,18 @@ export const EdithotelData = () => {
                             <button
                                 type="button"
                                 className="cancelEditBtn"
+                                onClick={() => navigate("/Myhotels")}
+                                disabled={saving}
                             >
                                 Cancel
                             </button>
 
-
                             <button
-                                type="button"
+                                type="submit"
                                 className="saveHotelBtn"
+                                disabled={saving}
                             >
-                                Save Changes
+                                {saving ? "Saving..." : "Save Changes"}
                             </button>
 
                         </div>
