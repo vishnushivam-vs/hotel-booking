@@ -48,8 +48,6 @@ export const EdithotelData = () => {
         images: []
     });
 
-
-
     useEffect(() => {
 
         if (!hotelId) {
@@ -125,8 +123,6 @@ export const EdithotelData = () => {
 
     }, [hotelId, navigate]);
 
-
-
     const handleChange = (e) => {
 
         const { name, value } = e.target;
@@ -146,7 +142,6 @@ export const EdithotelData = () => {
             alert("Hotel ID not found");
             return;
         }
-
         try {
             setSaving(true);
 
@@ -213,7 +208,6 @@ export const EdithotelData = () => {
         );
     }
 
-
     return (
         <div>
 
@@ -240,9 +234,7 @@ export const EdithotelData = () => {
 
                 <form onSubmit={handleUpdate}>
 
-
                     <div className="editHotelForm">
-
 
                         <Edithotelinferm
                             hotelData={hotelData}

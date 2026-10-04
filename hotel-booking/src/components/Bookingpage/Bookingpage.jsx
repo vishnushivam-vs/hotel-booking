@@ -1,15 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Navebar } from "../Navebar/Navebar"
 import './Bookingpage.css'
-import { auth, firestore } from "../Firebase/Firebase";
+import { firestore } from "../Firebase/Firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { userAuth } from "../context/userauth";
 
 export const Bookingpage = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const user = auth.currentUser;
+    const { user, loading } = userAuth();
     console.log(user);
-    
+
     const {
         hotelData,
         checkin,
@@ -25,8 +26,8 @@ export const Bookingpage = () => {
     const finalroomPrice = Number(hotelData.pricing.priceperNight * totalStaydays)
     const handleBooking = async () => {
         try {
-             
-        
+
+
 
             const bookingData = {
                 userId: user.uid,
@@ -40,8 +41,8 @@ export const Bookingpage = () => {
                 totalGuests: totalGuests,
 
                 totalStaydays: totalStaydays,
-                checkInday:checkin,
-                checkOutday:checkout,
+                checkInday: checkin,
+                checkOutday: checkout,
                 totalAmount: totalAmount,
 
                 checkIndayName: checkIndayName,
@@ -56,15 +57,42 @@ export const Bookingpage = () => {
             const docRef = await addDoc(
                 collection(firestore, "Bookings"),
                 bookingData
-            )
-             alert("Booking confirmed successfully!");
 
-        navigate("/Mybooking");
+            );
+
+
+            console.log("Hotel availability added");
+
+            alert("Booking confirmed successfully!");
+
+            navigate("/Mybooking");
         } catch (error) {
             console.log("booking error", error);
             alert("Booking failed");
         }
     }
+
+    const newData = async () => {
+        try {
+            const availabilityData = {
+                hotelId: hotelData.id,
+                checkin: checkin,
+                checkout: checkout,
+                createdAt: serverTimestamp()
+            };
+
+            const docRef = await addDoc(
+                collection(firestore, "HotelAvailability"),
+                availabilityData
+            );
+
+            console.log("Availability created:", docRef.id);
+
+        } catch (error) {
+            console.log("Availability error:", error);
+        }
+    };
+
     return (
         <div>
             <Navebar />
@@ -157,14 +185,19 @@ export const Bookingpage = () => {
                             </div>
                         </div>
                         <button className="bkbookBtn"
-                           onClick={handleBooking}
+                            onClick={async () => {
+                                await handleBooking();
+                                await newData();
+                            }}
+  
+                           
                         >
-                            Confirm Booking
-                        </button>
-                    </div>
+                        Confirm Booking
+                    </button>
                 </div>
-
             </div>
+
         </div>
+        </div >
     )
 }
