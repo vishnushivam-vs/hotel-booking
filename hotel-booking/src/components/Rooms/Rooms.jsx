@@ -13,7 +13,7 @@ export const Rooms = () => {
 
             <div className='roomsSection'>
                 {hoteldata.map((data) => (
-                    <div className='roomsContainer'>
+                    <div className='roomsContainer' key={data.id}>
                         <div className='roomsImgbox'>
                             <img className="roomImg" src={data.hotelThumbanaile} alt="" />
                         </div>

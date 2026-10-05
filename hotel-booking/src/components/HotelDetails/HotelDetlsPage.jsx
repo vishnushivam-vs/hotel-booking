@@ -3,6 +3,7 @@ import { Footer } from '../Footer/Footer'
 import { Navebar } from '../Navebar/Navebar'
 import { BookingDtls } from './BookingDtls'
 import { userAuth } from '../context/userauth'
+import './sample.css'
 
 export const HotelDtlsPage = () => {
     const { loading} = userAuth()

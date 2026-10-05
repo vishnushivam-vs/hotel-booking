@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../Firebase/Firebase";
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
-import "./Search.css"
+import "./SearchCarts.css"
 export const HotelsCart1 = ({ searchData }) => {
 
   const [hotels, setHotels] = useState([]);

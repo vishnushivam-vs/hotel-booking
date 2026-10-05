@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useHotelData } from "../context/hotelData"
-
+import "./HotelCart.css"
 
 export const HotelsCart = () => {
 
@@ -90,6 +90,7 @@ export const HotelsCart = () => {
    if (availabilityLoading) {
     return <p>Checking hotel availability...</p>;
   }*/
+
   return (
     <div className="hotelsCartdataContainer">
       {

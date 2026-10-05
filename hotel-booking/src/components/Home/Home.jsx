@@ -9,17 +9,18 @@ import { useBookingAvailability } from "../context/BookingAvailabilityContext";
 import { HotelsCart1 } from "../Hotelscarts/Searchhotel";
 
 export const Home = () => {
-  
-       const [checkin, setCheckin] = useState("");
-  const [checkout, setCheckout] = useState("");
 
+  const [checkin, setCheckin] = useState("");
+  const [checkout, setCheckout] = useState("");
+  const [serachResultShow, SetserachResultShow] = useState(false)
   const [searchHotels, setSearchHotels] = useState(null);
+  const today = new Date().toISOString().split("T")[0];
 
   const {
     availability,
     loading: availabilityLoading
   } = useBookingAvailability();
-    
+
 
   const handleSearch = () => {
 
@@ -32,7 +33,7 @@ export const Home = () => {
       alert("Checkout date must be after Checkin date");
       return;
     }
-   const bookedHotelIds = availability
+    const bookedHotelIds = availability
       .filter((booking) => {
 
         const existingCheckin = booking.checkin;
@@ -56,11 +57,22 @@ export const Home = () => {
     });
   };
 
+  const getNextday = (date) => {
+    if (!date) return today;
+
+    const nextDay = new Date(date);
+    nextDay.setDate(nextDay.getDate() + 1);
+    return nextDay.toISOString().split("T")[0]
+  }
+
 
   return (
     <div>
-      <Navebar/>
-      
+      <Navebar
+        
+        setSerachResultShow={SetserachResultShow}
+      />
+
       <div className="topContainer">
         <div className="headLineBox">
           <h1 className="headLine">Book Your Ideal Stay with Ease and Confidence</h1>
@@ -75,7 +87,7 @@ export const Home = () => {
             />
 
           </div>
-           <div className="input">
+          <div className="input">
 
             <label className="textlabel" htmlFor="checkin">
               Check in
@@ -97,6 +109,7 @@ export const Home = () => {
 
             <input
               type="date"
+              min={getNextday(checkin)}
               className="checkout"
               value={checkout}
               onChange={(e) => setCheckout(e.target.value)}
@@ -104,22 +117,45 @@ export const Home = () => {
 
           </div>
           <button className="searchBtn"
-            onClick={handleSearch}
+            onClick={() => {
+              if (!checkin || !checkout) {
+                alert("Select the check-in and check-out dates");
+                return;
+              }
+              handleSearch();
+              SetserachResultShow(true)
+            }}
             disabled={availabilityLoading}
-          >     
-         {availabilityLoading ? "Loading..." : "Search"}
-         </button>
+
+          >
+            {availabilityLoading ? "Loading..." : "Search"}
+          </button>
         </div>
       </div>
-      <h3>Top Picks for Your Stay</h3>
-        <Cart />
 
-        <h2>Find Your Ideal Stay</h2>
-        <HotelsCart  />
-        <HotelsCart1 searchData={searchHotels}/>
-      <DestinationCart/>
-      
-      <Footer/>
+
+
+      {
+        !serachResultShow ?
+          <>
+            <h3>Top Picks for Your Stay</h3>
+            <Cart />
+            <h2>Find Your Ideal Stay</h2>
+            <HotelsCart />
+            <DestinationCart />
+          </>
+          :
+          <>
+            <h2>Available Hotels</h2>
+            <HotelsCart1 searchData={searchHotels} />
+          </>
+
+
+
+      }
+
+
+      <Footer />
     </div>
   )
 }
