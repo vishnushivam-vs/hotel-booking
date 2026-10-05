@@ -6,6 +6,90 @@ export const HotelsCart = () => {
 
   const { hoteldata } = useHotelData()
   const navigate = useNavigate()
+
+  /* const [hotels, setHotels] = useState([]);
+
+  const {
+    availability,
+    loading: availabilityLoading
+  } = useBookingAvailability();
+
+
+  useEffect(() => {
+
+    const fetchHotels = async () => {
+
+      try {
+
+        const snapshot = await getDocs(
+          collection(firestore, "Hoteldetails")
+        );
+
+        const hotelData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        setHotels(hotelData);
+
+         } catch (error) {
+
+        console.log("Hotel fetch error:", error);
+
+      }
+
+    };
+
+    fetchHotels();
+
+  }, []);
+
+   let filteredHotels = hotels;
+
+
+  if (searchData) {
+
+    const {
+      checkin,
+      checkout
+    } = searchData;
+
+
+    filteredHotels = hotels.filter((hotel) => {
+
+      // Ee hotel-inte bookings
+      const hotelBookings = availability.filter(
+        (booking) =>
+          booking.hotelId === hotel.id
+      );
+
+
+      // Existing booking date overlap undo?
+      const conflict = hotelBookings.some(
+        (booking) => {
+
+          const existingCheckin = booking.checkin;
+          const existingCheckout = booking.checkout;
+
+            return (
+            checkin < existingCheckout &&
+            checkout > existingCheckin
+          );
+
+        }
+      );
+
+
+      // Conflict illa → hotel available
+      return !conflict;
+
+    });
+
+  }
+
+   if (availabilityLoading) {
+    return <p>Checking hotel availability...</p>;
+  }*/
   return (
     <div className="hotelsCartdataContainer">
       {
