@@ -9,7 +9,7 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
     const [message, setMessage] = useState("");
 
 
-    const { user, loading } = userAuth()
+    const { user } = userAuth()
     const navigate = useNavigate();
     const [checkin, setCheckin] = useState("");
     const [checkout, setCheckout] = useState("")
@@ -58,7 +58,7 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
             (new Date(checkout) - new Date(checkin)) /
             (1000 * 60 * 60 * 24)
         ) : 1;
-    //   console.log('date' , checkin);
+    
     const totalAmount = priceCalculation(pricing) * totalStaydays;
 
     const showUnavailableMessage = () => {

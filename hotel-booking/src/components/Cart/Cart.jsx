@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useHotelData } from '../context/hotelData'
 import './Cart.css'
-//import { useState } from 'react';
+
+
+
 export const Cart = () => {
     const { hoteldata } = useHotelData();
     //const [price, setPrice] = useState("");
