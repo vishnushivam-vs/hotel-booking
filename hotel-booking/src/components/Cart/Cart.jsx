@@ -6,7 +6,6 @@ import './Cart.css'
 
 export const Cart = () => {
     const { hoteldata } = useHotelData();
-    //const [price, setPrice] = useState("");
     const priceCalculation = (data) => {
         const price = Number(data.pricing?.priceperNight) || 0;
         const tax = Number(data.pricing?.tax) || 0;
@@ -22,10 +21,10 @@ export const Cart = () => {
 
     console.log(hoteldata);
     const navigate = useNavigate()
-
+    
     const randomHotels = [...(hoteldata || [])]
         .sort(() => Math.random() - 0.5)
-        .slice(0, 10);
+        .slice(0, 9);
 
 
     return (

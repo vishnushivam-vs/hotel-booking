@@ -54,6 +54,16 @@ width: 0px;
     border-radius: 30px;
     cursor: pointer;
 }
+.destiantionbox{
+    width: 200px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: medium;
+    color: hwb(23 29% 68% / 0.958);;
+    border-radius: 10px;
+    border: solid 2px;
+    border-color: hsla(60, 2%, 46%, 0.673);
+}
 
 .input {
     width: 200px;

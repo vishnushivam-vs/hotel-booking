@@ -3,13 +3,14 @@ import { Navebar } from "../Navebar/Navebar";
 import { Cart } from "../Cart/Cart";
 import "./Home.css";
 import { Footer } from "../Footer/Footer";
-import { DestinationCart } from "./DestinationCart";
 import { HotelsCart } from "../Hotelscarts/HotelsCart";
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
 import { HotelsCart1 } from "../Hotelscarts/Searchhotel";
+import { Destination } from "./Destination/Destination";
 
 export const Home = () => {
 
+  const [search, setSearch] = useState("India tourist destinations");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [serachResultShow, SetserachResultShow] = useState(false)
@@ -53,8 +54,11 @@ export const Home = () => {
     setSearchHotels({
       checkin,
       checkout,
-      bookedHotelIds
+      bookedHotelIds,
+      search
     });
+
+
   };
 
   const getNextday = (date) => {
@@ -69,7 +73,7 @@ export const Home = () => {
   return (
     <div>
       <Navebar
-        
+
         setSerachResultShow={SetserachResultShow}
       />
 
@@ -78,12 +82,16 @@ export const Home = () => {
           <h1 className="headLine">Book Your Ideal Stay with Ease and Confidence</h1>
         </div>
         <div className="inputBox">
-          <div className="input">
+          <div className="input"
+
+          >
             <label className='textlabel' htmlFor="Where">Where</label>
             <input
               type="text"
-              className="searchInput"
-              placeholder="search destination"
+              className="destiantionbox"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search Munnar, Paris, Taj Mahal..."
             />
 
           </div>
@@ -96,6 +104,7 @@ export const Home = () => {
             <input
               type="date"
               className="checkin"
+              min={today}
               value={checkin}
               onChange={(e) => setCheckin(e.target.value)}
             />
@@ -123,6 +132,7 @@ export const Home = () => {
                 return;
               }
               handleSearch();
+
               SetserachResultShow(true)
             }}
             disabled={availabilityLoading}
@@ -142,20 +152,23 @@ export const Home = () => {
             <Cart />
             <h2>Find Your Ideal Stay</h2>
             <HotelsCart />
-            <DestinationCart />
+            <Destination
+              searchQuery={search}
+            />
+
           </>
           :
           <>
             <h2>Available Hotels</h2>
             <HotelsCart1 searchData={searchHotels} />
+            <Destination
+              searchQuery={searchHotels.search}
+            />
           </>
-
-
-
       }
-
 
       <Footer />
     </div>
+
   )
 }
