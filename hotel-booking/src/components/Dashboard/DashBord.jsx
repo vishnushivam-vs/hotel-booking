@@ -51,9 +51,8 @@ export const DashBord = ({ closeDash }) => {
         <p>My Bookings</p>
       </div>
 
-      <div className='dashClms'>
-        <div className='dasbordIcons'>
-
+      <div className='dashClms'  onClick={() => alert("About section is currently unavailable.")}>
+        <div className='dasbordIcons'  >
         </div>
         <p>About</p>
       </div>

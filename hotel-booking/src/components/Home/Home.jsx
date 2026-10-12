@@ -71,7 +71,7 @@ export const Home = () => {
     <div>
 
       <Navebar
-        setSerachResultShow={SetserachResultShow}
+        
       />
 
       <div className="topContainer">

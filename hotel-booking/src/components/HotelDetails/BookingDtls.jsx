@@ -28,18 +28,14 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
         weekday: "long"
     })
 
-
-
     const today = new Date().toISOString().split("T")[0];
 
     const priceCalculation = (data) => {
+
         const price = Number(data?.priceperNight) || 0;
         const tax = Number(data?.tax) || 0;
-
         const discount = Number(data?.discount) || 0;
-
         const discountAmount = (price * discount) / 100;
-
         const totalAmount = price + tax - discountAmount;
 
         return totalAmount;
@@ -234,11 +230,6 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
                                         checkin,
                                         checkout
                                     );
-
-                                    console.log("Hotel ID:", hotelData.id);
-                                    console.log("Selected check-in:", checkin);
-                                    console.log("Selected check-out:", checkout);
-                                    console.log("Hotel available:", available);
 
                                     if (!available) {
                                         alert(

@@ -6,7 +6,6 @@ import './Rooms.css'
 export const Rooms = () => {
 
     const { hoteldata } = useHotelData()
-    console.log("rooms", hoteldata);
     const navigate = useNavigate()
 
     return (

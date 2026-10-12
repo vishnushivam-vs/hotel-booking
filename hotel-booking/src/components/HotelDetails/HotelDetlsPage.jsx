@@ -10,7 +10,6 @@ export const HotelDtlsPage = () => {
     const location = useLocation();
     const hotelData = location.state;
 
-    console.log("dtls data", hotelData);
     if (loading) {
 
         return
@@ -18,7 +17,10 @@ export const HotelDtlsPage = () => {
     return (
         <>
             <div>
-                <Navebar />
+              
+      <Navebar />
+       
+     
                 <div className="headBox">
                     <div className="gridBox">
                         <h2>The Canopy Nook 1BHK couple friendly near HSR</h2>

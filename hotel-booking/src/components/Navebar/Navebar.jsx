@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { DashBord } from '../Dashboard/DashBord';
 
 
-export const Navebar = ({ setSerachResultShow }) => {
+export const Navebar = () => {
 
     const navigate = useNavigate();
     const { user } = userAuth()
@@ -20,7 +20,7 @@ export const Navebar = ({ setSerachResultShow }) => {
                     <button className="homeBtn"
                         onClick={() => {
                             navigate("/");
-                            setSerachResultShow(false);
+                           
                         }}
                     >Home</button>
                     <button className="aboutBtn">About</button>
