@@ -1,37 +1,29 @@
 import { useNavigate } from 'react-router-dom';
-import { useHotelData } from '../context/hotelData'
-import './Cart.css'
-
-
+import { useHotelData } from '../context/hotelData';
+import './Cart.css';
 
 export const Cart = () => {
     const { hoteldata } = useHotelData();
     const priceCalculation = (data) => {
+
         const price = Number(data.pricing?.priceperNight) || 0;
         const tax = Number(data.pricing?.tax) || 0;
-
         const discount = Number(data.pricing?.discount) || 0;
-
         const discountAmount = (price * discount) / 100;
-
         const totalAmount = price + tax + discountAmount;
-
         return totalAmount;
+
     }
 
-    console.log(hoteldata);
+
     const navigate = useNavigate()
-    
     const randomHotels = [...(hoteldata || [])]
         .sort(() => Math.random() - 0.5)
         .slice(0, 9);
 
-
     return (
         <div className='hotelsDtlsContainer'>
-
             {
-
                 randomHotels.map((data) => (
                     <div className="hotelDtlsCart" key={data.id}
                         onClick={() => {
@@ -39,7 +31,6 @@ export const Cart = () => {
                             window.scrollTo(0, 0);
                         }}
                     >
-
                         <div className="imageBox">
 
                             <img className="hotelimage" src={data.hotelThumbanaile} alt="" set="" />
@@ -76,8 +67,6 @@ export const Cart = () => {
                     </div>
                 ))
             }
-
-
         </div>
     )
 }

@@ -40,7 +40,6 @@ export const Home = () => {
         const existingCheckin = booking.checkin;
         const existingCheckout = booking.checkout;
 
-        // Same hotel + date overlap
         return (
           checkin < existingCheckout &&
           checkout > existingCheckin
@@ -49,8 +48,6 @@ export const Home = () => {
       })
       .map((booking) => booking.hotelId);
 
-
-    console.log("Booked hotel IDs:", bookedHotelIds);
     setSearchHotels({
       checkin,
       checkout,
@@ -62,8 +59,8 @@ export const Home = () => {
   };
 
   const getNextday = (date) => {
-    if (!date) return today;
 
+    if (!date) return today;
     const nextDay = new Date(date);
     nextDay.setDate(nextDay.getDate() + 1);
     return nextDay.toISOString().split("T")[0]
@@ -72,8 +69,8 @@ export const Home = () => {
 
   return (
     <div>
-      <Navebar
 
+      <Navebar
         setSerachResultShow={SetserachResultShow}
       />
 

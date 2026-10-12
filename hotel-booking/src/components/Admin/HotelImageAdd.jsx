@@ -7,12 +7,11 @@ export const HotelImageAdd = ({ closeImageAdd, onImagesChange }) => {
     const [roomImages, setRoomimages] = useState([]);
 
     const handleThumbnail = (e) => {
+
         const file = e.target.files[0]
 
         if (!file) return;
-
         setThumbnail(file);
-
         onImagesChange({
 
             thumnail: file,
@@ -24,9 +23,7 @@ export const HotelImageAdd = ({ closeImageAdd, onImagesChange }) => {
     const handleRoomImages = (e) => {
 
         const files = Array.from(e.target.files || []);
-
         if (!files.length) return;
-
         const roomImagesSlots = 4 - roomImages.length;
 
         if (files.length > roomImagesSlots) {
@@ -47,6 +44,7 @@ export const HotelImageAdd = ({ closeImageAdd, onImagesChange }) => {
         })
         e.target.value = "";
     }
+
     const handleRemoveImage = (index) => {
 
         const updatedImages = roomImages.filter(
@@ -126,9 +124,7 @@ export const HotelImageAdd = ({ closeImageAdd, onImagesChange }) => {
                     )
                 }
 
-
             </div>
-
         </div >
     );
 };

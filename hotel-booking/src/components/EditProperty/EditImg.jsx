@@ -9,8 +9,8 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
     const [removing, setRemoving] = useState(false);
 
     const uploadToCloudinary = async (file) => {
-        const formData = new FormData();
 
+        const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", "Vishnu");
 
@@ -24,23 +24,18 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
 
         if (!response.ok) {
             const errorData = await response.json();
-            console.log("Cloudinary error:", errorData);
-            throw new Error("Cloudinary image upload failed")
+            throw new Error("Cloudinary image upload failed", errorData)
         }
 
         const data = await response.json()
-
         return data.secure_url;
     }
 
     const handleChangeImage = () => {
-
         setShowImageInput(!showImageInput);
-
     };
 
     const handleThumbnailChange = async (e) => {
-
         const file = e.target.files?.[0];
         if (!file) return
 
@@ -48,7 +43,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
 
             setUploading(true);
             const imgUrl = await uploadToCloudinary(file);
-
             setHotelData((prev) => ({
                 ...prev,
                 hotelThumbanaile: imgUrl
@@ -106,8 +100,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
 
         if (!file) return;
 
-
-        // Maximum 4 images
         if (hotelData.images.length >= 4) {
 
             alert(
@@ -115,18 +107,13 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
             );
 
             e.target.value = "";
-
             return;
         }
         try {
 
             setUploading(true);
-
-
             const newImageUrl =
                 await uploadToCloudinary(file);
-
-
             const updatedImages = [
                 ...hotelData.images,
                 newImageUrl
@@ -159,7 +146,6 @@ export const EditImg = ({ hotelData, setHotelData, hotelId }) => {
         } finally {
 
             setUploading(false);
-
             e.target.value = "";
         }
     };

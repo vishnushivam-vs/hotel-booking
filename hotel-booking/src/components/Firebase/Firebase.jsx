@@ -32,8 +32,6 @@ export const fetchFromFirestore = async () => {
       ...doc.data()
     }));
 
-    console.log("Hotels:", hotelLists);
-
     return hotelLists;
 
   } catch (error) {

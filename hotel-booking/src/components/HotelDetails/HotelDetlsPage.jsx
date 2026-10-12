@@ -6,13 +6,13 @@ import { userAuth } from '../context/userauth'
 
 
 export const HotelDtlsPage = () => {
-    const { loading} = userAuth()
+    const { loading } = userAuth()
     const location = useLocation();
     const hotelData = location.state;
 
     console.log("dtls data", hotelData);
-    if(loading){
-        
+    if (loading) {
+
         return
     }
     return (
@@ -24,7 +24,7 @@ export const HotelDtlsPage = () => {
                         <h2>The Canopy Nook 1BHK couple friendly near HSR</h2>
                     </div>
                     <div className="gridBox">
-                      
+
                     </div>
 
                 </div>
@@ -67,12 +67,12 @@ export const HotelDtlsPage = () => {
 
 
                 </div>
-                <BookingDtls 
-                hotelData={hotelData}
-                facilities={hotelData.facilities} 
-                pricing={hotelData.pricing} 
-                description={hotelData.description} 
-                
+                <BookingDtls
+                    hotelData={hotelData}
+                    facilities={hotelData.facilities}
+                    pricing={hotelData.pricing}
+                    description={hotelData.description}
+
                 />
                 <Footer />
             </div>

@@ -1,285 +1,149 @@
 .hotelsCartdataContainer {
   width: 100%;
   max-width: 1200px;
-
-   margin: auto;
-
+  margin: auto;
   box-sizing: border-box;
-
   display: flex;
   flex-wrap: wrap;
-
-  
   align-items: center;
   justify-content: center;
 }
 
-
-/* =========================
-   HOTEL CARD
-========================= */
-
 .dtlsCartscetion {
   width: 290px;
   height: 330px;
-
   background: #ffffff;
-
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   margin-left: 10px;
   margin-top: 10px;
   overflow: hidden;
-
   box-sizing: border-box;
-
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-
-/* Card Hover */
 
 .dtlsCartscetion:hover {
   transform: translateY(-5px);
-
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
-
-
-/* =========================
-   IMAGE CONTAINER
-========================= */
 
 .htlroomiamgeBox {
   width: 275px;
   height: 170px;
-
   margin: 7px auto 0;
-
   overflow: hidden;
-
   border-radius: 11px;
-
   flex-shrink: 0;
-
   background: #f3f4f6;
 }
-
-
-/* Image */
 
 .htlimg {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
   object-position: center;
-
   transition: transform 0.4s ease;
 }
-
-
-/* Image hover */
 
 .dtlsCartscetion:hover .htlimg {
   transform: scale(1.05);
 }
 
-
-/* =========================
-   BOTTOM CONTENT
-========================= */
-
 .bottomSection {
   width: 100%;
-
   padding: 12px 14px 0;
-
   box-sizing: border-box;
-
   flex: 1;
 }
 
-
-/* Hotel name */
-
 .htlNamebox {
   width: 100%;
-
   margin-bottom: 6px;
 }
 
-
 .htlNamebox h4 {
   margin: 0;
-
   font-size: 17px;
-
   font-weight: 700;
-
   line-height: 1.3;
-
   color: #222222;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
-
-
-/* =========================
-   PRICE + LOCATION
-========================= */
 
 .htlCartbottomBox {
   display: flex;
-
   flex-direction: column;
-
   gap: 4px;
 }
 
-
 .htlCartbottomBox h4 {
   margin: 0;
-
   font-size: 13px;
-
   font-weight: 500;
-
   color: #777777;
 }
-
 
 .htlPrice {
   color: #222222;
-
   font-size: 17px;
-
   font-weight: 700;
 }
 
-
 .htlCartbottomBox p {
   margin: 0;
-
   font-size: 13px;
-
   color: #777777;
-
   white-space: nowrap;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
 }
 
-
-/* =========================
-   BOOK NOW BUTTON
-========================= */
-
 .bookingBtnCart {
   width: 100px;
-
   height: 34px;
-
-  margin:
-
-    0
-
-    14px
-
-    13px
-
-    auto;
-
+  margin: 0 14px 13px auto;
   padding: 0;
-
   border: none;
-
   border-radius: 7px;
-
   background: #2563eb;
-
   color: #ffffff;
-
   font-size: 13px;
-
   font-weight: 600;
-
   cursor: pointer;
-
-  transition:
-    background-color 0.25s ease,
-    transform 0.2s ease,
-    box-shadow 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
-
-
-/* Button hover */
 
 .bookingBtnCart:hover {
   background: #1d4ed8;
-
   transform: translateY(-2px);
-
-  box-shadow:
-    0 5px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
 }
-
-
-/* Button click */
 
 .bookingBtnCart:active {
   transform: scale(0.96);
 }
 
-
-/* =========================
-   TABLET
-========================= */
-
 @media (max-width: 950px) {
-
   .hotelsCartdataContainer {
     gap: 18px;
-
     padding: 10px 15px;
   }
-
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 650px) {
-
   .hotelsCartdataContainer {
     padding: 10px;
-
     gap: 16px;
   }
-
 
   .dtlsCartscetion {
     width: 290px;
     height: 330px;
   }
-
 }

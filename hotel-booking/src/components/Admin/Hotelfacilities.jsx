@@ -1,15 +1,14 @@
-import { useState } from "react"
+import { useState } from "react";
 
 
 export const Hotelfacilities = ({ setFacilities }) => {
 
     const [selectedFacilities, setselectedFacilities] = useState([]);
-
     const handleFecilitesChange = (e) => {
         const value = e.target.value;
-let updatedfacilities;
+        let updatedfacilities;
         if (e.target.checked) {
-             updatedfacilities = [
+            updatedfacilities = [
                 ...selectedFacilities,
                 value
             ];
@@ -17,7 +16,7 @@ let updatedfacilities;
             setselectedFacilities(updatedfacilities)
             setFacilities(updatedfacilities)
         } else {
-             updatedfacilities = selectedFacilities.filter(
+            updatedfacilities = selectedFacilities.filter(
                 (facility) => facility !== value)
             setselectedFacilities(updatedfacilities);
             setFacilities(updatedfacilities)
@@ -116,7 +115,7 @@ let updatedfacilities;
                     </label>
 
                     <label>
-                
+
 
                         <input type="checkbox" name="facilities" value="Laundry"
                             onChange={handleFecilitesChange}

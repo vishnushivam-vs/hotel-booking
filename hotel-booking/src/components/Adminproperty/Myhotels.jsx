@@ -5,7 +5,7 @@ import { auth, firestore } from '../Firebase/Firebase'
 import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-//import { data } from 'react-router-dom'
+
 export const Myhotels = () => {
     const user = auth.currentUser;
     const [myHotels, setMyHotels] = useState([])
@@ -30,7 +30,7 @@ export const Myhotels = () => {
                 }))
 
                 setMyHotels(hotels)
-                console.log("My Properties:", hotels);
+
 
             } catch (error) {
                 console.log("myHotels error;", error);
@@ -46,15 +46,11 @@ export const Myhotels = () => {
                 doc(firestore, "Hoteldetails", hotelId)
             );
 
-            // Remove deleted booking from React state
             setMyHotels((hotel) =>
                 hotel.filter(
                     (hotel) => hotel.id !== hotelId
                 )
             );
-
-
-            console.log("Booking cancelled successfully");
 
         } catch (error) {
             console.error("Error cancelling booking:", error);
@@ -63,8 +59,8 @@ export const Myhotels = () => {
     return (
         <div>
             <Navebar />
-            <div className='myHotelssection'>
 
+            <div className='myHotelssection'>
                 <h2 className="myHotelsTitle">My Hotels</h2>
                 {
                     myHotels.map((hotel) => (
@@ -83,7 +79,7 @@ export const Myhotels = () => {
                             <div className='hotelActions'>
                                 <button className='editBtn'
                                     onClick={() => navigate("/EdithotelData", {
-                                         state:{ hotel }      
+                                        state: { hotel }
                                     })}
                                 >Edit</button>
                                 <button className='cancelBtn'

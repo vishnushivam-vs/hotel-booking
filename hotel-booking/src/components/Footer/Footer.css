@@ -3,7 +3,6 @@ body {
     padding: 0;
 }
 
-/* Footer */
 .downSectionContainer {
     width: 100%;
     background: #aaabac2a;
@@ -11,7 +10,6 @@ body {
     margin-top: 50px;
 }
 
-/* Footer content */
 .destinationTopBox {
     width: 90%;
     max-width: 1200px;
@@ -23,13 +21,11 @@ body {
     gap: 40px;
 }
 
-/* Footer columns */
 .dwnCart {
     flex: 1;
     min-width: 150px;
 }
 
-/* Heading */
 .linksHead {
     margin: 0 0 15px;
     font-size: 17px;
@@ -37,7 +33,6 @@ body {
     color: #263238;
 }
 
-/* Links */
 .linkBox {
     display: flex;
     flex-direction: column;
@@ -56,7 +51,6 @@ body {
     color: #1e88e5;
 }
 
-/* Social icons */
 .logosSection {
     width: 90%;
     max-width: 1200px;
@@ -68,7 +62,6 @@ body {
     gap: 12px;
 }
 
-/* Social icon box */
 .logoImgBox {
     width: 36px;
     height: 36px;
@@ -80,20 +73,17 @@ body {
     transition: 0.2s ease;
 }
 
-/* Social image */
 .logoImg {
     width: 19px;
     height: 19px;
     object-fit: contain;
 }
 
-/* Social hover */
 .logoImgBox:hover {
     background: #d8e9f8;
     transform: translateY(-2px);
 }
 
-/* Copyright */
 .downSectionContainer::after {
     content: "© 2026 HotelBooking. All rights reserved.";
     display: block;
@@ -104,7 +94,6 @@ body {
     font-size: 12px;
 }
 
-/* Small window */
 @media (max-width: 700px) {
     .destinationTopBox {
         width: 94%;
@@ -127,7 +116,6 @@ body {
     }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
     .destinationTopBox {
         width: 90%;
@@ -141,203 +129,4 @@ body {
     .logosSection {
         width: 90%;
     }
-}
-
- body {
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Footer */
-
-.downSectionContainer {
-    width: 100%;
-   
-    margin-top: 50px;
-}
-
-
-/* Footer content */
-
-.destinationTopBox {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-
-    padding: 35px 0 25px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    gap: 40px;
-}
-
-
-/* Footer columns */
-
-.dwnCart {
-    flex: 1;
-    min-width: 150px;
-}
-
-
-/* Heading */
-
-.linksHead {
-    margin: 0 0 15px;
-
-    font-size: 17px;
-    font-weight: 600;
-
-    color: #263238;
-}
-
-
-/* Links */
-
-.linkBox {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.links {
-    margin: 0;
-
-    font-size: 14px;
-    color: #68747d;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.links:hover {
-    color: #1e88e5;
-}
-
-
-/* Social icons */
-
-.logosSection {
-    width: 90%;
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 15px 0 20px;
-
-    border-top: 1px solid #dfe3e8;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-
-/* Social icon box */
-
-.logoImgBox {
-    width: 36px;
-    height: 36px;
-
-    border-radius: 50%;
-
-    background: #e8edf2;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: 0.2s ease;
-}
-
-
-/* Social image */
-
-.logoImg {
-    width: 19px;
-    height: 19px;
-
-    object-fit: contain;
-}
-
-
-/* Social hover */
-
-.logoImgBox:hover {
-    background: #d8e9f8;
-    transform: translateY(-2px);
-}
-
-
-/* Copyright */
-
-.downSectionContainer::after {
-    content: "© 2026 HotelBooking. All rights reserved.";
-
-    display: block;
-
-    text-align: center;
-
-    padding: 12px 10px;
-
-    border-top: 1px solid #dfe3e8;
-
-    color: #7b858d;
-
-    font-size: 12px;
-}
-
-
-/* Small window */
-
-@media (max-width: 700px) {
-
-    .destinationTopBox {
-        width: 94%;
-
-        padding: 30px 0 20px;
-
-        gap: 20px;
-
-        flex-wrap: wrap;
-    }
-
-    .dwnCart {
-        flex: 1 1 140px;
-        min-width: 140px;
-    }
-
-    .linksHead {
-        font-size: 15px;
-    }
-
-    .links {
-        font-size: 13px;
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 480px) {
-
-    .destinationTopBox {
-        width: 90%;
-
-        gap: 20px;
-    }
-
-    .dwnCart {
-        flex: 1 1 40%;
-    }
-
-    .logosSection {
-        width: 90%;
-    }
-
 }

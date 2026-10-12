@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import "./Destination.css";
 
 export const Destination = ({ searchQuery}) => {
-    //const [search, setSearch] = useState(searchQuery);
+   
     const [destinations, setDestinations] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-
     const fetchDestinations = async (query) => {
 
          if (!query?.trim()) {

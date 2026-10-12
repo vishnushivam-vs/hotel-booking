@@ -1,25 +1,28 @@
-.inputBoxDiv{
-    display: flex;
-    flex-direction: column;
+.inputBoxDiv {
+  display: flex;
+  flex-direction: column;
 }
-.inputContainer{
-   display: grid;
+
+.inputContainer {
+  display: grid;
   grid-template-columns: repeat(2, 316px);
   gap: 2px 40px;
   width: fit-content;
   margin: 0 auto;
-    
+
 }
-.inputBoxHtlAdd{
-    width: 316px;
-    height: 35px;
-    border: solid 1px;
-    border-color: rgba(128, 128, 128, 0.414);
-    border-radius: 10px;
-    margin-top: 5px;
-    outline: none;
-    padding-left: 5px;
+
+.inputBoxHtlAdd {
+  width: 316px;
+  height: 35px;
+  border: solid 1px;
+  border-color: rgba(128, 128, 128, 0.414);
+  border-radius: 10px;
+  margin-top: 5px;
+  outline: none;
+  padding-left: 5px;
 }
+
 .facilitiesBox {
   margin-top: 20px;
   text-align: center;
@@ -34,14 +37,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 5px;
   margin: auto;
-   max-width: 600px;
-  
+  max-width: 600px;
+
 }
 
 .facilitiesGrid label {
   display: flex;
   align-items: center;
- 
+
   gap: 8px;
   padding: 10px;
   border: 1px solid #ddd;
@@ -54,64 +57,69 @@
   width: 16px;
   height: 16px;
 }
+
 .clsBtnImgApld,
-.ImageAddBtn{
-    margin-left: 80%;
-    height: 30px;
-    width: 150px;
-     border-radius: 10px;
-     border: none;
-     background-color: blue;
-     color: #fff;
-     font-size: 17px;
+.ImageAddBtn {
+  margin-left: 80%;
+  height: 30px;
+  width: 150px;
+  border-radius: 10px;
+  border: none;
+  background-color: blue;
+  color: #fff;
+  font-size: 17px;
 }
-.ThumbanailConatainer{
-   margin: auto;
-   display: flex;
-  
+
+.ThumbanailConatainer {
+  margin: auto;
+  display: flex;
+
 }
+
 .hotelImageClose {
-    margin-bottom: 20px;
-    padding: 8px 20px;
-    cursor: pointer;
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
 }
 
 /* Thumbnail - Large */
 .HotelThumbanail {
-    width: 450px;
-    height: 200px;
-    border: solid 2px  #aaa;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    margin: auto;
-    
+  width: 450px;
+  height: 200px;
+  border: solid 2px #aaa;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  margin: auto;
+
 }
 
-.imgUplodcontainer{
+.imgUplodcontainer {
   height: 660px;
   text-align: center;
-  
-}
-.uplodImage{
-  width: 100%;
-}
-.RoomImg {
-    display: flex;
-    width: 200px;
-    height: 150px;
-    border: solid 2px;
-    border-color: rgba(128, 128, 128, 0.574);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    margin-left: 20px;
-  
+
 }
 
-.roomImgContainer{
+.uplodImage {
+  width: 100%;
+}
+
+.RoomImg {
+  display: flex;
+  width: 200px;
+  height: 150px;
+  border: solid 2px;
+  border-color: rgba(128, 128, 128, 0.574);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+
+}
+
+.roomImgContainer {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
@@ -119,10 +127,12 @@
   margin: auto;
   margin-top: 10px;
 }
-.inputImgfile{
+
+.inputImgfile {
   display: none;
 }
-.ImgUplodBtn{
+
+.ImgUplodBtn {
   width: 150px;
   height: 35px;
   border-radius: 5px;
@@ -130,9 +140,10 @@
   background-color: green;
   color: #fff;
   font-size: 16px;
-  
+
 }
-.submitBtn{
+
+.submitBtn {
   margin-left: 45%;
   width: 100px;
   height: 35px;
@@ -143,8 +154,9 @@
   font-size: 16px;
   border-radius: 10px;
 }
-.removeImgBtn{
-      border-radius: 30px;
-      border: none;
-      background-color: #aaa;
+
+.removeImgBtn {
+  border-radius: 30px;
+  border: none;
+  background-color: #aaa;
 }

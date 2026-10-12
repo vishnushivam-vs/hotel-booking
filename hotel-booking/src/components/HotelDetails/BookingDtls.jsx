@@ -58,7 +58,7 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
             (new Date(checkout) - new Date(checkin)) /
             (1000 * 60 * 60 * 24)
         ) : 1;
-    
+
     const totalAmount = priceCalculation(pricing) * totalStaydays;
 
     const showUnavailableMessage = () => {
@@ -201,11 +201,11 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
                                 </div>
                             </div>
 
-                              {message && (
-                                <p style={{ 
-                                color: "red", 
-                                marginTop: "10px", 
-                                marginLeft: "40px"
+                            {message && (
+                                <p style={{
+                                    color: "red",
+                                    marginTop: "10px",
+                                    marginLeft: "40px"
                                 }}>
                                     {message}
                                 </p>
@@ -262,7 +262,7 @@ export const BookingDtls = ({ hotelData, facilities = [], pricing, description }
                                 }}
                             >Book Now</button>
 
-                          
+
                         </div>
                     </div>
                 </div>

@@ -8,12 +8,12 @@
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 10px;
-   
+
 }
 
 .htlDtlsBox,
 .paymentBox {
-    border: 2px solid ;
+    border: 2px solid;
     border-color: rgba(128, 128, 128, 0.541);
     border-radius: 10px;
 
@@ -24,15 +24,17 @@
     display: flex;
 
 }
-.dayBox{
-    
+
+.dayBox {
+
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.daynotag{
- color: rgba(0, 0, 0, 0.534);
+
+.daynotag {
+    color: rgba(0, 0, 0, 0.534);
 }
 
 .imageBox {
@@ -54,7 +56,7 @@
     height: 400px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .htlBkgDtlsBottemsection {
@@ -108,17 +110,20 @@
     height: 100px;
 
 }
+
 .bkBottomContainer {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.labelbk{
+
+.labelbk {
     color: rgba(0, 0, 0, 0.697);
     margin-left: 10px;
     font-size: 15px;
 }
-.priceRow{
+
+.priceRow {
     width: 90%;
     height: 20px;
     border: solid 2px;
@@ -135,15 +140,18 @@
     margin-left: 5px;
     margin-right: 5px;
 }
-.headSummery{
+
+.headSummery {
     margin-left: 5px;
 }
+
 .priceRow span:last-child {
     font-weight: 600;
     margin-right: 10px;
     color: #222;
 }
-.totalRow{
+
+.totalRow {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -151,7 +159,8 @@
     padding-left: 10px;
     padding-right: 20px;
 }
-.bkbookBtn{
+
+.bkbookBtn {
     width: 80%;
     height: 40px;
     margin: auto;
@@ -162,11 +171,12 @@
     font-size: 18px;
     cursor: pointer;
 }
-.bkbookBtn:hover{
-  border: solid 3px;
-  border-color: #ddd;
-  background-color: #c40d0d;
-  color: white
+
+.bkbookBtn:hover {
+    border: solid 3px;
+    border-color: #ddd;
+    background-color: #c40d0d;
+    color: white
 }
 
 @media (max-width: 800px) {
@@ -174,10 +184,12 @@
     .htlDtlsBox {
         grid-template-columns: 1fr;
     }
+
     .bkcheckinBox,
-.bkcheckOutBox{
-    margin-left: 5px;
-}
+    .bkcheckOutBox {
+        margin-left: 5px;
+    }
+
     .imageBox {
         width: 90%;
         height: 220px;
@@ -192,11 +204,12 @@
         display: flex;
         flex-direction: column;
     }
+
     .bkBottomContainer {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3px;
-    margin-top: 25px;
-}
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3px;
+        margin-top: 25px;
+    }
 
 }

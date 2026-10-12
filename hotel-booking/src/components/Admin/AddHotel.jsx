@@ -1,12 +1,11 @@
-import { useState } from "react"
-import "./AddHotel.css"
-import { Hotelfacilities } from "./Hotelfacilities"
-import { HotelImageAdd } from "./HotelImageAdd"
-import { addDoc, collection, serverTimestamp, } from "firebase/firestore"
-import { auth, firestore } from "../Firebase/Firebase"
-import { Navebar } from "../Navebar/Navebar"
-import { useNavigate } from "react-router-dom"
-//import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import { useState } from "react";
+import { Hotelfacilities } from "./Hotelfacilities";
+import "./AddHotel.css";
+import { HotelImageAdd } from "./HotelImageAdd";
+import { addDoc, collection, serverTimestamp, } from "firebase/firestore";
+import { auth, firestore } from "../Firebase/Firebase";
+import { Navebar } from "../Navebar/Navebar";
+import { useNavigate } from "react-router-dom";
 
 
 export const AddHotel = () => {
@@ -34,9 +33,8 @@ export const AddHotel = () => {
 
         hotelThumbanaile: "",
         images: [],
-
-
         facilities: []
+
     });
 
     const handleChange = ((e) => {
@@ -48,8 +46,8 @@ export const AddHotel = () => {
         }))
     });
     const uploadToCloudinary = async (file) => {
-        const formData = new FormData();
 
+        const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", "Vishnu");
 
@@ -66,9 +64,7 @@ export const AddHotel = () => {
             console.log("Cloudinary error:", errorData);
             throw new Error("Cloudinary image upload failed")
         }
-
         const data = await response.json()
-
         return data.secure_url;
     }
 
@@ -140,7 +136,7 @@ export const AddHotel = () => {
                 createdAt: serverTimestamp()
             }
             )
-            const hotelId = docRef.id;
+
 
             alert("hotel data uplod sucssefully")
             navigate("/Myhotels");

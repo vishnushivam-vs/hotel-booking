@@ -109,10 +109,7 @@ export const EdithotelData = () => {
 
             } catch (error) {
 
-                console.error(
-                    "Error loading hotel:",
-                    error
-                );
+                console.error("Error loading hotel:", error);
 
             } finally {
                 setLoading(false);
@@ -126,14 +123,11 @@ export const EdithotelData = () => {
     const handleChange = (e) => {
 
         const { name, value } = e.target;
-
         setHotelData((prev) => ({
             ...prev,
             [name]: value
         }));
     };
-
-    // UPDATE HOTEL
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -242,7 +236,6 @@ export const EdithotelData = () => {
                             handleChange={handleChange}
                         />
 
-                        {/*  PROPERTY IMAGES */}
 
                         <EditImg
                             hotelData={hotelData}
@@ -250,7 +243,6 @@ export const EdithotelData = () => {
                             hotelId={hotelId}
                         />
 
-                        {/*  PROPERTY STATUS */}
 
                         <section className="editSection">
 
@@ -294,7 +286,6 @@ export const EdithotelData = () => {
 
                         </section>
 
-                        {/*  ACTION BUTTONS */}
 
                         <div className="editActions">
 
@@ -316,13 +307,9 @@ export const EdithotelData = () => {
                             </button>
 
                         </div>
-
                     </div>
-
                 </form>
-
             </div>
-
         </div>
     );
 };

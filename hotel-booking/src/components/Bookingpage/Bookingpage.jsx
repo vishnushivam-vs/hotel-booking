@@ -1,16 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Navebar } from "../Navebar/Navebar"
-import './Bookingpage.css'
+import { Navebar } from "../Navebar/Navebar";
+import './Bookingpage.css';
 import { firestore } from "../Firebase/Firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { userAuth } from "../context/userauth";
 
 export const Bookingpage = () => {
+
     const navigate = useNavigate();
     const location = useLocation();
-    const { user, loading } = userAuth();
-    console.log(user);
-
+    const { user } = userAuth();
     const {
         hotelData,
         checkin,
@@ -26,8 +25,6 @@ export const Bookingpage = () => {
     const finalroomPrice = Number(hotelData.pricing.priceperNight * totalStaydays)
     const handleBooking = async () => {
         try {
-
-
 
             const bookingData = {
                 userId: user.uid,
@@ -50,7 +47,6 @@ export const Bookingpage = () => {
 
                 bookingStatus: "Confirmed",
                 paymentStatus: "Paid",
-
                 createdAt: serverTimestamp()
             }
 
@@ -60,12 +56,9 @@ export const Bookingpage = () => {
 
             );
 
-
-            console.log("Hotel availability added");
-
             alert("Booking confirmed successfully!");
-
             navigate("/Mybooking");
+
         } catch (error) {
             console.log("booking error", error);
             alert("Booking failed");
@@ -86,7 +79,6 @@ export const Bookingpage = () => {
                 availabilityData
             );
 
-            console.log("Availability created:", docRef.id);
 
         } catch (error) {
             console.log("Availability error:", error);
@@ -154,7 +146,7 @@ export const Bookingpage = () => {
                             <div className="bkbootomrgtClm">
                                 <h4>Contact Information</h4>
                                 <p>Hotel Reception</p>
-                                <p>+91 98765 43210</p>
+                                <p>+91 0000000000</p>
                                 <p>reception@hotel.com</p>
                             </div>
                         </div>
@@ -189,15 +181,13 @@ export const Bookingpage = () => {
                                 await handleBooking();
                                 await newData();
                             }}
-  
-                           
                         >
-                        Confirm Booking
-                    </button>
+                            Confirm Booking
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div >
     )
 }

@@ -42,16 +42,8 @@ export const HotelsCart1 = ({ searchData }) => {
 
   }, []);
 
-
-  // --------------------------------
-  // Search button click cheythal
-  // --------------------------------
-
   let filteredHotels = hotels;
-
-
   if (searchData) {
-
     const {
       checkin,
       checkout
@@ -60,20 +52,15 @@ export const HotelsCart1 = ({ searchData }) => {
 
     filteredHotels = hotels.filter((hotel) => {
 
-      // Ee hotel-inte bookings
       const hotelBookings = availability.filter(
         (booking) =>
           booking.hotelId === hotel.id
       );
 
-
-      // Existing booking date overlap undo?
       const conflict = hotelBookings.some(
         (booking) => {
-
           const existingCheckin = booking.checkin;
           const existingCheckout = booking.checkout;
-
 
           return (
             checkin < existingCheckout &&
@@ -84,11 +71,9 @@ export const HotelsCart1 = ({ searchData }) => {
       );
 
 
-      // Conflict illa → hotel available
       return !conflict;
 
     });
-    console.log("Available Hotels:", filteredHotels);
 
   }
 
@@ -96,68 +81,68 @@ export const HotelsCart1 = ({ searchData }) => {
   if (availabilityLoading) {
     return <p>Checking hotel availability...</p>;
   }
-  return(
+  return (
     <div className="searchResultsContainer">
 
-  {filteredHotels.map((hotel) => (
+      {filteredHotels.map((hotel) => (
 
-    <div
-      className="searchResultsHotelCard"
-      key={hotel.id}
-    >
+        <div
+          className="searchResultsHotelCard"
+          key={hotel.id}
+        >
 
-      <div className="searchResultsImageWrapper">
-        <img
-          className="searchResultsHotelImage"
-          src={hotel.hotelThumbanaile}
-          alt={hotel.hotelName}
-        />
-      </div>
+          <div className="searchResultsImageWrapper">
+            <img
+              className="searchResultsHotelImage"
+              src={hotel.hotelThumbanaile}
+              alt={hotel.hotelName}
+            />
+          </div>
 
-      <div className="searchResultsHotelContent">
+          <div className="searchResultsHotelContent">
 
-        <h3 className="searchResultsHotelName">
-          {hotel.hotelName}
-        </h3>
+            <h3 className="searchResultsHotelName">
+              {hotel.hotelName}
+            </h3>
 
-        <p className="searchResultsHotelLocation">
-          {hotel.location?.city},{" "}
-          {hotel.location?.state}
-        </p>
+            <p className="searchResultsHotelLocation">
+              {hotel.location?.city},{" "}
+              {hotel.location?.state}
+            </p>
 
-        <div className="searchResultsPriceWrapper">
-          <p className="searchResultsHotelPrice">
-            ₹{hotel.pricing?.priceperNight}
-          </p>
+            <div className="searchResultsPriceWrapper">
+              <p className="searchResultsHotelPrice">
+                ₹{hotel.pricing?.priceperNight}
+              </p>
 
-          <span className="searchResultsPriceUnit">
-            / night
-          </span>
+              <span className="searchResultsPriceUnit">
+                / night
+              </span>
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
+      ))}
+
+      {searchData && filteredHotels.length === 0 && (
+
+        <div className="searchResultsEmpty">
+
+          <h3 className="searchResultsEmptyTitle">
+            No hotels available
+          </h3>
+
+          <p className="searchResultsEmptyMessage">
+            No hotels available for the selected dates.
+          </p>
+
+        </div>
+
+      )}
 
     </div>
-
-  ))}
-
-  {searchData && filteredHotels.length === 0 && (
-
-    <div className="searchResultsEmpty">
-
-      <h3 className="searchResultsEmptyTitle">
-        No hotels available
-      </h3>
-
-      <p className="searchResultsEmptyMessage">
-        No hotels available for the selected dates.
-      </p>
-
-    </div>
-
-  )}
-
-</div>
   )
 
 }
