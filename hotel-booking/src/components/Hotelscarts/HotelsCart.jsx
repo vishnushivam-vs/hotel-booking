@@ -13,7 +13,7 @@ export const HotelsCart = () => {
         hoteldata.map((data) => (
           <div className="dtlsCartscetion" key={data.id}
             onClick={() => {
-              navigate('/HotelDtlsPage', { state: data });
+             navigate('/HotelDtlsPage', { state: data });
               window.scrollTo(0, 0);
             }}>
             <div className="htlroomiamgeBox">

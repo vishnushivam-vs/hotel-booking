@@ -29,7 +29,7 @@ export const DashBord = ({ closeDash }) => {
         onClick={() => (navigate("/Myhotels"))}
       >
         <div className='dasbordIcons'>
-
+        <img className='dasbrdImg' src="resort.png" alt="" />
         </div>
         <p>MyHotels</p>
       </div>
@@ -60,7 +60,7 @@ export const DashBord = ({ closeDash }) => {
        onClick={() => setShowLogoutPopup(true)}
       >
         <div className='dasbordIcons'>
-          
+            ↪
         </div>
 
         <p>LogOut</p>

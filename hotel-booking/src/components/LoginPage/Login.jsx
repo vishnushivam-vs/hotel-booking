@@ -9,7 +9,7 @@ export const Login = () => {
         try {
            const result = await  signInWithPopup(auth, provider)
               navigate("/")
-              console.log("Logged in user:", result.user);
+             
         } catch (error) {
             console.log("Google login error", error);
             

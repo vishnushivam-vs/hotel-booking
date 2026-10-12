@@ -3,10 +3,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../Firebase/Firebase";
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
 import "./SearchCarts.css"
+import { useNavigate } from "react-router-dom";
 export const HotelsCart1 = ({ searchData }) => {
 
   const [hotels, setHotels] = useState([]);
-
+  const navigate = useNavigate()
   const {
     availability,
     loading: availabilityLoading
@@ -89,7 +90,11 @@ export const HotelsCart1 = ({ searchData }) => {
         <div
           className="searchResultsHotelCard"
           key={hotel.id}
-        >
+           onClick={() => {
+             navigate('/HotelDtlsPage', { state: hotel });
+              window.scrollTo(0, 0);
+            }}>
+        
 
           <div className="searchResultsImageWrapper">
             <img
