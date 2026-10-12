@@ -3,7 +3,6 @@ import {  firestore } from "../Firebase/Firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { Navebar } from "../Navebar/Navebar";
 import "./Profile.css";
-//import "./profiles.css";
 import { userAuth } from "../context/userauth";
 import { useNavigate } from "react-router-dom";
 import { Logout } from "../Logout/Logout";
@@ -54,9 +53,7 @@ export const Profile = () => {
                 }
 
             } catch (error) {
-
                 console.log("Profile error:", error);
-
             }
         };
 
@@ -85,8 +82,6 @@ export const Profile = () => {
             <section className="profileSection">
 
                 <div className="profileContainer">
-
-                    {/* Profile Header */}
 
                     <div className="profileHeader">
 
@@ -131,9 +126,6 @@ export const Profile = () => {
                         </div>
 
                     </div>
-
-
-                    {/* Personal Information */}
 
                     <div className="profileCard">
 
@@ -222,8 +214,6 @@ export const Profile = () => {
                     </div>
 
 
-                    {/* Account Information */}
-
                     <div className="profileCard">
 
                         <h3>Account Information</h3>
@@ -251,15 +241,12 @@ export const Profile = () => {
                     </div>
 
 
-                    {/* Quick Actions */}
-
                     <div className="profileCard">
 
                         <h3>Quick Actions</h3>
 
                         <div className="profileActions">
 
-                            {/* My Bookings */}
 
                             <button
                                 className="profileActionBtn"
@@ -283,8 +270,6 @@ export const Profile = () => {
                             </button>
 
 
-                            {/* My Property Listings */}
-
                             <button
                                 className="profileActionBtn"
                                 onClick={() => navigate("/Myhotels")}
@@ -305,9 +290,6 @@ export const Profile = () => {
                                 </span>
 
                             </button>
-
-
-                            {/* Logout */}
 
                             <button
                                 className="profileActionBtn logoutAction"

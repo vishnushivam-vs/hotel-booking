@@ -7,15 +7,14 @@ import { Navebar } from '../Navebar/Navebar';
 import { userAuth } from '../context/userauth';
 
 export const Mybooking = () => {
+
     const { user, loading } = userAuth()
     const [myBookings, setMybookings] = useState([])
     const today = new Date().toISOString().split("T")[0];
     useEffect(() => {
 
         if (loading) return;
-
         if (!user?.uid) return;
-
 
         const getBookings = async () => {
 
@@ -27,15 +26,12 @@ export const Mybooking = () => {
                 );
 
                 const snapshot = await getDocs(q);
-
                 const bookings = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data()
                 }));
 
                 setMybookings(bookings);
-
-                console.log("Fetched bookings:", bookings);
 
             } catch (error) {
                 console.error("Error fetching bookings:", error);
@@ -59,15 +55,12 @@ export const Mybooking = () => {
                 doc(firestore, "Bookings", bookingId)
             );
 
-            // Remove deleted booking from React state
             setMybookings((prevBookings) =>
                 prevBookings.filter(
                     (booking) => booking.id !== bookingId
                 )
             );
 
-
-            console.log("Booking cancelled successfully");
 
         } catch (error) {
             console.error("Error cancelling booking:", error);
@@ -97,7 +90,7 @@ export const Mybooking = () => {
                                     </div>
                                 </div>
                                 <div className='gridClm2'>
-                                    
+
                                     <div className='checkdateclm'>
                                         <div className='checkinClmA'>
                                             <h4>Check-In: <label>{data.checkInday}</label></h4>
@@ -113,8 +106,8 @@ export const Mybooking = () => {
                                         <p>{data.paymentStatus}</p>
                                     </div>
                                     <p>Booking Status : <span className="completed"> Confirmed</span></p>
-                                    
-                                   <h5>Stay Dates: <label> {data.totalStaydays} Nights</label ></h5>
+
+                                    <h5>Stay Dates: <label> {data.totalStaydays} Nights</label ></h5>
                                 </div>
                                 {
                                     today !== data.checkOutday ?
@@ -168,8 +161,6 @@ export const Mybooking = () => {
                             </div>
                         ))
                     )}
-
-
 
             </div>
         </div>

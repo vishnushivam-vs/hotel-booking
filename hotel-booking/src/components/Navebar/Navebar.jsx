@@ -8,10 +8,11 @@ import { DashBord } from '../Dashboard/DashBord';
 
 
 export const Navebar = ({ setSerachResultShow }) => {
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
     const { user } = userAuth()
     const [showdashBoard, setShowdashBoard] = useState(false)
+
     return (
         <>
             <div className="topBox">
@@ -41,7 +42,6 @@ export const Navebar = ({ setSerachResultShow }) => {
                                     width="40"
                                 />
 
-
                             </div>
                         ) : (
                             <div>
@@ -52,8 +52,6 @@ export const Navebar = ({ setSerachResultShow }) => {
                         )
                     }
                 </div>
-
-
             </div>
             {
                 showdashBoard ? <DashBord closeDash={() => setShowdashBoard(false)} /> : " "

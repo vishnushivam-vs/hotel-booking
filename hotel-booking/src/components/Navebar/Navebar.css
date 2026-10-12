@@ -1,89 +1,48 @@
-/* ================================
-   Main Navbar
-================================ */
-
 .topBox {
     width: 100%;
     height: 70px;
-
     padding: 0 32px;
-
     box-sizing: border-box;
-
     background: rgba(255, 255, 255, 0.96);
-
     border-bottom: 1px solid #eaecf0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: sticky;
     top: 0;
-
     z-index: 1000;
-
     box-shadow: 0 2px 10px rgba(16, 24, 40, 0.04);
-
     backdrop-filter: blur(10px);
 }
 
-
-/* ================================
-   Left Navigation
-================================ */
-
 .topeLefttscetion {
     height: 100%;
-
     display: flex;
     align-items: center;
-
     gap: 6px;
 }
-
-
-/* Common Navigation Button */
 
 .homeBtn,
 .aboutBtn,
 .roomsBtn {
     height: 42px;
-
     padding: 0 17px;
-
     border: none;
-
     background: transparent;
-
     border-radius: 9px;
-
     color: #475467;
-
     font-size: 14px;
     font-weight: 550;
-
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
-
-
-/* Hover */
 
 .homeBtn:hover,
 .aboutBtn:hover,
 .roomsBtn:hover {
     background: #f2f4f7;
-
     color: #101828;
 }
-
-
-/* Active-like effect on click */
 
 .homeBtn:active,
 .aboutBtn:active,
@@ -91,107 +50,59 @@
     transform: scale(0.97);
 }
 
-
-/* ================================
-   Right Section
-================================ */
-
 .topBoxRightsection {
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
-
-
-/* ================================
-   Profile Image
-================================ */
 
 .profileImgBox {
     width: 42px;
     height: 42px;
-
     border-radius: 50%;
-
     padding: 2px;
-
     box-sizing: border-box;
-
     background: #ffffff;
-
     border: 1px solid #d0d5dd;
-
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .profileImgBox:hover {
     transform: translateY(-1px);
-
     border-color: #98a2b3;
-
     box-shadow: 0 4px 12px rgba(16, 24, 40, 0.14);
 }
 
 .profileimg {
     width: 100%;
     height: 100%;
-
     border-radius: 50%;
-
     object-fit: cover;
-
     display: block;
 }
 
-
-/* ================================
-   Login Button
-================================ */
-
 .signBtn {
     height: 40px;
-
     min-width: 82px;
-
     padding: 0 18px;
-
     border: 1px solid #d0d5dd;
-
     border-radius: 9px;
-
     background: #ffffff;
-
     color: #344054;
-
     font-size: 14px;
     font-weight: 600;
-
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .signBtn:hover {
     background: #f8fafc;
-
     border-color: #98a2b3;
-
     box-shadow: 0 3px 8px rgba(16, 24, 40, 0.08);
-
     transform: translateY(-1px);
 }
 
@@ -199,16 +110,9 @@
     transform: translateY(0);
 }
 
-
-/* ================================
-   Tablet
-================================ */
-
 @media (max-width: 700px) {
-
     .topBox {
         height: 64px;
-
         padding: 0 18px;
     }
 
@@ -220,7 +124,6 @@
     .aboutBtn,
     .roomsBtn {
         padding: 0 12px;
-
         font-size: 13px;
     }
 
@@ -231,25 +134,15 @@
 
     .signBtn {
         height: 38px;
-
         min-width: 75px;
-
         padding: 0 14px;
-
         font-size: 13px;
     }
 }
 
-
-/* ================================
-   Mobile
-================================ */
-
 @media (max-width: 480px) {
-
     .topBox {
         height: 60px;
-
         padding: 0 12px;
     }
 
@@ -261,11 +154,8 @@
     .aboutBtn,
     .roomsBtn {
         height: 38px;
-
         padding: 0 8px;
-
         font-size: 12px;
-
         border-radius: 7px;
     }
 
@@ -280,13 +170,9 @@
 
     .signBtn {
         height: 36px;
-
         min-width: 68px;
-
         padding: 0 11px;
-
         font-size: 12px;
-
         border-radius: 8px;
     }
 }
