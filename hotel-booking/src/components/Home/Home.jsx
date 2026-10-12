@@ -88,7 +88,7 @@ export const Home = () => {
               className="destiantionbox"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search plase"
+              placeholder="Search place"
             />
 
           </div>

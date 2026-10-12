@@ -72,8 +72,8 @@ export const Destination = ({ searchQuery }) => {
     };
 
     useEffect(() => {
-
-        fetchDestinations(
+      
+        fetchDestinations (
             `Tourist attractions in ${searchQuery?.trim() || "India"}`
         );
 
