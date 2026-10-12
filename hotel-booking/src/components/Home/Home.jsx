@@ -10,7 +10,7 @@ import { Destination } from "./Destination/Destination";
 
 export const Home = () => {
 
-  const [search, setSearch] = useState("India tourist destinations");
+  const [search, setSearch] = useState(" ");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [serachResultShow, SetserachResultShow] = useState(false)
@@ -88,7 +88,7 @@ export const Home = () => {
               className="destiantionbox"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search Munnar, Paris, Taj Mahal..."
+              placeholder="Search plase"
             />
 
           </div>

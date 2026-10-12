@@ -2,18 +2,19 @@
 import { useEffect, useState } from "react";
 import "./Destination.css";
 
-export const Destination = ({ searchQuery}) => {
-   
+export const Destination = ({ searchQuery }) => {
+
     const [destinations, setDestinations] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
     const fetchDestinations = async (query) => {
 
-         if (!query?.trim()) {
-        setDestinations([]);
-        setError("Please enter a destination.");
-        return;
-    }
+        if (!query?.trim()) {
+            setDestinations([]);
+            setError("Please enter a destination.");
+            return;
+        }
 
         setLoading(true);
         setError("");
@@ -70,13 +71,15 @@ export const Destination = ({ searchQuery}) => {
         }
     };
 
- useEffect(() => {
-    if (searchQuery?.trim()) {
-        fetchDestinations(searchQuery);
-    }
-}, [searchQuery]);
+    useEffect(() => {
 
-   
+        fetchDestinations(
+            `Tourist attractions in ${searchQuery?.trim() || "India"}`
+        );
+
+    }, [searchQuery]);
+
+
     return (
         <section className="destinationSection">
             <div className="destinationHeader">
