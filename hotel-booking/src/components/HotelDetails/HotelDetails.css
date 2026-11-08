@@ -1,491 +1,703 @@
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #ffffff;
-  color: #222222;
+    margin: 0;
+    background: #ffffff;
+    color: #222222;
 }
 
 .headBox {
-  width: 100%;
-  max-width: 1200px;
-  margin: 25px auto 15px;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto 15px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .gridBox {
-  flex: 1;
+    flex: 1;
 }
 
 .gridBox h2 {
-  margin: 0;
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #222222;
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #222222;
 }
 
 .hotelIMGcontainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .propertyCart {
-  width: 100%;
-  height: 430px;
-  display: flex;
-  gap: 8px;
-  overflow: hidden;
-  border-radius: 16px;
+    width: 100%;
+    height: 430px;
+    display: flex;
+    gap: 8px;
+    overflow: hidden;
+    border-radius: 16px;
 }
 
 .coloumn1 {
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .sideImg {
-  width: 50%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
 }
 
 .coloumn2 {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .hotelImg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
 }
 
 .coloumn1:hover .hotelImg,
 .coloumn2:hover .hotelImg {
-  transform: scale(1.04);
+    transform: scale(1.04);
 }
 
 .htlNameBox {
-  width: 100%;
-  margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .hotelName {
-  margin: 0;
-  font-size: 25px;
-  font-weight: 700;
-  color: #222222;
-  line-height: 1.3;
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: #222222;
+    line-height: 1.3;
 }
 
 .revieContainer {
-  width: 100%;
-  margin-top: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 95%;
+    max-width: 950px;
+    margin-top: 14px;
 }
 
 .reviewBox {
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-
-.reviewBox .box {
-  min-height: 25px;
-  padding: 0 15px;
-  display: flex;
-  align-items: center;
-  border-right: 1px solid #d1d5db;
-}
-
-.reviewBox .box:first-child {
-  padding-left: 0;
-}
-
-.reviewBox .box:last-child {
-  border-right: none;
-}
-
-.reviewBox h4 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 700;
-  color: #222222;
-}
-
-.reviewBox p {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #555555;
-}
-
-.bookingDtls {
-  width: 100%;
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-@media (max-width: 900px) {
-  .headBox {
-    padding: 0 15px;
-  }
-
-  .hotelIMGcontainer {
-    padding: 0 15px;
-  }
-
-  .gridBox h2 {
-    font-size: 22px;
-  }
-
-  .propertyCart {
-    height: 350px;
-  }
-
-  .hotelName {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 650px) {
-  .headBox {
-    margin-top: 18px;
-    padding: 0 12px;
-  }
-
-  .gridBox h2 {
-    font-size: 19px;
-  }
-
-  .hotelIMGcontainer {
-    padding: 0 12px;
-  }
-
-  .propertyCart {
-    height: 280px;
-    gap: 5px;
-    border-radius: 12px;
-  }
-
-  .coloumn1 {
-    width: 55%;
-  }
-
-  .sideImg {
-    width: 45%;
-    gap: 5px;
-  }
-
-  .htlNameBox {
-    margin-top: 15px;
-  }
-
-  .hotelName {
-    font-size: 19px;
-  }
-
-  .reviewBox .box {
-    padding: 0 10px;
-  }
-
-  .reviewBox h4,
-  .reviewBox p {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 450px) {
-  .propertyCart {
-    height: 230px;
-  }
-
-  .gridBox h2 {
-    font-size: 17px;
-  }
-
-  .hotelName {
-    font-size: 17px;
-  }
-
-  .reviewBox .box {
-    padding: 0 7px;
-  }
-
-  .reviewBox h4,
-  .reviewBox p {
-    font-size: 11px;
-  }
-}
-
-.revieContainer {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  width: 95%;
-  max-width: 950px;
-}
-
-.reviewBox {
-  margin-top: 5px;
-  display: flex;
-  width: 450px;
-  justify-content: space-between;
+    margin-top: 5px;
+    display: flex;
+    width: 450px;
+    justify-content: space-between;
 }
 
 .box {
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: hsla(204, 4%, 76%, 0.901);
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: hsla(204, 4%, 76%, 0.901);
 }
 
-.hotelImg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.4s ease;
+.reviewBox .box {
+    min-height: 25px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #d1d5db;
+}
+
+.reviewBox .box:first-child {
+    padding-left: 0;
+}
+
+.reviewBox .box:last-child {
+    border-right: none;
+}
+
+.reviewBox h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.reviewBox p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555555;
+}
+
+.bookingDtls {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
 }
 
 .bookingDtlsContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-  border-top: solid 1px;
-  border-color: hsla(204, 4%, 76%, 0.901);
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    border-top: solid 1px;
+    border-color: hsla(204, 4%, 76%, 0.901);
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .bookingDtlsCart {
-  display: grid;
-  width: 100%;
-  max-width: 900px;
-  grid-template-columns: 2fr 1.8fr;
-  margin-top: 10px;
+    display: grid;
+    width: 100%;
+    max-width: 900px;
+    grid-template-columns: 2fr 1.8fr;
+    margin-top: 10px;
 }
 
 .detailsCart {
-  display: grid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: start;
 }
 
 .fcltHeadBox {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .amenitiesBox {
-  display: flex;
-  margin-left: 5px;
-  margin-top: 5px;
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+    min-width: 0;
 }
 
 .reserveDtlsBox {
-  border: solid 1px;
-  border-color: rgb(137, 133, 133);
-  border-radius: 10px;
+    border: solid 1px;
+    border-color: rgb(137, 133, 133);
+    border-radius: 10px;
 }
 
 .priceBox {
-  height: 50px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .stayDays,
 .bookingPrice {
-  margin: 0;
-  line-height: 1;
-  margin-left: 10px;
+    margin: 0;
+    line-height: 1;
+    margin-left: 10px;
 }
 
 .checkinDaysBox {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 90px;
-  border-bottom: solid 1px;
-  border-color: rgb(137, 133, 133);
-  border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 90px;
+    border-bottom: solid 1px;
+    border-color: rgb(137, 133, 133);
+    border-radius: 8px;
 }
 
 .checkinBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-right: solid 1px;
-  border-color: rgb(137, 133, 133);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 1px;
+    border-color: rgb(137, 133, 133);
 }
 
 .checkOutBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .chBoxtext {
-  margin-top: 0px;
-  margin-bottom: 2px;
+    margin-top: 0;
+    margin-bottom: 2px;
 }
 
 .checkout,
 .checkin {
-  width: 120px;
-  height: 40px;
-  text-align: center;
-  font-size: large;
-  border: solid 2px;
-  border-color: hsla(60, 2%, 46%, 0.673);
-  border-radius: 10px;
-  color: hwb(20 51% 47% / 0.958);
-  outline: none;
-  cursor: pointer;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: large;
+    border: solid 2px;
+    border-color: hsla(60, 2%, 46%, 0.673);
+    border-radius: 10px;
+    color: hwb(20 51% 47% / 0.958);
+    outline: none;
+    cursor: pointer;
 }
 
 .dayname {
-  color: green;
+    color: green;
 }
 
 .guestInputBox {
-  font-size: medium;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  height: 50px;
-  margin-top: 10px;
-  align-items: center;
-  border-bottom: solid 1px;
-  border-color: hwb(0 47% 51%);
+    font-size: medium;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 50px;
+    margin-top: 10px;
+    align-items: center;
+    border-bottom: solid 1px;
+    border-color: hwb(0 47% 51%);
 }
 
 .downArrow {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  font-size: 26px;
-  justify-content: center;
-  background-color: white;
-  border-radius: 5px;
-  outline: none;
-  border: solid 1px;
-  border-color: antiquewhite;
-  text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    font-size: 26px;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px;
+    border-color: antiquewhite;
+    text-align: center;
 }
 
 .chevronarrow {
-  width: 80%;
+    width: 80%;
 }
 
 .guestInputBox p {
-  margin: 0;
-  line-height: 1.4;
-  margin-left: 10px;
+    margin: 0;
+    line-height: 1.4;
+    margin-left: 10px;
 }
 
 .guestCount,
 .guestlabel {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .guestRow {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
 
 .guestType {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  margin-top: 5px;
-  margin-left: 15px;
-  font-size: medium;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: medium;
 }
 
 .counter {
-  display: flex;
-  height: 50px;
-  margin-top: 5px;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    height: 50px;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .descriptionDtlsbox {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .descriptionDtlsbox h4 {
-  margin-left: 10px;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.756);
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.756);
 }
 
 .descriptionDtlsbox h3 {
-  margin-left: 10px;
-  font-size: 18px;
-  line-height: 1.6;
+    margin-left: 10px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .counter button {
-  width: 40px;
-  height: 40px;
-  font-size: larger;
-  font-weight: bold;
-  color: hwb(0 47% 51%);
-  margin-left: 3px;
-  margin-right: 3px;
-  border-radius: 50%;
-  outline: none;
-  border: solid 1px;
-  cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: larger;
+    font-weight: bold;
+    color: hwb(0 47% 51%);
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 50%;
+    outline: none;
+    border: solid 1px;
+    cursor: pointer;
 }
 
 .ReserveBtn {
-  width: 200px;
-  height: 50px;
-  margin-left: 25%;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  text-align: center;
-  font-size: larger;
-  font-weight: bold;
-  color: white;
-  background-color: red;
-  border: 1px;
-  border-color: white;
-  border-radius: 30px;
-  cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin-left: 25%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border: 1px;
+    border-color: white;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
-@media (min-width: 860px) {
-  .detailsCart {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .fcltHeadBox {
-    width: 900px;
-  }
+/* Tablet screens */
+
+@media (max-width: 900px) {
+
+    .headBox {
+        padding: 0 15px;
+    }
+
+    .hotelIMGcontainer {
+        padding: 0 15px;
+    }
+
+    .gridBox h2 {
+        font-size: 22px;
+    }
+
+    .propertyCart {
+        height: 350px;
+    }
+
+    .hotelName {
+        font-size: 22px;
+    }
+
+}
+
+
+/* Mobile screens */
+
+@media (max-width: 650px) {
+
+    .headBox {
+        width: 100%;
+        margin-top: 18px;
+        padding: 0 12px;
+    }
+
+    .gridBox {
+        min-width: 0;
+    }
+
+    .gridBox h2 {
+        font-size: 19px;
+    }
+
+    .hotelIMGcontainer {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .propertyCart {
+        width: 100%;
+        height: 280px;
+        gap: 5px;
+        border-radius: 12px;
+    }
+
+    .coloumn1 {
+        width: 55%;
+        min-width: 0;
+    }
+
+    .sideImg {
+        width: 45%;
+        min-width: 0;
+        gap: 5px;
+    }
+
+    .coloumn2 {
+        min-width: 0;
+    }
+
+    .htlNameBox {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .hotelName {
+        font-size: 19px;
+    }
+
+    .revieContainer {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .reviewBox {
+        width: 100%;
+        max-width: 450px;
+        gap: 5px;
+    }
+
+    .reviewBox .box {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+        padding: 0 5px;
+    }
+
+    .reviewBox h4,
+    .reviewBox p {
+        font-size: 12px;
+    }
+
+    .bookingDtlsContainer {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .descriptionDtlsbox {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .descriptionDtlsbox h3 {
+        margin-left: 10px;
+    }
+
+    .descriptionDtlsbox h4 {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .fcltHeadBox {
+        width: 100%;
+    }
+
+    .bookingDtlsCart {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .detailsCart {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .amenitiesBox {
+        width: auto;
+        min-width: 0;
+    }
+
+    .bookingCart {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .reserveDtlsBox {
+        width: 100%;
+    }
+
+    .checkinDaysBox {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .checkinBox,
+    .checkOutBox {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .checkout,
+    .checkin {
+        width: 95%;
+        max-width: 150px;
+        font-size: 14px;
+    }
+
+    .guestInputBox {
+        width: 100%;
+    }
+
+    .guestRow {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .counter {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .counter button {
+        flex-shrink: 0;
+    }
+
+    .ReserveBtn {
+        width: 90%;
+        max-width: 250px;
+        margin: 10px auto;
+        display: block;
+    }
+
+}
+
+
+/* Small mobile screens */
+
+@media (max-width: 450px) {
+
+    .headBox {
+        padding: 0 10px;
+    }
+
+    .gridBox h2 {
+        font-size: 17px;
+    }
+
+    .hotelIMGcontainer {
+        padding: 0 10px;
+    }
+
+    .propertyCart {
+        width: 100%;
+        height: 230px;
+        gap: 4px;
+    }
+
+    .coloumn1 {
+        width: 55%;
+    }
+
+    .sideImg {
+        width: 45%;
+        gap: 4px;
+    }
+
+    .hotelName {
+        font-size: 17px;
+    }
+
+    .reviewBox {
+        gap: 3px;
+    }
+
+    .reviewBox .box {
+        padding: 0 3px;
+    }
+
+    .reviewBox h4,
+    .reviewBox p {
+        font-size: 11px;
+    }
+
+    .bookingDtlsContainer {
+        padding: 0 10px;
+    }
+
+    .bookingDtlsCart {
+        width: 100%;
+    }
+
+    .detailsCart {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .amenitiesBox {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+
+    .descriptionDtlsbox h3 {
+        font-size: 17px;
+    }
+
+    .descriptionDtlsbox h4 {
+        font-size: 14px;
+    }
+
+    .checkinDaysBox {
+        height: 90px;
+    }
+
+    .checkout,
+    .checkin {
+        width: 95%;
+        height: 38px;
+        font-size: 12px;
+    }
+
+    .chBoxtext {
+        font-size: 12px;
+    }
+
+    .dayname {
+        font-size: 12px;
+    }
+
+    .guestInputBox {
+        width: 100%;
+    }
+
+    .guestType {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .counter button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .ReserveBtn {
+        width: 90%;
+        height: 45px;
+        font-size: 17px;
+    }
+
+}
+
+
+/* Desktop layout */
+
+@media (min-width: 860px) {
+
+    .detailsCart {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fcltHeadBox {
+        width: 900px;
+    }
+
 }

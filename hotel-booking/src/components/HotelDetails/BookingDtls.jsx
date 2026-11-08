@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './HotelDetails.css'
+//import './sample.css'
 import { useNavigate } from 'react-router-dom';
 import { userAuth } from '../context/userauth';
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
