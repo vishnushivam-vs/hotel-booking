@@ -1,14 +1,21 @@
+
 .bookingContainer {
     width: 85%;
-    height: 500px;
-    margin: auto;
+    max-width: 1400px;
+    min-height: 500px;
+    height: auto;
+    margin: 30px auto;
+}
+
+.topContSection {
+    margin-bottom: 20px;
 }
 
 .gridContainer {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 10px;
-
+    grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+    gap: 15px;
+    align-items: start;
 }
 
 .htlDtlsBox,
@@ -16,17 +23,19 @@
     border: 2px solid;
     border-color: rgba(128, 128, 128, 0.541);
     border-radius: 10px;
-
+    min-width: 0;
 }
 
 .htlDtlsfirstClm {
     width: 100%;
     display: flex;
-
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .dayBox {
-
     width: 80%;
     display: flex;
     align-items: center;
@@ -40,39 +49,46 @@
 .imageBox {
     width: 300px;
     height: 200px;
+    flex-shrink: 0;
     display: flex;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: 0;
 }
 
 .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .paymentBox {
-    width: 320px;
-    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
-
+    box-sizing: border-box;
+    justify-self: center;
+    padding-bottom: 15px;
 }
 
 .htlBkgDtlsBottemsection {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    min-width: 0;
 }
 
 .bokkingdateBox {
-
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 8px;
     width: 100%;
-    height: 60px;
+    min-height: 60px;
 }
 
 .checkInclm,
@@ -81,6 +97,7 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+    gap: 8px;
 }
 
 .bkcheckinBox,
@@ -90,10 +107,11 @@
     justify-content: center;
     background-color: #dddddd4e;
     width: 100px;
+    min-width: 80px;
     height: 30px;
     border: solid 1px;
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 10px;
     border-color: rgba(128, 128, 128, 0.523);
     color: rgba(0, 0, 0, 0.733);
 }
@@ -102,19 +120,29 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .extraInfrmBox {
     width: 100%;
     height: 100px;
-
 }
 
 .bkBottomContainer {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+}
+
+.bkRoomtypeBox,
+.bkbootomClm,
+.bkbootomrgtClm {
+    min-width: 0;
 }
 
 .labelbk {
@@ -123,32 +151,37 @@
     font-size: 15px;
 }
 
+.priceContainer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .priceRow {
-    width: 90%;
-    height: 20px;
+    width: calc(100% - 20px);
+    min-height: 20px;
+    box-sizing: border-box;
     border: solid 2px;
     border-radius: 10px;
     border-color: rgba(128, 128, 128, 0.601);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 5px;
-    padding: 12px 0;
+    gap: 8px;
+    margin: 5px 10px;
+    padding: 12px 10px;
     font-size: 15px;
     color: #555;
-    padding-left: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 .headSummery {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .priceRow span:last-child {
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 5px;
     color: #222;
+    white-space: nowrap;
 }
 
 .totalRow {
@@ -156,14 +189,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-right: 20px;
+    gap: 10px;
 }
 
 .bkbookBtn {
     width: 80%;
-    height: 40px;
-    margin: auto;
+    max-width: 300px;
+    min-height: 40px;
+    margin: 15px auto 0;
     border-radius: 10px;
     border: none;
     background-color: darkblue;
@@ -176,40 +211,229 @@
     border: solid 3px;
     border-color: #ddd;
     background-color: #c40d0d;
-    color: white
+    color: white;
 }
 
-@media (max-width: 800px) {
 
-    .htlDtlsBox {
-        grid-template-columns: 1fr;
+/* Tablet screens */
+
+@media (max-width: 1000px) {
+
+    .bookingContainer {
+        width: 92%;
     }
 
-    .bkcheckinBox,
-    .bkcheckOutBox {
-        margin-left: 5px;
+    .gridContainer {
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+        gap: 12px;
     }
 
     .imageBox {
-        width: 90%;
-        height: 220px;
-        margin-left: 20px;
-    }
-
-    .img {
-        width: 100%;
+        width: 240px;
+        height: 190px;
     }
 
     .htlDtlsfirstClm {
-        display: flex;
+        gap: 10px;
+    }
+
+    .bokkingdateBox {
+        justify-content: center;
+    }
+
+    .checkInclm,
+    .checkoutclm {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .bkBottomContainer {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+}
+
+
+/* Mobile and small tablet */
+
+@media (max-width: 768px) {
+
+    .bookingContainer {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .gridContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .htlDtlsfirstClm {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .imageBox {
+        width: 100%;
+        max-width: 450px;
+        height: 230px;
+    }
+
+    .htlBkgDtlsBottemsection {
+        width: 100%;
+    }
+
+    .htlBkgDtlsBottemsection h2 {
+        text-align: center;
+    }
+
+    .bokkingdateBox {
+        justify-content: space-evenly;
+    }
+
+    .dayBox {
+        width: 100%;
+    }
+
+    .gusteDtlbox {
+        justify-content: space-evenly;
     }
 
     .bkBottomContainer {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 3px;
-        margin-top: 25px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .bkRoomtypeBox {
+        grid-column: 1 / -1;
+    }
+
+    .bkbootomClm,
+    .bkbootomrgtClm {
+        overflow-wrap: anywhere;
+    }
+
+    .paymentBox {
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+    }
+
+}
+
+
+/* Small mobile screens */
+
+@media (max-width: 480px) {
+
+    .bookingContainer {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .topContSection h3 {
+        font-size: 20px;
+    }
+
+    .topContSection p {
+        font-size: 14px;
+    }
+
+    .htlDtlsfirstClm {
+        padding: 10px;
+    }
+
+    .imageBox {
+        width: 100%;
+        height: 190px;
+    }
+
+    .htlBkgDtlsBottemsection h2 {
+        font-size: 20px;
+    }
+
+    .bokkingdateBox {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .checkInclm,
+    .checkoutclm {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    .bkcheckinBox,
+    .bkcheckOutBox {
+        width: 120px;
+        margin-left: 5px;
+    }
+
+    .dayBox {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .daynotag {
+        font-size: 15px;
+    }
+
+    .gusteDtlbox {
+        justify-content: space-around;
+        font-size: 14px;
+    }
+
+    .bkBottomContainer {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 10px 15px;
+    }
+
+    .bkRoomtypeBox {
+        grid-column: auto;
+    }
+
+    .bkBottomContainer h4 {
+        margin-bottom: 5px;
+    }
+
+    .bkBottomContainer p {
+        overflow-wrap: anywhere;
+    }
+
+    .paymentBox {
+        padding-bottom: 15px;
+    }
+
+    .headSummery {
+        font-size: 19px;
+    }
+
+    .priceRow {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+
+    .totalRow {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .totalRow h3 {
+        font-size: 20px;
+    }
+
+    .bkbookBtn {
+        width: 90%;
+        font-size: 16px;
     }
 
 }

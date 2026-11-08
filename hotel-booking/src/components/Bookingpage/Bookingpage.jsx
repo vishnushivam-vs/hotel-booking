@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Navebar } from "../Navebar/Navebar";
 import './Bookingpage.css';
+//import './sample.css';
 import { firestore } from "../Firebase/Firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { userAuth } from "../context/userauth";
