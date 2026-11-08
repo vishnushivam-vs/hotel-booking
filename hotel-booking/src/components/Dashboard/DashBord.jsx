@@ -68,6 +68,7 @@ export const DashBord = ({ closeDash }) => {
            {showLogoutPopup && (
                 <Logout
                     closePopup={() => setShowLogoutPopup(false)}
+                    closeDash={closeDash}
                 />
             )}
     </div>

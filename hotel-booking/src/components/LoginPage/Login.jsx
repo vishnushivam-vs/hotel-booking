@@ -21,7 +21,7 @@ export const Login = () => {
                 <div className="loginLogo">
                     🏨
                 </div>
-                <h1>Welcome Back</h1>
+                 <h1>Create Your Account</h1>
 
                 <p className="loginSubtitle">
                     Sign in to continue your hotel booking journey

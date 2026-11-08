@@ -1,15 +1,18 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
 import "./Logout.css";
+import { useNavigate } from "react-router-dom";
 
-export const Logout = ({ closePopup }) => {
-
+export const Logout = ({ closePopup, closeDash }) => {
+   const navigate = useNavigate()
     const handleLogout = async () => {
         try {
             await signOut(auth);
-
+        
             closePopup();
-
+            closeDash()
+             alert("Logged out successfully!");
+            navigate('/')
 
         } catch (error) {
             console.error("Logout error:", error);
