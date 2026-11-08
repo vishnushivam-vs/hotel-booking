@@ -1,162 +1,543 @@
-.inputBoxDiv {
-  display: flex;
-  flex-direction: column;
-}
+
+/* Main Add Property Page */
 
 .inputContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 316px);
-  gap: 2px 40px;
-  width: fit-content;
-  margin: 0 auto;
-
+    width: 100%;
+    max-width: 1050px;
+    margin: 35px auto 25px;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    box-sizing: border-box;
 }
+
+/* Input Sections */
+
+.inputBoxDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e8ebef;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+}
+
+.inputBoxDiv h3 {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    position: relative;
+    border-bottom: 1px solid #edf0f3;
+    color: #252d3a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.inputBoxDiv h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 42px;
+    height: 3px;
+    background: #e85d3f;
+    border-radius: 5px;
+}
+
+/* Input Fields */
 
 .inputBoxHtlAdd {
-  width: 316px;
-  height: 35px;
-  border: solid 1px;
-  border-color: rgba(128, 128, 128, 0.414);
-  border-radius: 10px;
-  margin-top: 5px;
-  outline: none;
-  padding-left: 5px;
+    width: 100%;
+    height: 44px;
+    margin-top: 12px;
+    padding: 0 13px;
+    box-sizing: border-box;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    outline: none;
+    background: #fafbfc;
+    color: #303846;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.25s ease;
 }
 
+.inputBoxHtlAdd::placeholder {
+    color: #9299a4;
+}
+
+.inputBoxHtlAdd:focus {
+    border-color: #e85d3f;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(232, 93, 63, 0.09);
+}
+
+.inputBoxDiv h4 {
+    margin: 15px 0 0;
+    color: #303846;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+/* Facilities Section */
+
 .facilitiesBox {
-  margin-top: 20px;
-  text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e8ebef;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
 }
 
 .facilitiesBox h3 {
-  margin-bottom: 15px;
+    margin: 0 0 20px;
+    color: #252d3a;
+    font-size: 19px;
+    font-weight: 700;
 }
 
 .facilitiesGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 5px;
-  margin: auto;
-  max-width: 600px;
-
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
 }
 
 .facilitiesGrid label {
-  display: flex;
-  align-items: center;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid #e5e8ed;
+    border-radius: 8px;
+    background: #fafbfc;
+    color: #505967;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-  gap: 8px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  cursor: pointer;
-
+.facilitiesGrid label:hover {
+    border-color: #e85d3f;
+    background: #fff8f5;
 }
 
 .facilitiesGrid input {
-  width: 16px;
-  height: 16px;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: #e85d3f;
+    cursor: pointer;
 }
 
-.clsBtnImgApld,
-.ImageAddBtn {
-  margin-left: 80%;
-  height: 30px;
-  width: 150px;
-  border-radius: 10px;
-  border: none;
-  background-color: blue;
-  color: #fff;
-  font-size: 17px;
-}
-
-.ThumbanailConatainer {
-  margin: auto;
-  display: flex;
-
-}
-
-.hotelImageClose {
-  margin-bottom: 20px;
-  padding: 8px 20px;
-  cursor: pointer;
-}
-
-/* Thumbnail - Large */
-.HotelThumbanail {
-  width: 450px;
-  height: 200px;
-  border: solid 2px #aaa;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  margin: auto;
-
-}
+/* Image Upload Section */
 
 .imgUplodcontainer {
-  height: 660px;
-  text-align: center;
-
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 500px;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e8ebef;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
 }
 
-.uplodImage {
-  width: 100%;
+.imgUplodcontainer h3 {
+    margin: 0 0 25px;
+    color: #252d3a;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Close Button */
+
+.clsBtnImgApld {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    width: 75px;
+    height: 34px;
+    border: 1px solid #e5e8ed;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #555e6b;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.clsBtnImgApld:hover {
+    background: #f4f5f7;
+    color: #e54848;
+}
+
+/* Thumbnail Upload */
+
+.ThumbanailConatainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 25px;
+}
+
+.HotelThumbanail {
+    width: 100%;
+    max-width: 650px;
+    height: 230px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px dashed #cbd1d9;
+    border-radius: 12px;
+    background: #fafbfc;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.HotelThumbanail::after {
+    content: "Click to upload hotel thumbnail";
+    position: absolute;
+    z-index: 0;
+    color: #89919d;
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.HotelThumbanail:hover {
+    border-color: #e85d3f;
+    background: #fff9f6;
+}
+
+/* Room Images */
+
+.roomImgContainer {
+    width: 100%;
+    max-width: 850px;
+    min-height: 160px;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.roomImgContainer > div:first-child {
+    min-width: 0;
 }
 
 .RoomImg {
-  display: flex;
-  width: 200px;
-  height: 150px;
-  border: solid 2px;
-  border-color: rgba(128, 128, 128, 0.574);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  margin-left: 20px;
-
+    width: 100%;
+    height: 145px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 2px dashed #cbd1d9;
+    border-radius: 10px;
+    background: #fafbfc;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-.roomImgContainer {
-  display: flex;
-  flex-wrap: wrap;
-  width: 500px;
-  height: 400px;
-  margin: auto;
-  margin-top: 10px;
+.RoomImg:hover {
+    border-color: #e85d3f;
+    background: #fff8f5;
+}
+
+.RoomImg span {
+    padding: 8px;
+    color: #858d99;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.uplodImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
 }
 
 .inputImgfile {
-  display: none;
+    display: none;
 }
 
-.ImgUplodBtn {
-  width: 150px;
-  height: 35px;
-  border-radius: 5px;
-  border: none;
-  background-color: green;
-  color: #fff;
-  font-size: 16px;
+/* Remove Image Button */
 
-}
-
-.submitBtn {
-  margin-left: 45%;
-  width: 100px;
-  height: 35px;
-  border: none;
-  cursor: pointer;
-  background-color: rgba(169, 8, 8, 0.912);
-  color: #fff;
-  font-size: 16px;
-  border-radius: 10px;
+.removBtnBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -12px;
+    position: relative;
+    z-index: 2;
 }
 
 .removeImgBtn {
-  border-radius: 30px;
-  border: none;
-  background-color: #aaa;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background: #e54848;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.removeImgBtn:hover {
+    background: #c92d2d;
+    transform: scale(1.08);
+}
+
+/* Add Images Button */
+
+.ImageAddBtn {
+    display: block;
+    width: 170px;
+    height: 43px;
+    margin: 25px auto;
+    border: 1px solid #e85d3f;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #e85d3f;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.ImageAddBtn:hover {
+    background: #e85d3f;
+    color: #ffffff;
+}
+
+
+
+.roomImageItem {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.roomImageItem .RoomImg {
+    width: 100%;
+    margin: 0;
+}
+
+.roomImageItem .removeImgBtn {
+    position: absolute;
+    top: -9px;
+    right: -7px;
+    z-index: 3;
+}
+
+/* Submit Button */
+
+.submitBtn {
+    display: block;
+    width: 190px;
+    height: 46px;
+    margin: 30px auto 45px;
+    border: none;
+    border-radius: 9px;
+    background: #e85d3f;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.submitBtn:hover {
+    background: #d8492e;
+    box-shadow: 0 5px 14px rgba(232, 93, 63, 0.22);
+    transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Tablet Responsive */
+
+@media screen and (max-width: 1024px) {
+
+    .inputContainer {
+        max-width: 850px;
+        gap: 18px;
+    }
+
+    .inputBoxDiv {
+        padding: 20px;
+    }
+
+    .facilitiesBox,
+    .imgUplodcontainer {
+        width: calc(100% - 40px);
+    }
+
+    .facilitiesGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .roomImgContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .HotelThumbanail {
+        max-width: 600px;
+    }
+}
+
+/* Mobile Responsive */
+
+@media screen and (max-width: 650px) {
+
+    .inputContainer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 0 14px;
+    }
+
+    .inputBoxDiv {
+        padding: 18px;
+        border-radius: 11px;
+    }
+
+    .inputBoxDiv h3 {
+        font-size: 17px;
+    }
+
+    .inputBoxHtlAdd {
+        height: 43px;
+        font-size: 13px;
+    }
+
+    .facilitiesBox,
+    .imgUplodcontainer {
+        width: calc(100% - 28px);
+        padding: 17px;
+        margin-top: 20px;
+        border-radius: 11px;
+    }
+
+    .facilitiesBox h3,
+    .imgUplodcontainer h3 {
+        font-size: 17px;
+        text-align: left;
+    }
+
+    .facilitiesGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .facilitiesGrid label {
+        padding: 9px;
+        font-size: 12px;
+        gap: 7px;
+    }
+
+    .HotelThumbanail {
+        height: 180px;
+    }
+
+    .HotelThumbanail::after {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .roomImgContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .RoomImg {
+        height: 125px;
+    }
+
+    .clsBtnImgApld {
+        top: 15px;
+        right: 14px;
+        width: 60px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .ImageAddBtn {
+        width: 155px;
+        height: 42px;
+    }
+
+    .submitBtn {
+        width: calc(100% - 40px);
+        max-width: 300px;
+        height: 45px;
+        margin-top: 25px;
+    }
+}
+
+/* Small Mobile */
+
+@media screen and (max-width: 380px) {
+
+    .inputContainer {
+        padding: 0 10px;
+    }
+
+    .inputBoxDiv {
+        padding: 14px;
+    }
+
+    .facilitiesBox,
+    .imgUplodcontainer {
+        width: calc(100% - 20px);
+        padding: 13px;
+    }
+
+    .facilitiesGrid {
+        gap: 7px;
+    }
+
+    .facilitiesGrid label {
+        font-size: 11px;
+        padding: 8px 6px;
+    }
+
+    .HotelThumbanail {
+        height: 150px;
+    }
+
+    .RoomImg {
+        height: 110px;
+    }
 }

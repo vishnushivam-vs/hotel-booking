@@ -81,30 +81,28 @@ export const HotelImageAdd = ({ closeImageAdd, onImagesChange }) => {
 
             <div className="roomImgContainer">
 
-                {
-                    roomImages.map((file, index) => (
-                        <React.Fragment key={index}>
-                            <div >
+         {     
 
-                                <label className="RoomImg" >
+    roomImages.map((file, index) => (
+        <div className="roomImageItem" key={index}>
+            <label className="RoomImg">
+                <img
+                    className="uplodImage"
+                    src={URL.createObjectURL(file)}
+                    alt={`room ${index + 1}`}
+                />
+            </label>
 
-                                    <img
-                                        className="uplodImage"
-                                        src={URL.createObjectURL(file)}
-                                        alt={`room ${index + 1}`}
-                                    />
+            <button
+                className="removeImgBtn"
+                onClick={() => handleRemoveImage(index)}
+            >
+                ×
+            </button>
+        </div>
+    ))
 
-                                </label>
-                            </div>
-                            <div className="removBtnBox">
-                                <button
-                                    className="removeImgBtn"
-                                    onClick={() => handleRemoveImage(index)}
-                                >×</button>
-                            </div>
-
-                        </React.Fragment>
-                    ))
+ 
                 }
 
                 {
