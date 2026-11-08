@@ -4,7 +4,7 @@ import { firestore } from "../Firebase/Firebase";
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
 import "./SearchCarts.css"
 import { useNavigate } from "react-router-dom";
-export const HotelsCart1 = ({ searchData }) => {
+export const SearchHotelsCart = ({ searchData }) => {
 
   const [hotels, setHotels] = useState([]);
   const navigate = useNavigate()

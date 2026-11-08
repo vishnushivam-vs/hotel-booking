@@ -1,240 +1,490 @@
-.myBookinggrid {
-    width: 95%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 18px;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    gap: 25px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-}
+
+/* Main Booking Page */
 
 .MyBookingSection {
     width: 100%;
+    min-height: 100vh;
+    padding: 35px 20px 60px;
+    background: #f7f8fa;
+    box-sizing: border-box;
+}
 
+.MyBookingSection h2 {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    letter-spacing: -0.5px;
 }
 
 .MyBookingSection h3 {
-
-    margin-left: 20px;
+    max-width: 1100px;
+    margin: 35px auto 18px;
+    font-size: 21px;
+    font-weight: 650;
+    color: #252d3a;
     position: relative;
-    display: inline-block;
-    padding-bottom: 8px;
+    display: block;
+    padding-bottom: 12px;
 }
 
 .MyBookingSection h3::after {
     content: "";
     position: absolute;
-    left: 0;
     bottom: 0;
-    width: 45px;
+    left: 0;
+    width: 42px;
     height: 3px;
+    background: #e85d3f;
     border-radius: 10px;
-    background: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
+
+/* Booking Card */
+
+.myBookinggrid {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr auto;
+    align-items: center;
+    gap: 22px;
+    background: #ffffff;
+    border: 1px solid #e8ebef;
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.myBookinggrid:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Hotel Information */
 
 .gridClm1 {
     display: flex;
     align-items: center;
-    gap: 20px;
-
+    gap: 17px;
+    min-width: 0;
 }
 
 .hotelImgClm {
-    width: 220px;
-    height: 170px;
+    width: 185px;
+    height: 155px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 12px;
+    background: #f1f2f4;
 }
 
 .mybkHtlimg {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.myBookinggrid:hover .mybkHtlimg {
+    transform: scale(1.04);
 }
 
 .htlDtlsClm {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 10px;
+    min-width: 0;
 }
 
 .htlDtlsClm h4 {
-    margin: 0 0 8px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #222;
+    margin: 0 0 4px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #202938;
 }
 
 .htlDtlsClm p {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    color: #777;
+    color: #858b96;
 }
 
 .htlDtlsClm label {
-    margin-left: 8px;
-    color: #222;
-    font-weight: 500;
+    margin-left: 6px;
+    color: #343c49;
+    font-weight: 600;
 }
 
+/* Booking Dates and Details */
+
 .gridClm2 {
-    border-left: 1px solid #eeeeee;
-    padding-left: 10px;
+    min-width: 0;
+    border-left: 1px solid #edf0f2;
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 14px;
 }
 
 .checkdateclm {
     display: flex;
     gap: 10px;
-
 }
 
 .checkinClmA {
     flex: 1;
+    min-width: 0;
+    min-height: 78px;
     display: flex;
-    max-width: 170px;
-    height: 70px;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border: 1px solid #ddd;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #e9edf1;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
+    background: #fafbfc;
+    box-sizing: border-box;
 }
 
 .checkinClmA h4 {
     margin: 0;
-    font-size: 15px;
-    font-weight: 600;
-    color: #444;
-}
-
-.gridClm2 h5 {
-    margin: 5px 0;
-    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 650;
+    color: #7b8492;
 }
 
 .checkinClmA h4 label {
-    display: inline;
-    margin-left: 3px;
-    color: #646566c1;
-    font-weight: 700;
+    color: #273244;
+    font-size: 13px;
 }
 
 .checkinClmA p {
-    margin: 8px 0 0;
-    font-size: 16px;
-    color: green;
+    margin: 7px 0 0;
+    font-size: 13px;
+    color: #15945a;
+    font-weight: 600;
     text-transform: capitalize;
+}
 
+.gridClm2 h5 {
+    margin: 0;
+    font-size: 13px;
+    color: #737b87;
+    font-weight: 500;
+}
+
+.gridClm2 h5 label {
+    color: #273244;
+    font-weight: 700;
 }
 
 .paymentClm {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 20px;
 }
 
 .paymentClm p {
     margin: 0;
-    font-size: 16px;
+    font-size: 13px;
+    color: #777f8b;
+    font-weight: 500;
 }
 
 .paymentClm p:last-child {
-    color: #168a45;
+    color: #15945a;
     font-weight: 700;
 }
 
+.gridClm2 > p {
+    margin: 0;
+    font-size: 13px;
+    color: #747c88;
+    font-weight: 500;
+}
+
+/* Previous Booking */
+
+.prevcheckdateclm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .checkinClm {
-    min-width: 200px;
-    padding: 14px 18px;
-    border: 1px solid #e5e5e5;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #edf0f2;
     border-radius: 10px;
-    background: #fafafa;
+    background: #fafbfc;
+    box-sizing: border-box;
 }
 
 .checkinClm h4 {
     margin: 0 0 8px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #777;
+    font-size: 12px;
+    font-weight: 650;
+    color: #858c98;
     text-transform: uppercase;
     letter-spacing: 0.4px;
 }
 
 .checkinClm label {
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    color: #333;
-    white-space: nowrap;
+    color: #343d4b;
 }
 
 .checkinClm p {
     margin: 6px 0 0;
     font-size: 13px;
-    color: #777;
+    color: #858c98;
 }
 
 .bookingInfo {
-    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .bookingInfo p {
-    margin: 6px 0;
-    font-size: 14px;
-    color: #555;
+    margin: 0;
+    font-size: 13px;
+    color: #777f8b;
+    font-weight: 500;
 }
 
 .bookingInfo span {
     margin-left: 5px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.paid {
-    color: #168a45;
-}
+/* Status */
 
 .completed {
-    color: #168a45;
+    color: #15945a;
 }
 
 .past {
-    color: #d93025;
+    color: #d97706;
 }
 
+.paid {
+    color: #15945a;
+}
+
+/* Cancel Button */
+
 .cansellBtn {
-    width: 150px;
-    height: 30px;
-    border-radius: 10px;
-    border: 1px solid #e53935;
-
-    background: white;
-    color: #e53935;
-
-    font-size: 14px;
-    font-weight: 600;
-
+    width: 135px;
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #e85d5d;
+    background: #fff;
+    color: #df4545;
+    font-size: 13px;
+    font-weight: 650;
     cursor: pointer;
-
-
-    right: 20px;
-    bottom: 20px;
+    transition: all 0.25s ease;
 }
 
 .cansellBtn:hover {
+    background: #e54848;
     color: #fff;
-    background-color: red;
+    box-shadow: 0 4px 12px rgba(229, 72, 72, 0.2);
+}
+
+/* Empty Booking Message */
+
+.MyBookingSection > p,
+.activebookingsection > p {
+    max-width: 1100px;
+    margin: 15px auto;
+    padding: 20px;
+    color: #858c98;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #edf0f2;
+    border-radius: 10px;
+}
+
+/* Tablet Responsive */
+
+@media screen and (max-width: 1024px) {
+
+    .MyBookingSection {
+        padding: 30px 18px 50px;
+    }
+
+    .myBookinggrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .gridClm1 {
+        gap: 13px;
+    }
+
+    .hotelImgClm {
+        width: 145px;
+        height: 135px;
+    }
+
+    .htlDtlsClm h4 {
+        font-size: 17px;
+    }
+
+    .gridClm2 {
+        padding-left: 15px;
+    }
+
+    .cansellBtn {
+        grid-column: 2;
+        justify-self: end;
+        width: 140px;
+    }
+}
+
+/* Mobile Responsive */
+
+@media screen and (max-width: 650px) {
+
+    .MyBookingSection {
+        padding: 24px 13px 40px;
+    }
+
+    .MyBookingSection h2 {
+        font-size: 23px;
+        margin-bottom: 25px;
+    }
+
+    .MyBookingSection h3 {
+        font-size: 18px;
+        margin-top: 28px;
+        margin-bottom: 15px;
+    }
+
+    .myBookinggrid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        padding: 14px;
+        margin-bottom: 17px;
+        border-radius: 12px;
+    }
+
+    .gridClm1 {
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .hotelImgClm {
+        width: 115px;
+        height: 120px;
+        border-radius: 9px;
+    }
+
+    .htlDtlsClm {
+        gap: 9px;
+        padding-top: 3px;
+    }
+
+    .htlDtlsClm h4 {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .htlDtlsClm p {
+        font-size: 12px;
+    }
+
+    .gridClm2 {
+        border-left: none;
+        border-top: 1px solid #edf0f2;
+        padding: 15px 0 0;
+        gap: 13px;
+    }
+
+    .checkdateclm {
+        gap: 9px;
+    }
+
+    .checkinClmA {
+        min-height: 75px;
+        padding: 9px;
+    }
+
+    .checkinClmA h4 {
+        font-size: 11px;
+    }
+
+    .checkinClmA h4 label {
+        font-size: 12px;
+    }
+
+    .checkinClmA p {
+        font-size: 12px;
+    }
+
+    .paymentClm {
+        margin-left: 0;
+    }
+
+    .cansellBtn {
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .checkinClm {
+        min-width: 0;
+    }
+
+    .prevcheckdateclm {
+        gap: 10px;
+    }
+}
+
+/* Small Mobile */
+
+@media screen and (max-width: 380px) {
+
+    .MyBookingSection {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .myBookinggrid {
+        padding: 11px;
+    }
+
+    .hotelImgClm {
+        width: 95px;
+        height: 110px;
+    }
+
+    .htlDtlsClm h4 {
+        font-size: 14px;
+    }
+
+    .htlDtlsClm p {
+        font-size: 11px;
+    }
+
+    .checkinClmA {
+        padding: 7px;
+    }
+
+    .checkinClmA h4 {
+        font-size: 10px;
+    }
 }

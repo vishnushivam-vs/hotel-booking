@@ -5,7 +5,7 @@ import "./Home.css";
 import { Footer } from "../Footer/Footer";
 import { HotelsCart } from "../Hotelscarts/HotelsCart";
 import { useBookingAvailability } from "../context/BookingAvailabilityContext";
-import { HotelsCart1 } from "../Hotelscarts/Searchhotel";
+import {  SearchHotelsCart } from "../Hotelscarts/Searchhotel";
 import { Destination } from "./Destination/Destination";
 
 export const Home = () => {
@@ -157,7 +157,7 @@ export const Home = () => {
           :
           <>
             <h2>Available Hotels</h2>
-            <HotelsCart1 searchData={searchHotels} />
+            <SearchHotelsCart searchData={searchHotels} />
             <Destination
               searchQuery={searchHotels.search}
             />
